@@ -1,0 +1,625 @@
+main#landing {
+	width: 90%;
+	width: 90vw;
+	top: 0;
+	left: 0;
+	z-index: 10;	
+	margin-left: 0;
+	top: 0;
+	position: absolute;
+	left: 0;
+	padding: 5vw;
+	padding-top: 0;
+	display: none;
+	overflow-y: scroll;
+	padding-bottom: 0;
+	min-height: 100vh;
+	font-size: 1em;
+
+	@media screen 
+	and (min-device-width: $iphone6) 
+	{			
+		font-size: 1.1em;
+		width: 87%;
+		width: 87vw;
+		padding: 0 6vw;		
+
+		.oddcast-logo {
+			position: relative;			
+		}	
+	}
+
+	@media screen 
+	and (min-device-width: $iphone6plus) 
+	{					
+		font-size: 1.2em;
+		// width: 82vw;
+		// padding: 0 9vw;	
+		width: 72%;
+		width: 72vw;
+		padding: 0px 14vw;
+		// .oddcast-logo {
+		// 	position: absolute;
+		// 	bottom: 10px;
+		// }	
+	}
+
+	@media (min-device-width: 800px) { 
+		width: 72%;
+		font-size: 1.2em;		
+		padding: 0px 14vw;
+	}
+
+	&.loaded {
+		position: relative;
+	}
+	
+	footer{
+		margin-top: 3px;
+
+		.legal{
+			color: #ffffff;
+			font-size: .85em;
+			text-align: center;
+			
+			a{
+				text-decoration: none;
+			}
+		}
+
+		.snuggle-logo {
+			float: left;
+			position: relative;
+			bottom: -4px;
+			left: -77px;
+			width: 69px;
+		}
+
+	}
+	
+	header {
+		height: 13vh;
+		position: relative;	
+		
+		@media screen 
+		and (max-device-width: $iphone6plus) 
+		{	
+			height: 12vh;
+		}
+
+		.logo {
+			bottom: -12%;
+			position: absolute;
+			width: 62%;
+			height: auto;
+		}
+
+		.caption {
+			position: absolute;
+			right: 30px;
+			bottom: 10%;
+			width: 33%;
+			height: auto;
+		}
+	}
+
+	#video-preview {
+		position: relative;
+		padding-bottom: 58%;
+
+		@media screen 
+		and (min-device-width: $iphone6plus) 
+		{
+			padding-bottom: 55%;
+		}
+		
+		.poster-image {
+			z-index: 100;
+			position: absolute;			
+			width: 100%;
+			opacity: 0;
+			
+			img {
+				width: 100%;
+			}
+		}
+
+		video {
+			width: 100%;
+		}
+
+		#video-container {
+			position: absolute;
+			top: 0;			
+			width: 100%;
+			z-index: 1;
+			opacity: 0;
+			 -webkit-transition: opacity 500ms ease-out 0;
+	        -moz-transition: opacity 500ms ease-out 0;
+	        -o-transition: opacity 500ms ease-out 0;
+	        transition: opacity 500ms ease-out 0;
+
+			&.active {
+				z-index: 101;
+				opacity: 1;
+			}
+		}
+	}
+	.form-container {
+		margin-top: 5px;
+
+		form {
+			text-align: right;				
+
+			.ui-helper-hidden-accessible {
+				display: none;
+			}
+			
+			input {			
+				width: calc(100% - 3.7em);
+				height: 10.25vw;
+				margin-bottom: .25em;
+				font-family: $font-family, sans-serif;
+				color: #fff;
+				background: url(../img/landing/input-bg.jpg) no-repeat left;
+				background-size: 100%;		
+				border: none;
+				padding-top: .1em;
+				font-size: .98em;
+				text-align: center;	
+				font-size: .8em;	
+				
+				@media screen 
+				and (min-device-width: $iphone6plus) 
+				{
+					height: 8.25vw;
+				}
+
+				&:-webkit-autofill {
+					background: url(../img/landing/input-bg.jpg) no-repeat left;
+				}
+				
+			}
+
+			label {
+				font-size: .9em;
+				color: $light-blue;
+			}
+
+			aside {			
+				// font-size: 10px;
+				font-size: 0.5em;
+
+				@media screen 
+				and (min-device-width: $iphone6plus) 
+				{
+					font-size: 0.4em;
+				}
+
+				width: calc(100% - 4.7em);
+				text-align: center;
+				padding-left: 14%;
+				color: #f360d6;
+			}
+
+			::-webkit-input-placeholder { color: #ffffff;}
+			:-moz-placeholder { color: #ffffff;}
+			::-moz-placeholder { color: #ffffff;}
+			:-ms-input-placeholder { color: #ffffff;}
+			
+			textarea:focus, input:focus, *:focus {
+			    outline: 0;
+			}
+		}
+	}
+
+	#message-selection {
+		
+		header {
+			color: $light-blue;
+			text-align: center;
+			font-size: .9em;
+			margin-top: .5em;
+			margin-bottom: .5em;
+			height: auto;
+
+			@media screen and (min-width: $iphone6plus) {	
+				margin-bottom: .65em;			
+			}
+		}
+
+		nav {
+			text-align: center;
+
+			button.bubble {
+				@media screen and (min-device-width: $galaxys4) {				
+					margin: 0rem .4rem;
+					-webkit-transform: scale(1.15);
+					transform: scale(1.15);
+					-ms-transform: scale(1.15);
+					padding-bottom: 17px;
+					&:active, &.selected {
+						padding-top: 2px;
+					}	
+				}
+				@media screen and (min-device-width: $iphone6) {				
+					margin: 0rem .6rem;
+					-webkit-transform: scale(1.2);
+					transform: scale(1.2);
+					-ms-transform: scale(1.2);
+					
+					&:active, &.selected {
+						padding-top: 8px;	
+					}		
+				}
+				@media screen and (min-device-width: $iphone6plus) {	
+					margin: 0rem .15rem;
+					-webkit-transform: scale(1.1);
+					transform: scale(1.1);
+					-ms-transform: scale(1.1);					
+					padding-bottom: 17px;
+					
+					&:active, &.selected {
+						padding-bottom: 17px;
+					}	
+				}		
+			}
+		}
+	}
+
+	#sharing-nav {		
+		text-align: center;
+		margin-top: -15px;
+
+		aside {
+			color: $light-blue;				
+			font-size: 0.9em;
+			
+			@media only screen and (max-device-width : $iphone6plus) {
+				padding: 14px 3.5% 0px 0px;			
+			}
+
+			@media only screen and (max-device-width : $break-small) {
+				padding: 14px 0% 0px 0px;
+				font-size: 0.875em;
+			}
+		}
+
+	}
+
+	// tablet styles
+	@media only screen 
+	and (min-device-width : 600px) 
+	// and (max-device-width : 1024px) 
+	// and (orientation : portrait)
+	{ 
+		.form-container {
+			
+			form {
+				font-size: 1.2em;
+
+				aside {
+					
+				}
+				.form-row {
+					padding: 0;
+				}
+
+				input {
+					height: 7.5vw;
+					margin-bottom: .25em;
+					width: calc(100% - 3.3em);
+
+				}
+			}
+		}
+
+		#message-selection {
+			-webkit-transform: scale(1.5);
+			transform: scale(1.5);
+			margin-top: 59px;			
+		}
+
+		#sharing-nav {
+			margin-top: 56px;
+
+			aside {
+				font-size: 1.4em;
+				//padding-left: 50px;
+			}
+
+			button {
+				max-width: 80px;
+				max-height: 80px;
+			}
+		}
+	}
+	// trying to fix windows 8 here...
+	@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and ( min-resolution: 192dpi),
+	only screen and ( min-resolution: 2dppx) {
+	    /* Retina-specific stuff here */
+	    font-size: .8em;	   
+	}
+	//iPad only
+	@media only screen 
+	and (min-device-width : 728px) 
+	and (max-device-width : 1024px) 
+	and (orientation : portrait)
+	{ 
+
+		#video-preview {
+			padding: 0;
+			padding-bottom: 42%;
+
+			#video-loading-spinner {
+				padding-bottom: 58%;
+			}
+		}
+		header, section {
+			max-width: 72%;
+			margin: auto;
+		}
+	}
+
+
+	/* ==========================================================================
+TARGET PATTERNS
+source: http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density
+compiled by Annika Lidne, annikalidne.com
+========================================================================== */
+
+/*——————————————————
+MOBILE & SMART PHONES – ANY ORIENTATION – MAX WIDTH
+——————————————————–*/
+
+/*–Low-end mobiles –*/
+@media screen and (max-device-width:767px) { }
+
+/*– HTC Desire, HTC Nexus One, HTC One SV, HTC Evo, HTC HD2, HTC Thunderbolt, LG Optimus 2X, LG LU1400, LG Optimus 3D, Lumia 710, Samsung Epic (D700), Samsung Nexus S SAMOLED, Samsung Nexus S LCD, Galaxy S Plus (I9001), Galaxy S II (I9100), –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) {}
+
+/*– HTC Sensation, HTC Evo HD, HTC Sensation XE–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:960px) {}
+
+/*– LG Optimus LTE, LG Spectrum (VS920), LG Optimus 4X HD-*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.7) and (max-device-width:1280px) {}
+
+/*– iPhone 4, 4S, iPod Touch 4Gen–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) {}
+
+/*– iPhone 5, iPod Touch 5Gen–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1136px) {}
+
+/*– HTC OneX, LG Nexus 4, Blackberry Z10, Samsung Galaxy Nexus, HTC Evo LTE, Galaxy S III (I9300), Samsung Galaxy Note, Samsung Galaxy Note II, Sony Xperia S, -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1280px) {}
+
+/*– HTCOne, Sony Xperia, HTC Droid DNA, Samsung Galaxy S4, Sony Xperia Z */
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width:1920px) { }
+
+/*– Lumia 
+@media only screen and (-webkit-min-device-pixel-ratio: 5:3) and (max-device-width:1280px) { }
+*/
+/*——————————————-
+TABLETS
+——————————————–*/
+
+/*– iPad 1Gen/2Gen iPad Mini, Kindle Fire –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1) and (max-device-width:1024px) {}
+
+/*– Nexus 7 (2012)–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.325) and (max-device-width:1280px) {}
+
+/*– Kindle Fire 7″ –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1280px) {}
+
+/*– Kindle Fire HD 8.9″–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) {}
+
+/*– Nexus 7, Samsung Galaxy Note III –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1920px) {}
+
+/*– iPad 3Gen/4Gen, –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2048px) {}
+
+/*————————–
+TABLETS/ DESKTOP
+————————–*/
+
+/*– Macbook Pro 13″, Samsung Nexus 10 –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2560px) {}
+
+/*– Macbook Pro 15″ –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2880px) {}
+
+/*——————————————————
+MOBILE & SMART PHONES – LANDSCAPE
+——————————————————–*/
+
+
+/*–Low-end mobiles –*/
+@media screen and (max-device-width:767px) and (orientation : landscape) { }
+
+/*– HTC Desire, HTC Nexus One, HTC One SV, HTV Evo, HTC HD2, HTC Thunderbolt, LG Optimus 2X, LG LU1400, LG Optimus 3D, Lumia 710, Samsung Epic (D700), Samsung Nexus S SAMOLED, Samsung Nexus S LCD, Galaxy S Plus (I9001), Galaxy S II (I9100), –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) and (orientation : landscape){}
+
+/*– HTC Sensation, HTC Evo HD, HTC Sensation XE–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:960px) and (orientation : landscape) {}
+
+/*– LG Optimus LTE, LG Spectrum (VS920), LG Optimus 4X HD-*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.7) and (max-device-width:1280px) and (orientation : landscape) {}
+
+/*– iPhone 4, 4S, iPod Touch 4Gen–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) and (orientation : landscape) {}
+
+/*– iPhone 5, iPod Touch 5Gen–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1136px) and (orientation : landscape) {}
+
+/*– HTC OneX, LG Nexus 4, Blackberry Z10, Samsung Galaxy Nexus, HTC Evo LTE, Galaxy S III (I9300), Samsung Galaxy Note, Samsung Galaxy Note II, Sony Xperia S, -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1280px) and (orientation : landscape) {}
+
+/*– HTCOne, Sony Xperia, HTC Droid DNA, Samsung Galaxy S4, Sony Xperia Z */
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width:1920px) { 
+	 /* Retina-specific stuff here */
+	    font-size: .8em;	 
+}
+
+/*– Lumia 
+@media only screen and (-webkit-min-device-pixel-ratio: 5:3) and (max-device-width:1280px) and (orientation : landscape) { }
+*/
+/*——————————————-
+TABLETS
+——————————————–*/
+
+/*– iPad 1Gen/2Gen iPad Mini, Kindle Fire –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1) and (max-device-width:1024px) and (orientation : landscape) {}
+
+/*– Nexus 7 (2012)–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.325) and (max-device-width:1280px) and (orientation : landscape) {}
+
+/*– Kindle Fire 7″ –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1280px) and (orientation : landscape) {}
+
+/*– Kindle Fire HD 8.9″–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) and (orientation : landscape) {}
+
+/*– Nexus 7 (2013), Samsung Galaxy Note III –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1920px) and (orientation : landscape) {}
+
+/*– iPad 3Gen/4Gen, –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2048px) and (orientation : landscape) {}
+
+/*————————–
+TABLETS/ DESKTOP
+————————–*/
+
+/*– Macbook Pro 13″, Samsung Nexus 10 –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2560px) and (orientation : landscape) {}
+
+/*– Macbook Pro 15″ –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2880px) {}
+
+/*——————————————————
+MOBILE & SMART PHONES – PORTRAIT
+——————————————————–*/
+
+
+/*–Low-end mobiles –*/
+@media screen and (max-device-width:767px) and (orientation : landscape) { }
+
+/*– HTC Desire, HTC Nexus One, HTC One SV, HTC Evo, HTC HD2, HTC Thunderbolt, LG Optimus 2X, LG LU1400, LG Optimus 3D, Lumia 710, Samsung Epic (D700), Samsung Nexus S SAMOLED, Samsung Nexus S LCD, Galaxy S Plus (I9001), Galaxy S II (I9100), –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:480px) and (orientation : portrait){}
+
+/*– HTC Sensation, HTC Evo HD, HTC Sensation XE–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:540px) and (orientation : portrait) {
+
+	 /* Retina-specific stuff here */
+	    font-size: .8em;	 
+}
+
+/*– LG Optimus LTE, LG Spectrum (VS920), LG Optimus 4X HD-*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.7) and (max-device-width:720px) and (orientation : portrait) {}
+
+/*– iPhone 4, 4S, 5, iPod Touch 4Gen, 5Gen–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:640px) and (orientation : portrait) {}
+
+/*– Samsung Galaxy Nexus, Galaxy S III (I9300), Samsung Galaxy Note II, , Sony Xperia S, -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:720px) and (orientation : portrait) {}
+
+/*– LG Nexus 4, Blackberry Z10, Samsung Galaxy Note, Samsung Galaxy Note II -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:768px) and (orientation : portrait) {}
+
+/*– HTC OneX, HTC Evo LTE, LG Nexus 4, Blackberry Z10 -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:780px) and (orientation : portrait) {}
+
+/*– Samsung Galaxy Note -*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:800px) and (orientation : portrait) {}
+
+/*– HTCOne, HTC Droid DNA, Samsung Galaxy S4, Sony Xperia Z */
+@media only screen and (-webkit-min-device-pixel-ratio: 3) and (max-device-width:1080px) and (orientation : portrait) { 
+
+	 /* Retina-specific stuff here */
+	    font-size: .8em;	 
+}
+
+/*– Lumia 
+@media only screen and (-webkit-min-device-pixel-ratio: 5:3) and (max-device-width:768px) and (orientation : portrait) { }
+*/
+/*——————————————-
+TABLETS
+——————————————–*/
+
+/*– Kindle Fire –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1) and (max-device-width:600px) and (orientation : portrait) {}
+
+/*– iPad 1Gen/2Gen iPad Mini, –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1) and (max-device-width:768px) and (orientation : portrait) {}
+
+/*– Kindle Fire 7″ –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) and (orientation : portrait) {}
+
+/*– Kindle Fire HD 8.9″–*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : portrait) {}
+
+/*– Samsung Galaxy Note III */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1080px) and (orientation : portrait) { }
+
+/*– Nexus 7 –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1280px) and (orientation : portrait) {}
+
+/*– iPad 3Gen/4Gen, –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1536px) and (orientation : portrait) {}
+
+/*–Samsung Nexus 10 –*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1600px) and (orientation : portrait) {}
+
+
+}
+
+ul.ui-autocomplete {	
+	max-width: calc(84% - 60px);
+	background: #d0e4ef;
+	-moz-box-shadow:    inset 0 0 10px #000000;
+   	-webkit-box-shadow: inset 0 0 10px #000000;
+   	box-shadow:         inset 0 0 10px #000000;
+   	border-radius: 6px;
+   	z-index: 100;
+
+	li {
+		list-style: none;
+		padding: 1px .8em;
+		
+		a {
+			color: $light-blue;
+		}
+	}
+	
+	@media only screen 
+	and (min-device-width : 768px) 
+	and (max-device-width : 1024px) 
+	and (orientation : portrait)
+	{ 
+		max-width: calc(57% - 60px);
+	}
+}
+
+
+#main-bg-container {
+    background: url(../img/common/main-bg.jpg) no-repeat top left;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    min-height:100%;
+    height: 100%;
+    height:100vh;
+    width: 100vw;
+    min-height:100vh;
+    opacity: 0;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+	left: 0;
+	display: none;
+}
+

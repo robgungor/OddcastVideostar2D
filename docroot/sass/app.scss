@@ -1,0 +1,41 @@
+$bg-color: #24afe9;
+$break-small: 320px;
+$iphone6: 375px;
+$galaxys4: 360px;
+$iphone6plus: 414px;
+$light-blue: #1eafeb;
+$font-family: "VAG Rounded W01 Bold";
+$font-black: "VAG Rounded W01 Black";
+
+@font-face {
+	font-family:"VAG Rounded W01 Thin";
+	src:url("../fonts/710839/c6cde420-95aa-4d44-8874-0fdf667e66a7.eot?#iefix");
+	src:url("../fonts/710839/c6cde420-95aa-4d44-8874-0fdf667e66a7.eot?#iefix") format("eot"),url("../fonts/710839/09d74e12-003d-45c0-882d-271717150255.woff") format("woff"),url("../fonts/710839/87d85e95-0a98-468e-bfcf-9235dce604df.ttf") format("truetype"),url("../fonts/710839/e4f4fa64-8733-4776-916d-600581ba3059.svg#e4f4fa64-8733-4776-916d-600581ba3059") format("svg");
+}
+
+@font-face {
+	font-family:"VAG Rounded W01 Light";
+	src:url("../fonts/710836/8eb3a61c-2df5-402f-aacc-7733752abec6.eot?#iefix");
+	src:url("../fonts/710836/8eb3a61c-2df5-402f-aacc-7733752abec6.eot?#iefix") format("eot"),url("../fonts/710836/67ca5d86-3357-4491-aa9f-6e7ff54b2e2e.woff") format("woff"),url("../fonts/710836/888f8505-0e2c-41e8-af58-21279dda85e5.ttf") format("truetype"),url("../fonts/710836/ca4650e2-5aa3-4755-9c6d-256cbb4f5115.svg#ca4650e2-5aa3-4755-9c6d-256cbb4f5115") format("svg");
+}
+
+@font-face {
+	font-family:"VAG Rounded W01 Bold";
+	src:url("../fonts/710833/e043dd77-7cee-4a3c-b628-822e3bdbc8ac.eot?#iefix");
+	src:url("../fonts/710833/e043dd77-7cee-4a3c-b628-822e3bdbc8ac.eot?#iefix") format("eot"),url("../fonts/710833/5b73c12f-4a5a-4d8c-81be-1babf4a3f3dd.woff") format("woff"),url("../fonts/710833/5638af5b-03a3-4601-a279-943ee3b29448.ttf") format("truetype"),url("../fonts/710833/40964335-0b3a-4c89-895c-1e8f58438faa.svg#40964335-0b3a-4c89-895c-1e8f58438faa") format("svg");
+}
+
+@font-face {
+	font-family:"VAG Rounded W01 Black";
+	src:url("../fonts/710830/84e985c2-71b5-4795-9ee3-7a2873082407.eot?#iefix");
+	src:url("../fonts/710830/84e985c2-71b5-4795-9ee3-7a2873082407.eot?#iefix") format("eot"),url("../fonts/710830/5ea71c9d-8da0-41d5-9b8f-e307177bdea0.woff") format("woff"),url("../fonts/710830/35642ac7-21cb-485f-bbff-802c7bf8203a.ttf") format("truetype"),url("../fonts/710830/c36d847c-32b0-4e19-a270-f40d17e81853.svg#c36d847c-32b0-4e19-a270-f40d17e81853") format("svg");
+}
+
+@import 'reset';
+@import 'common';
+@import 'big-show';
+@import 'landing';
+@import 'sharing';
+@import 'landscape';
+@import 'alert';
+

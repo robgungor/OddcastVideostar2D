@@ -1,0 +1,207 @@
+#sharing, #sharing-facebook {
+	background: transparent;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	height: 100vh;	
+	z-index: 1;
+	top: 0;
+	display: none;
+
+	button.bubble{
+		-webkit-transform: scale(1.4);
+		transform: scale(1.4);
+		-ms-transform: scale(1.4);
+	}
+	.share-in, .share-result {
+		background: transparent;
+		top: 50%;
+		position: absolute;
+		margin-top: -100px;
+		width: 100%;
+		display: none;
+	}
+	
+	.share-result {
+		margin-top: -200px;
+		display: none;
+	}
+
+	h1 {
+		color: #ffffff;
+		font-size: 2.25em;
+		display: block;		
+		position: relative;
+		text-shadow: 0px 1px 1px rgba(32, 175, 235, 0.55);
+		padding-bottom: 0;
+		padding-top: 1px;
+		text-align: center;
+
+		&:before, &:after {			 			   
+			content: attr(title);			
+			color: #2d92e8;
+			position: absolute;
+			text-shadow: none;
+			width: 100%;
+		}
+
+		&:before { 
+			top: 0px; left: 0px;
+		 }
+
+		&:after  { 
+			top: 0px;
+			left: 0px;
+			color: rgba(0, 99, 169, 0.86);
+		}
+	}
+
+	h2 { 
+		color: #00569c;
+		font-size: 1.3em;
+		padding: 30px;
+	}
+
+	nav {
+		width: calc(38vw - 5px);
+        margin: auto;
+	}
+	
+	.oddcast-logo {
+		bottom: 10px;
+		position: absolute;
+	}	
+
+	a.snuggledotcom-logo {
+		display: block;
+		width: 170px;
+		margin: auto;
+		margin-top: 15px;
+		
+		img {
+			width: 100%;
+		}
+	}
+		
+}
+#sharing-facebook {
+	
+	#friend-selection{
+		margin-top: 50px;
+		
+		@media screen 
+		and (min-device-width: $iphone6) 
+		{								
+			margin-top: 19px;
+		}
+		@media screen 
+		and (min-device-width: $iphone6plus) 
+		{									
+			margin-top: 30px;
+		}
+
+		nav{
+
+			button{
+				position: absolute;
+				top: 50%;
+				width: 26px;
+				height: 30px;
+				border: 0;
+				margin-top: -15px;
+				outline: none;
+
+					&#move-right{
+						background: url('../img/common/arrow-right@2x.png') no-repeat;
+						background-size: 100%;
+						right: 3px;
+					}
+					&#move-left{
+						background: url('../img/common/arrow-left@2x.png') no-repeat;
+						background-size: 100%;
+						left: 3px;
+					}
+				}
+
+		}
+		#back{
+			position: absolute;
+			bottom: 31px;
+			width: 80px;
+			height: 25px;
+			background: url('../img/common/back-button@2x.png') no-repeat;
+			background-size: 100%;
+			border: 0;
+			margin-left: -40px;
+		}
+
+		#friend-wrap {
+			position: absolute;
+			left: 35px;
+			width: calc(100vw - 70px);
+			overflow: hidden;
+			overflow-x: scroll;
+			height: calc(100vh - 142px);
+			margin-top: 15px;
+			
+			@media screen 
+			and (min-device-width: $iphone6plus) 
+			{									
+				width: calc(100vw - 100px);
+				left: 53px;
+			}
+			
+			#friend-container {
+				position: absolute;
+				.page{
+					float: left;
+					width: calc(100vw - 45px);
+					
+					@media screen 
+					and (min-device-width: $iphone6plus) 
+					{									
+						width: calc(100vw - 79px);
+					}
+
+					.col {
+						float: left;					
+						width: calc(33vw - 39px);
+						margin-right: 25px;
+						
+						@media screen 
+						and (min-device-width: $iphone6plus) 
+						{									
+							width: calc(33vw - 50px);
+						}
+					}
+
+					.friend {
+
+						position: relative;
+						float: left;
+						margin-bottom: 25px;
+						-moz-border-radius: 5px;
+						-webkit-border-radius: 5px;
+						border-radius: 5px; /* future proofing */
+						-khtml-border-radius: 5px; /* for old Konqueror browsers */					
+						width: 100%;
+						background-size: cover;
+						padding-bottom: 100%;
+					}
+
+					.thumb{
+						position: absolute;
+						left: 0;
+						width: 100%;
+						-moz-border-radius: 5px;
+						-webkit-border-radius: 5px;
+						border-radius: 5px;
+						-khtml-border-radius: 5px;
+						background-size: cover;
+						padding-bottom: 100%;
+					}
+				}
+			}
+		}
+	}
+}

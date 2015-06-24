@@ -1,0 +1,9 @@
+<!-- Video Preview Template -->
+<div class="video-wrapper vid<%= selectedVideo %>">
+	<div class="poster-image">
+		<img src="img/video_preview/<%= selectedVideo %>.jpg">
+	</div>
+	<div id="video-container">
+		<video class="video" id="video-player" src="<%=  videoURL %>" controls="" poster="img/video_preview/<%=  selectedVideo %>.jpg"></video>
+	</div>
+</div>
