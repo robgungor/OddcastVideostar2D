@@ -120,7 +120,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
             if(_img_with_crossdomain_issue){
               $.getImageData({
                 url: _url,
-                server: OC_CONFIG.curURL+OC_CONFIG.appDirectory+'/extImg_getImageData.php',
+                server: OC_CONFIG.curURL+OC_CONFIG.appDirectory+'/getImageData.php',
                 success: function(newImg){
                   newImgLoaded(newImg);
                 },
@@ -180,13 +180,13 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       Uploads base64Encoded file and gets a temp location url
       */
       upload_V3 : function (base64File) {
-        var tmp = OC_Utils.getUrl(this._api_base_url +"/api/upload_v3.php?extension=png&convertImage=true&sessId=" +this.__getSessionId(), {FileDataBase64:base64File});
+        var tmp = OC_Utils.getUrl( "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +this.__getSessionId(), {FileDataBase64:base64File});
         if(tmp!="OK"){
           //errorCaught(null, "upload_v3.php: " +tmp);
           alert("ERROR");
           return null;
         }
-        tmp = OC_Utils.getUrl(this._api_base_url +"/api/getUploaded_v3.php?sessId=" +this.__getSessionId());
+        tmp = OC_Utils.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId());
         tmp = OC_Parser.getXmlDoc(tmp);
         tmp = OC_Parser.getXmlNode(tmp, "FILE")
         tmp = OC_Parser.getXmlNodeAttribute(tmp, 'URL');

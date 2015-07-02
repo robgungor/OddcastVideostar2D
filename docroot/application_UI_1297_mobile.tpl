@@ -9,9 +9,9 @@ END info -->
 
 
     <!--THIS NEEDS TO BE ABOVE BASE-->
-    <base href="http://{dynamicURL}/snuggle-valentine/mobile/" />
+    <base href="http://{dynamicURL}/template-2d-videostar-widget/mobile/" />
 
-    <title>Snuggle&#039;s Share a Snug</title>
+    <title>VideoStar2D Template</title>
     
     <!-- Open Graph data -->
     <meta property="og:type" content="article" />
@@ -29,210 +29,43 @@ END info -->
     
     <!-- {   youTubeJS
     }-->
-
-
+    
+    <link rel="Stylesheet" type="text/css" href="css/loading.css" id="loading_css" />
     <style>  
-    * {
-        margin:0;
-        padding:0;
-    }   
-    body {       
-        background-size: cover;
-        background-color: #24afe9;
-        font-family: "VAG Rounded W01 Bold", sans-serif;
-        min-height:100%;
-        height: 100%;
-        height:100vh;
-        min-height:100vh;
-    }
-    .spinner {        
-        border-radius: 50%; /* Rounds out the halo */
-        opacity: .7; /* Some subtle opacity to help blend with variable background colors */
-        width: 32px;
-        height: 32px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -16px;
-        margin-top: -16px;
-    }  
-    #main-loading-spinner {
-        display: none;
-    }   
-    #loading {
-        opacity: 0;
-        background: url("img/loading/loading-bg.jpg") no-repeat left top #24afe9;
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        overflow: hidden; 
-        width: 100vw;
-        height: 100vh; 
-        position: absolute;
-        z-index: 1000;     
-    }
-    #loading, #loading-heart {
-        -webkit-transition: opacity 500ms ease-out 0;
-        -moz-transition: opacity 500ms ease-out 0;
-        -o-transition: opacity 500ms ease-out 0;
-        transition: opacity 500ms ease-out 0;
-    }
-    #loading .loading-text {
-        text-align: center;
-        color: #ffffff;
-        font-size: 1.375em;
-        margin-top: -6%;
-        margin-top: -25px;
-        float: left;
-        width: 60%;
-        margin-top: -6%;
-        padding: 20%;
-        padding-top: 0;
-    }
-    #loading .share-a-snug {
-        text-align: center;
-        padding-top: 3%;
-        text-align: center;
-        margin-top: -25%;
-        float: left;
-        margin-left: auto;
-        width: 100%; 
-    }    
-    #loading .share-a-snug img {
-        width: 100%;
-        max-width: 400px; 
-    }
-    #loading .loading-oddcast-logo {
-        position: absolute;
-        left: 50%;
-        bottom: 101px;
-        width: 100px;
-        margin-left: -50px;
-    }
-    #loading .loading-oddcast-logo img {
-        width: 100%;
-        max-width: 104px; 
-    }
-    #loading .snuggle-logo img {
-        width: 100%;
-    }
-    #loading .snuggle-logo {
-        position: absolute;
-        bottom: 14px;
-        left: 15px;
-        width: 84px;
-    }
-    #loading .cloud {   position: absolute; }
-    #loading .cloud img {   width: 100%; }
-    #loading .cloud.top-right {
-        top: 3%;
-        right: -66px;
-        width: 211px;
-        float: right;
-        position: relative;
-        position: relative; 
-    }
-    #loading .cloud.top-left {
-        width: 112px;
-        top: 13%;
-        left: -10%; 
-    }
-    #loading .cloud.bottom-middle {
-        bottom: 0;
-        left: 50%;
-        float: left;
-        width: 195px;
-        z-index: 10;
-        height: 67px;
-        overflow: hidden;
-        margin-left: -104px;
-    }   
-    #loading .loading-bar {
-        background: url("img/loading/loading-bar-bg.png") no-repeat left top;
-        float: left;
-        position: absolute;
-        left: 50%;
-        width: 395px;
-        height: 103px;
-        bottom: 65px;
-        margin-left: -197.5px; 
-    }
-    #loading-heart {
-        position: absolute;
-        top: 12px;
-        right: 19px;
-        opacity: 0;
-    }
-    #loading-bar-fill {
-        position: absolute;          
-        left: 73px;
-        top: 26px;
-        width: 1px;
-        overflow: hidden; 
-        -webkit-transition: width .5s ease-out 0;
-        -moz-transition: width .5s ease-out 0;
-        -o-transition: width .5s ease-out 0;
-        transition: width .5s ease-out 0;
-    }  
-
-    @media screen and (max-width: 320px) {
-         #loading .loading-logo, #loading .loading-bar, #loading .loading-oddcast-logo {
-            -webkit-transform: scale(.8);
-            transform: scale(.8);
-            -ms-transform: scale(.8);           
-        }
-        #loading .loading-logo{
-            margin-top: -39%;
-        }
-        #loading .loading-bar {
-            bottom: 5%;
-        }
-        
-    }
+    
 </style>
 </head>
 <body ontouchstart="">
-    <div id='fb-root'></div>
-    <div id="landscape-blocker"></div>
+    
     <img id="loading-spinner" class='spinner' src="img/common/spinner.gif"/>
     <div class='loading-spinner' id="main-loading-spinner"><img class="spinner" src="img/common/blue-spinner.gif"/></div>
-    
-    <div id="loading">        
-        <div class="top-right cloud"><img src="img/loading/cloud.png"></div>
-        <div class="top-left cloud"><img src="img/loading/cloud.png"></div>
-        <div class="share-a-snug">
-            <img src="img/loading/share-a-snug@2x.png">
-            <div class="loading-text">
-                <img src="img/loading/loading-text@2x.png">
-            <!-- Share a snug </br> with someone special </br>this Valentine's Day -->
-            </div>        
-        </div>
-        
-        <div class="bottom-middle cloud"><img src="img/loading/cloud.png"></div>        
-        <div class="loading-bar">
-            <div id="loading-heart">
-                <img src="img/loading/loading-heart.png">
-            </div>
-            <div id="loading-bar-fill">                
+
+   <div id="loading">        
+       
+        <div class="loading-bar">            
+            <div id="loading-bar-fill" >                
                 <img src="img/loading/loading-bar-fill.png">
             </div>
         </div>
 
-        <div class="loading-oddcast-logo"><img src="img/loading/oddcast-loading-logo@2x.png"></div>
-        <div class="snuggle-logo"><img src="img/common/snuggle-logo@2x.png" /></div>
+        <div class="loading-oddcast-logo"><img src="img/loading/oddcast-loading-logo@2x.png"></div>        
     </div>
+
+    <section id="upload-container"></section>
     
     <!-- in templates/main.html -->
     <main id="landing"></main>
     
+
     <!-- in templates/sharing.html -->
-    <section id="sharing"></section>
-       
-   
+    <section id="sharing"></section>       
+
+    <div id='fb-root'></div>
 
 <script type="text/javascript">
     function preloadOnload(){document.getElementById("loading").style.opacity = '1';document.getElementById("loading-spinner").style.opacity = '0';window.scrollTo(0, 1);var e=document.createElement("script");e.src="js/preload.js";document.body.appendChild(e)}if(window.addEventListener)window.addEventListener("load",preloadOnload,false);else if(window.attachEvent)window.attachEvent("onload",preloadOnload);else window.onload=preloadOnload
 </script>
+
 
 </body>
 
@@ -241,11 +74,35 @@ END info -->
       {fbcApplication}
 </script>
 <script type="text/javascript">
+    var QueryString = function () {
+        // This function is anonymous, is executed immediately and 
+        // the return value is assigned to QueryString!
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            // If first entry with this name
+            if (typeof query_string[pair[0]] === "undefined") {
+                query_string[pair[0]] = pair[1];
+                // If second entry with this name
+            } else if (typeof query_string[pair[0]] === "string") {
+                var arr = [query_string[pair[0]], pair[1]];
+                query_string[pair[0]] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[pair[0]].push(pair[1]);
+            }
+        }
+        return query_string;
+    }();
+
+
     var fbcApplicationKey = "173540005994564 ";
     var fbcRequiredApplicationPermissions = "user_about_me, publish_actions";
 
     var OC_CONFIG = {        
-        //messageId  : QueryString['mId']; //"{messageId}";
+        //messageId      : "{messageId}",
         doorId       : "{doorId}",
         clientId     : "{clientId}",
         baseURL      : "{baseURL}",
@@ -259,10 +116,14 @@ END info -->
         trackingURL  : "{trackingURL}",
         topicId      : "{topicId}",        
         curURL       : (document.URL).substring(0, (document.URL).indexOf('.oddcast.com/') + 12),
-        appDirectory : "snuggle-valentine",
+        appDirectory : "template-2d-videostar-widget",
         fbcAppKey    : fbcApplicationKey
     }
-  
+    OC_CONFIG.messageId = QueryString['mId'];
+    if({messageId} > 0){
+        var d = document.getElementById("loading");
+        d.className = d.className + " big-show";
+    }
 </script>
 
 
