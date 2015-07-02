@@ -8,14 +8,12 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
         var App = Backbone.Model.extend({
             
             config: null,
-            settings: null,
-            names: null,
+            settings: null,            
             friends: null,
             badWords: null,
             // Model Constructor
             initialize: function(options) {                
-                this.settings   = new Settings(     {config:options.config});
-                this.names      = new Names([],     {config:options.config});
+                this.settings   = new Settings(     {config:options.config});            
                 this.badWords   = new BadWords([],  {config:options.config})
 
                 this.config     = options.config;
@@ -24,7 +22,11 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
             // Default values for all of the Model attributes
             defaults: {
                 'selectedVideo':'',    
-                'videoURL':''            
+                'videoURL':'',
+                // different model structure for this probably
+                'UPLOAD_PHOTO':'UPLOAD PHOTO',
+                'terms_of_use':'terms of use',
+                'termsLink':'http://google.com'
             },
 
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
@@ -46,10 +48,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 url += encodeURIComponent( self.settings.get('TWITTER_DEFAULT_TEXT') );
                 
                 return url;              
-            },
-            getSelectedName: function(){
-                return this.names.getNameBySpelling(this.get('toName'));                
-            },
+            },            
             fetchVideoLink: function(cb){
                 var self = this;
                                 
@@ -62,7 +61,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                     from: self.get('fromName'),
                     to: self.get('toName')
                   },
-                  url: '//host.oddcast.com/api_misc/1281/api.php',                 
+                  url: '//host.oddcast.com/api_misc/1297/api.php',                 
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: true,
                   dataType : 'xml',

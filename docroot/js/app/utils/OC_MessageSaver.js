@@ -6,7 +6,7 @@ define(['backbone', 'underscore', 'utils/OC_Utils', 'utils/OC_Parser'],
 	var OC_MessageSaver = {
 		_api_base_url: '',	
 		_wsSettings: {
-			doorId	: 1281,
+			doorId	: 1297,
 			clientId: 360,
 			topicId: 0
 		},

@@ -27,6 +27,13 @@ require.config({
 
       "text": "../libs/plugins/text",
 
+      // "exif": "/libs/exif",
+
+      // "binaryajax": "/libs/binaryajax",
+
+      // "touchcanvas": "/libs/img-touch-canvas"
+
+      "img-get-img-data":"img-get-img-data.min.js"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -34,6 +41,8 @@ require.config({
     
     // jQuery Mobile
     "jquerymobile": ["jquery"],
+
+    "img-get-img-data":["jquery"],
 
      //"jqueryui":["jquery"],
      'jqueryui': {

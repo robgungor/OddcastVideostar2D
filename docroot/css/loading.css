@@ -3,9 +3,7 @@
   padding: 0; }
 
 body {
-  background-size: cover;
-  background-color: #24afe9;
-  font-family: "VAG Rounded W01 Bold", sans-serif;
+  font-family: "Helvetica", sans-serif;
   min-height: 100%;
   height: 100%;
   height: 100vh;
@@ -29,7 +27,7 @@ body {
 
 #loading {
   opacity: 0;
-  background: url("../img/loading/loading-bg.jpg") no-repeat left top #24afe9;
+  background: url("../img/loading/bg_portrait.jpg") no-repeat left top #FFFFFF;
   background-size: cover;
   width: 100%;
   height: 100%;

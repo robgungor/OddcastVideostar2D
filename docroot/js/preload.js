@@ -25,14 +25,19 @@
                 self.percentLoaded = 0;
                 window.preloadTimer = setInterval(function(){self.updatePercentageView();}, 300);
             },
-            loadCSS: function(url, callback) {
+            loadCSS: function(url, orientation, callback) {
               var self = this;
               
               var link = d.createElement("link");
               link.type = "text/css";
               link.rel = "stylesheet";
               link.href = url;
+              link.media = 'all and (orientation:'+orientation+')';
+
+              //<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
+              //<link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
               d.getElementsByTagName("head")[0].appendChild(link);
+
               if(callback) {
                 setTimeout(function(){callback();}, 200);
               }
@@ -68,9 +73,13 @@
             },
             loadJavascripts: function(firstFile, callback){
                 var self = this,
-                    filesToLoad = [firstFile, 'js/tracking.js',
-                                    //'//'+OC_CONFIG.baseURL+'/includes/facebookconnectV2.js',
-                                    //'//platform.twitter.com/widgets.js',
+                    filesToLoad = [firstFile, 
+                                    'js/tracking.js',
+                                    'js/libs/binaryajax.js',
+                                    'js/libs/exif.js',
+                                    'js/libs/img-touch-canvas.js'
+
+                                    
                                     
                                     ],
                     filesTotal;
@@ -103,10 +112,12 @@
               var self = this;
               
               self.cssPercentLoaded = 0;
-
+              self.loadCSS('css/landscape.css', 'landscape');
+              self.loadCSS('css/portrait.css', 'portrait');
+              
               if(production) {
                 // Loads the production CSS file(s)
-                self.loadCSS(obj["prod-css"], function() {
+                //self.loadCSS(obj["prod-css"], function() {
                     // load fonts
                     self.loadFonts(function(){
                       // If there are production JavaScript files to load
@@ -115,13 +126,13 @@
                         self.loadJS(obj["prod-js"], callback);
                       }
                     });
-                });
+               // });
               } else {
                 // Loads the development CSS file(s)
-                self.loadCSS(obj["dev-css"], function() {                 
+               // self.loadCSS(obj["dev-css"], function() {                 
                   self.cssPercentLoaded = .5;
                   // load fonts
-                  self.loadFonts(function(){
+                  //self.loadFonts(function(){
                     self.cssPercentLoaded = 1;
                     // If there are development Javascript files to load
                     if(obj["dev-js"]) {                    
@@ -131,9 +142,11 @@
                       //self.loadJS(obj["dev-js"], callback);
                       //TODO
                       //self.loadJavascripts(callback);
+                    } else {
+                      callback();
                     }
-                  });
-                });
+                  //});
+               // });
               }
             },
             loadImages: function(callback){
@@ -225,10 +238,7 @@
                 var self = this;
                 clearInterval(window.preloadTimer);
 
-                document.getElementById("loading-bar-fill").style.width = '253px';
-                setTimeout(function(){
-                  document.getElementById("loading-heart").style.opacity = '1';
-                }, 300);
+                document.getElementById("loading-bar-fill").style.width = '253px';                
                 
                 // do this on timeout to add a pause for animation
                 setTimeout(function(){      

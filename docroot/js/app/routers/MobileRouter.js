@@ -1,16 +1,18 @@
 // MobileRouter.js
 // ---------------
-define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "collections/Collection"],
+define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "collections/Collection"],
         
-    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, Collection) {
+    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, Collection) {
 
         var MobileRouter = Backbone.Router.extend({
+            model: null,
 
             initialize: function() {
 
                 // Tells Backbone to start watching for hashchange events
                 Backbone.history.start();
-
+                window.Preloader.loaded();
+                this.model = new AppModel({config:OC_CONFIG});
             },
 
             // All of your Backbone Routes (add more)
@@ -19,11 +21,15 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 // When there is no hash bang on the url, the home method is called
                 "": "index",
                 "landing":"landing",
-                "bigshow":"bigshow"
+                "bigshow":"bigshow",
+                "upload":"upload"
+
 
             },
 
             index: function() {
+                
+                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
                 if(OC_CONFIG.messageId >0){
                     //Visitor sources from Email
                     if(OC_CONFIG.messageId.slice(-2) == ".2" || OC_CONFIG.messageId.slice(-2) == ".1") {
@@ -51,16 +57,26 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
             },
 
             landing: function() {
+                
+
                 //hacky but it brute
                 //$('#bigshow').html();
                  // Instantiates a new view which will render the header text to the page                
-                new LandingView({model:new AppModel({config:OC_CONFIG})});
+                new LandingView({model:this.model});
             },
 
             bigShow: function() {
                 // Instantiates a new view which will render the header text to the page                
                 new BigShowView({model:new MessageModel({config:OC_CONFIG})});
             },
+
+            upload: function() {
+                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+                console.log(this.model);
+                // Instantiates a new view which will render the header text to the page                
+                new UploadView({model:this.model});
+            },
+
     
         });
 

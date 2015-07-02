@@ -6,12 +6,13 @@ define(["jquery",
         "text!templates/landing.html", 
         "text!templates/video-preview.html", 
         "text!templates/alert.html", 
+        "text!templates/upload.html",
         "utils/OC_Utils", 
         "utils/OC_MessageSaver", 
         "views/Sharing", 
         "jqueryui"],
 
-    function($, Backbone, Model, template, previewTemplate, alertTemplate, OC_Utils, OC_MessageSaver, Sharing) {
+    function($, Backbone, Model, template, previewTemplate, alertTemplate, uploadTemplate, OC_Utils, OC_MessageSaver, Sharing) {
         
         var Landing = Backbone.View.extend( {
 
@@ -29,18 +30,13 @@ define(["jquery",
                 //self.model.set({'videoURL':'http://host-vd.oddcast.com/ccs7/tmp/APS/video/75/c6/75c622f1465ba12c3d297fe22ac056fb/75c622f1465ba12c3d297fe22ac056fb.mp4'});
 
                 self.render();
-                
-                self.listenTo(self.model.names, 'add sync', self.onNameListLoaded);   
-
-                window.Preloader.loaded();
 
                 //fade in
                 setTimeout(function() {                  
                   self.$el.css({'display':'block', 'opacity':'1'});
                   self.$el.addClass('loaded');                  
                 }, 300);
-
-                self.updateInputValues();               
+                
             },
             
             // View Event Handlers
@@ -67,7 +63,7 @@ define(["jquery",
 
                 // Dynamically updates the UI with the view's template
                 this.$el.html(this.template);
-
+                // $('#upload-container').html(_.template(uploadTemplate, this.model.toJSON()));
                 $('#video-preview').html(_.template(previewTemplate, this.model.toJSON()));
 
                 // first time, show this
@@ -80,28 +76,6 @@ define(["jquery",
                 return this;
             },
             
-            onNameListLoaded: function(data) {
-                var self = this;                
-
-                $( "#tname" ).autocomplete({                  
-                  source: function(request, response) {
-                      var results = $.ui.autocomplete.filter(self.model.names.dropDownNames, request.term);
-                                        
-                      results = _.filter(results, function(name) {
-                          // return only results with the same first character
-                          return name.id.charAt(0).toLowerCase() == request.term.charAt(0).toLowerCase();
-                      });
-                      // only show 5 results
-                      response(results.slice(0, 5));
-                  },
-                  minLength: 0,
-                  select: function( event, ui ) {
-                    $('#tname').val(ui.item.value); 
-                  }
-                });
-            },
-       
-
             onInputChange: function(e) {
                 var self = this;
                 
@@ -141,23 +115,6 @@ define(["jquery",
               $('#alert').fadeOut(300);
             },
 
-            updateInputValues: function() {
-                var self = this;
-                
-                var toName = $('#tname').val();
-                var fromName = $('#fname').val();
-
-                if(toName.length < 1)   toName = "Valentine";
-                if(fromName.length < 1) fromName = "Your Valentine";
-
-                self.model.set({
-                  'toName':toName,
-                  'fromName':fromName,
-                  'hasChanged':true,
-                  'namesHaveChanged':true
-                });      
-                
-            },
             // on click of a thumbnail
             onVideoPreviewClick: function(e) {
                 // prevent default actions

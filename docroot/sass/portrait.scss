@@ -12,8 +12,6 @@ $font-family: "VAG Rounded W01 Bold";
 $font-black: "VAG Rounded W01 Black";
 
 
-
-
 @mixin respond-to($media) {
   @if $media == handhelds {
     @media only screen and (max-width: $break-small) { @content; }
@@ -34,10 +32,28 @@ $font-black: "VAG Rounded W01 Black";
 
 
 @import 'reset';
-@import 'common';
-@import 'big-show';
-@import 'landing';
-@import 'sharing';
-@import 'landscape';
-@import 'alert';
+// @import 'common';
+// @import 'big-show';
+// @import 'landing';
+// @import 'sharing';
+// @import 'landscape';
+// @import 'alert';
+@import 'upload';
 
+body {
+  background: url('../img/common/bg_portrait.jpg') no-repeat top left;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+
+
+.fullscreen {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+  
