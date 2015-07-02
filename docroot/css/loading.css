@@ -36,40 +36,6 @@ body {
   height: 100vh;
   position: absolute;
   z-index: 1000; }
-  #loading #loading-heart {
-    -webkit-transition: opacity 500ms ease-out 0;
-    -moz-transition: opacity 500ms ease-out 0;
-    -o-transition: opacity 500ms ease-out 0;
-    transition: opacity 500ms ease-out 0; }
-  #loading .share-a-snug {
-    text-align: center;
-    float: left;
-    margin-left: auto;
-    width: 100%;
-    top: 50%;
-    margin-top: -33vw; }
-    #loading .share-a-snug img {
-      width: 100%;
-      max-width: 400px; }
-    #loading .share-a-snug .loading-text {
-      text-align: center;
-      color: #ffffff;
-      font-size: 1.375em;
-      margin-top: -6%;
-      margin-top: -25px;
-      float: left;
-      width: 60%;
-      margin-top: -6%;
-      padding: 20%;
-      padding-top: 0; }
-      #loading .share-a-snug .loading-text .big-show {
-        display: none; }
-      #loading .share-a-snug .loading-text .standard {
-        display: block; }
-  #loading.big-show .share-a-snug .loading-text .big-show {
-    display: block; }
-  #loading.big-show .share-a-snug .loading-text .standard {
-    display: none; }
   #loading .loading-oddcast-logo {
     position: absolute;
     left: 50%;
@@ -79,61 +45,26 @@ body {
     #loading .loading-oddcast-logo img {
       width: 100%;
       max-width: 104px; }
-  #loading .snuggle-logo {
-    position: absolute;
-    bottom: 14px;
-    left: 15px;
-    width: 84px; }
-    #loading .snuggle-logo img {
-      width: 100%; }
-  #loading .cloud {
-    position: absolute; }
-    #loading .cloud img {
-      width: 100%; }
-    #loading .cloud.top-right {
-      top: 3%;
-      right: -66px;
-      width: 211px;
-      float: right;
-      position: relative;
-      position: relative; }
-    #loading .cloud.top-left {
-      width: 112px;
-      top: 13%;
-      left: -10%; }
-    #loading .cloud.bottom-middle {
-      bottom: 0;
-      left: 50%;
-      float: left;
-      width: 195px;
-      z-index: 10;
-      height: 67px;
-      overflow: hidden;
-      margin-left: -104px; }
   #loading .loading-bar {
     background: url("../img/loading/loading-bar-bg.png") no-repeat left top;
     float: left;
     position: absolute;
     left: 50%;
-    width: 395px;
+    width: 300px;
     height: 103px;
     bottom: 65px;
-    margin-left: -197.5px; }
-  #loading #loading-heart {
-    position: absolute;
-    top: 12px;
-    right: 19px;
-    opacity: 0; }
+    margin-left: -150px; }
   #loading #loading-bar-fill {
     position: absolute;
-    left: 73px;
-    top: 26px;
+    top: 2px;
     width: 1px;
     overflow: hidden;
     -webkit-transition: width .5s ease-out 0;
     -moz-transition: width .5s ease-out 0;
     -o-transition: width .5s ease-out 0;
     transition: width .5s ease-out 0; }
+    #loading #loading-bar-fill img {
+      width: 100%; }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     #loading .loading-logo, #loading .loading-bar, #loading .loading-oddcast-logo {
       -webkit-transform: scale(0.8);
