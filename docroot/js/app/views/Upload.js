@@ -143,7 +143,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
               newImgLoaded(newImg);
             }
           }
-          fbTrackGMApp('upload-photo');
+          //fbTrackGMApp('upload-photo');
           OC_ET.event("edbgu");
         
           function newImgLoaded(_newImg){
