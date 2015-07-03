@@ -152,13 +152,13 @@
             loadImages: function(callback){
                 var self = this,
                     imagesToLoad = ['img/common/main-bg.jpg',
-                                    'img/video_preview/1.jpg',                                    
-                                    'img/video_preview/2.jpg',
-                                    'img/video_preview/3.jpg',
-                                    'img/video_preview/4.jpg',
-                                    'img/video_preview/5.jpg',
-                                    'img/landing/input-bg.jpg',
-                                    'img/landing/video-spinner-bg.jpg'
+                                    // 'img/video_preview/1.jpg',                                    
+                                    // 'img/video_preview/2.jpg',
+                                    // 'img/video_preview/3.jpg',
+                                    // 'img/video_preview/4.jpg',
+                                    // 'img/video_preview/5.jpg',
+                                    // 'img/landing/input-bg.jpg',
+                                    // 'img/landing/video-spinner-bg.jpg'
                                     ],
                     imagesTotal;
                                             
@@ -166,19 +166,19 @@
                       //retina images
                       imagesToLoad.push.apply(imagesToLoad, 
                         [ 'img/landing/share-a-snug-logo@2x.png',
-                          'img/landing/bubble-button-bg@2x.png',
-                          'img/landing/bubble-button-bg-active@2x.png',
-                          'img/landing/button-email@2x.png',
-                          'img/landing/button-email-active@2x.png',
-                          'img/landing/button-fb@2x.png',
-                          'img/landing/button-fb-active@2x.png',                          
-                          'img/landing/button-twitter@2x.png',
-                          'img/landing/button-twitter-active@2x.png',                          
-                          'img/common/snuggle-logo@2x.png',
-                          'img/common/oddcast-logo@2x.png',
-                          'img/common/snuggledotcom-logo@2x.png',
-                          'img/big_show/create-your-own@2x.png',
-                          'img/big_show/create-your-own-active@2x.png'
+                          // 'img/landing/bubble-button-bg@2x.png',
+                          // 'img/landing/bubble-button-bg-active@2x.png',
+                          // 'img/landing/button-email@2x.png',
+                          // 'img/landing/button-email-active@2x.png',
+                          // 'img/landing/button-fb@2x.png',
+                          // 'img/landing/button-fb-active@2x.png',                          
+                          // 'img/landing/button-twitter@2x.png',
+                          // 'img/landing/button-twitter-active@2x.png',                          
+                          // 'img/common/snuggle-logo@2x.png',
+                          // 'img/common/oddcast-logo@2x.png',
+                          // 'img/common/snuggledotcom-logo@2x.png',
+                          // 'img/big_show/create-your-own@2x.png',
+                          // 'img/big_show/create-your-own-active@2x.png'
                         ]);
                      
                     // } else{

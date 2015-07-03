@@ -73,13 +73,13 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
             var orientation = exif.Orientation || 0;
                   
             if(_scale<=1) {  //no need
-              self.rotate_flip_image(null, _dataUrl, backendUploadMaxWH, orientation, function(){self.img_is_FlippedRotated();});
+              self.rotate_flip_image(null, _dataUrl, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
             }else{      //upload
               var newImgW=image.width/_scale;
               var newImgH=image.height/_scale;
               var _base64Im=_dataUrl.substring(_dataUrl.indexOf(",")+1);
               var resizedPhotoUrl = self.upload_V3(_base64Im, newImgW, newImgH);
-              self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(){self.img_is_FlippedRotated();});
+              self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
             }
           }
         }
