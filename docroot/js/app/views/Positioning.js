@@ -1,6 +1,6 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils/OC_Utils", "utils/OC_Parser"],
+define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "utils/OC_Utils", "utils/OC_Parser"],
 
   function($, Backbone, Model, template, OC_Utils, OC_Parser){
       
