@@ -12,7 +12,7 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 // Tells Backbone to start watching for hashchange events
                 Backbone.history.start();
                 window.Preloader.loaded();
-                this.model = new AppModel({config:OC_CONFIG});
+                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
             },
 
             // All of your Backbone Routes (add more)
