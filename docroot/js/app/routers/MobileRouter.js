@@ -1,8 +1,8 @@
 // MobileRouter.js
 // ---------------
-define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "collections/Collection"],
+define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "collections/Collection"],
         
-    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, Collection) {
+    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, Collection) {
 
         var MobileRouter = Backbone.Router.extend({
             model: null,
@@ -22,7 +22,8 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 "": "index",
                 "landing":"landing",
                 "bigshow":"bigshow",
-                "upload":"upload"
+                "upload":"upload",
+                "positioning":"positioning"
 
 
             },
@@ -62,21 +63,32 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 //hacky but it brute
                 //$('#bigshow').html();
                  // Instantiates a new view which will render the header text to the page                
-                new LandingView({model:this.model});
+                this.loadView(new LandingView({model:this.model}));
             },
 
             bigShow: function() {
                 // Instantiates a new view which will render the header text to the page                
-                new BigShowView({model:new MessageModel({config:OC_CONFIG})});
+                this.loadView(new BigShowView({model:new MessageModel({config:OC_CONFIG})}));
             },
 
             upload: function() {
                 if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
-                console.log(this.model);
+              
                 // Instantiates a new view which will render the header text to the page                
-                new UploadView({model:this.model});
+                this.loadView(new UploadView({model:this.model}));
             },
 
+            positioning: function() {
+                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new PositioningView({model:this.model}));
+            },
+
+            loadView : function(view) {
+                this.view && (this.view.close ? this.view.close() : this.view.remove());
+                this.view = view;
+            }
     
         });
 

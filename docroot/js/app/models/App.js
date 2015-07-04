@@ -21,8 +21,8 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
 
             // Default values for all of the Model attributes
             defaults: {
-                'selectedVideo':'',    
-                'videoURL':'',
+                'tempImageURL':'',
+                'isTempImageCrossdomain':false,
                 // different model structure for this probably
                 'UPLOAD_PHOTO':'UPLOAD PHOTO',
                 'terms_of_use':'terms of use',
