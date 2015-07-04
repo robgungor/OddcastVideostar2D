@@ -15,6 +15,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         
         self.render();
 
+        //TODO - REFACTOR THIS SECTION
+        self.upload_image_to_touchCanvas(self.model.get('tempImageURL'), self.model.get('isTempImageCrossdomain') );
       },
         
       // View Event Handlers
@@ -35,65 +37,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         return this;
       },           
       
-      onFileInputChange: function (event) {
-        
-        // var imgUploadedFile = document.getElementById('fileUpload'+uploadImgBtnId); 
-        // imgUploadedFile.addEventListener('change', function(event){
-        
-        var self = this;
+      //TODO - REFACTOR THIS SECTION
+      upload_image_to_touchCanvas: function (_url, _img_with_crossdomain_issue) {
 
-        var files = event.target.files;
-
-        for (var i = 0; i < files.length; i++) {
-          if (files[i].type.match(/image.*/)) {
-            console.log(files[i]);
-            self.upload(files[i]);
-          }
-        }
-        
-      },
-      
-      upload: function (_file) { //get dataUrl
-        var self = this;
-        var backendUploadMaxWH = 600;
-
-        var reader = new FileReader();
-        reader.readAsDataURL(_file);
-                
-        reader.onload = function (readerEvent) {
-          var image = new Image();
-          image.src = readerEvent.target.result;
-                  
-          image.onload = function (imageEvent) {
-            var _dataUrl=image.src;
-            var _scale=Math.max( (image.width/backendUploadMaxWH), (image.height/backendUploadMaxWH));
-            var byteString = atob(_dataUrl.split(',')[1]);
-            var binaryFile = new EXIF.BinaryFile(byteString, 0, byteString.length);
-            var exif = EXIF.findEXIFinJPEG(binaryFile);
-            var orientation = exif.Orientation || 0;
-                  
-            if(_scale<=1) {  //no need
-              self.rotate_flip_image(null, _dataUrl, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
-            }else{      //upload
-              var newImgW=image.width/_scale;
-              var newImgH=image.height/_scale;
-              var _base64Im=_dataUrl.substring(_dataUrl.indexOf(",")+1);
-              var resizedPhotoUrl = self.upload_V3(_base64Im, newImgW, newImgH);
-              self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
-            }
-          }
-        }
-      },
-
-      img_is_FlippedRotated : function (_canvas) {
-        var self = this;
-        var canvasPath=_canvas.toDataURL();
-        setTimeout(function(){self.upload_image_to_touchCanvas(null, canvasPath, false);}, 100);
-      },
-
-
-
-      upload_image_to_touchCanvas: function (_url, _dataUrl, _img_with_crossdomain_issue) {
         //displayProgress_fake(1,98,null,100);
         // savedMidObj.videoMid=null;
         // savedMidObj.photoMid=null;
