@@ -12,6 +12,8 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75); }
+  #upload-container #upload #buttons div {
+    margin-bottom: 10px; }
   #upload-container #upload #camera-button-wrap {
     background: url(../img/upload/camera.png);
     background-size: 100%;

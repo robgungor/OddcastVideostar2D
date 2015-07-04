@@ -4,9 +4,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
   function($, Backbone, Model, template, OC_Utils, OC_Parser){
       
-    var Upload = Backbone.View.extend({
+    var Positioning = Backbone.View.extend({
 
-      el: "section#upload-container",
+      el: "section#positioning-container",
 
       // View constructor
       initialize: function() {
@@ -318,8 +318,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       //++++++++++++++++++++++++++++++++++++++++++++++
     });
 
-    // Returns the Upload class
-    return Upload;
+    // Returns the Positioning class
+    return Positioning;
 
   }
 

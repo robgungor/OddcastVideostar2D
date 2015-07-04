@@ -6,6 +6,12 @@
 
   #upload {
   	
+    #buttons {
+      div {
+        margin-bottom: 10px;
+        
+      }
+    }
   	#camera-button-wrap {
   		background: url(../img/upload/camera.png);
   		background-size: 100%;
@@ -14,7 +20,7 @@
       overflow: hidden;
       position: relative;
       display: inline-block;
-      
+
   		input {
   			opacity: 0.000001;
         width: 100%;

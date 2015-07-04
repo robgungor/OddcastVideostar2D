@@ -52,7 +52,7 @@ END info -->
     </div>
 
     <section id="upload-container"></section>
-    
+    <section id="positioning-container"></section>
     <!-- in templates/main.html -->
     <main id="landing"></main>
     
