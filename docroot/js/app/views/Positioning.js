@@ -82,7 +82,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
         $.getImageData({
           url: _url,
-          server: OC_CONFIG.curURL+OC_CONFIG.appDirectory+'/getImageData.php',
+          server: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/getImageData.php',
           success: function(newImg){
             self.tempImgLoaded(newImg);
           },
@@ -100,7 +100,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
             canvas: document.getElementById('uploadFaceCanvas'),
             path: _canvasPath,
             guideCanvas: document.getElementById('uploadGuideCanvas'),
-            guidePath: OC_CONFIG.curURL+OC_CONFIG.appDirectory+'/img/face_mask.png',
+            guidePath: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/img/face_mask.png',
           });
         }else{
           self.touchCanvas.freezeCanvas();
