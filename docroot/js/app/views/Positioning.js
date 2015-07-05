@@ -171,7 +171,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       createFinalSharedVideo: function(){  
         var self = this;
                   
-          var _img=finalSharePhoto_croppedHead;
+          var _img=self.model.get('croppedImage');
           var _extradata=escape("hairStyle="+(curMask-1)+"&contrast="+(curBody-1)+"&surname="+curTeamName+"&jerseyNumber="+curTeamNum+"&lang="+curLang+"&isVideo=true");
           
           var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="  +OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
