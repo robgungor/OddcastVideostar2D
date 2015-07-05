@@ -45,9 +45,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         var crossDomainErrors = self.model.get('isTempImageCrossdomain');        
        
         if(crossDomainErrors) {
-          fixImageDomain(url);
+          self.fixImageDomain(url);
         } else {
-          preloadTempImage(url);
+          self.preloadTempImage(url);
         }
         
         OC_ET.event("edbgu");
