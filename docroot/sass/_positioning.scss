@@ -6,6 +6,16 @@
 
   #positioning {
   	
+    button.next { 
+      display: block;
+      bottom: 10px;
+      position: absolute;
+      width: 60px;
+      height: 30px;
+      background-image: url('..img/assets/next.png'); 
+      background-size: 100%;
+    }
+
   	.uploadPhoto_bg {
       width: 400px;
       height: 400px;
