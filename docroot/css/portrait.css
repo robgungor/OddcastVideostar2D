@@ -37,7 +37,7 @@
     position: absolute;
     width: 60px;
     height: 30px;
-    background-image: url("..img/assets/next.png");
+    background-image: url("../img/assets/next.png");
     background-size: 100%; }
   #positioning-container #positioning .uploadPhoto_bg {
     width: 400px;
