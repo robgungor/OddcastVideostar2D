@@ -1,8 +1,8 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils/OC_Utils", "utils/OC_Parser"],
+define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils/OC_Utils", "utils/OC_Parser", "utils/OC_Uploader"],
 
-  function($, Backbone, Model, template, OC_Utils, OC_Parser){
+  function($, Backbone, Model, template, OC_Utils, OC_Parser, OC_Uploader){
       
     var Upload = Backbone.View.extend({
 
@@ -78,7 +78,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
               var newImgW=image.width/_scale;
               var newImgH=image.height/_scale;
               var _base64Im=_dataUrl.substring(_dataUrl.indexOf(",")+1);
-              var resizedPhotoUrl = self.upload_V3(_base64Im, newImgW, newImgH);
+              var resizedPhotoUrl = OC_Uploader.upload_V3(_base64Im, newImgW, newImgH);
               self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
             }
           }
@@ -92,126 +92,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
         window.router.navigate('positioning', true);
         //setTimeout(function(){self.upload_image_to_touchCanvas(null, canvasPath, false);}, 100);
-      },
-
-
-
-      upload_image_to_touchCanvas: function (_url, _dataUrl, _img_with_crossdomain_issue) {
-        //displayProgress_fake(1,98,null,100);
-        // savedMidObj.videoMid=null;
-        // savedMidObj.photoMid=null;
-        // savedMidObj.body=-1;
-        // savedMidObj.mask=-1;
-        // savedMidObj.teamName="";
-        // savedMidObj.teamNum="00";
-
-        // showPage(2);
-
-        setTimeout(function(){
-          if(_url ==null && _dataUrl==null){
-            step3_done();
-          }else if(_url !=null){  //<======== from fb/gp
-              step1_preUpload(_url, null, _img_with_crossdomain_issue);
-          }else{          //<======== from upload
-              step1_preUpload(null, _dataUrl, _img_with_crossdomain_issue);
-              createUploadImgBtn();
-          }
-        }, 500);
-
-        function step1_preUpload(_url, _dataUrl, _img_with_crossdomain_issue){
-          
-          if(_url !=null){
-            if(_img_with_crossdomain_issue){
-              $.getImageData({
-                url: _url,
-                server: OC_CONFIG.curURL+OC_CONFIG.appDirectory+'/getImageData.php',
-                success: function(newImg){
-                  newImgLoaded(newImg);
-                },
-                error: function(xhr, text_status){
-                  // Handle your error here
-                }
-              });
-            }else{
-              var newImg = document.createElement("img");
-              newImg.crossOrigin="anonymous";
-              newImg.src = _url;
-              newImg.onload=function(){
-                newImgLoaded(newImg);
-              }
-            }
-          }else if(_dataUrl !=null){
-            var newImg = document.createElement("img");
-            newImg.src = _dataUrl;
-            newImg.onload=function(){
-              newImgLoaded(newImg);
-            }
-          }
-          //fbTrackGMApp('upload-photo');
-          OC_ET.event("edbgu");
-        
-          function newImgLoaded(_newImg){
-            var canvas = document.getElementById("preUploadFaceCanvas");
-            canvas.width=_newImg.width;
-            canvas.height=_newImg.height;
-            var cContext = canvas.getContext("2d");
-            cContext.drawImage(_newImg, 0, 0, canvas.width, canvas.height);
-                    
-            var canvasPath=canvas.toDataURL();
-            setTimeout(function(){step2_createMyTouchCanvas(canvasPath);}, 100);
-          }
-        }
-        function step2_createMyTouchCanvas(_canvasPath){
-          if(myTouchCanvas==null){
-            myTouchCanvas = new ImgTouchCanvas({
-              canvas: document.getElementById('uploadFaceCanvas'),
-              path: _canvasPath,
-              guideCanvas: document.getElementById('uploadGuideCanvas'),
-              guidePath: _wsSettings.curURL+'/manu-profile-photo/images/ipad/myImgBody_'+curBody+'_'+curMask+'.png',
-            });
-          }else{
-            myTouchCanvas.freezeCanvas();
-            myTouchCanvas.resetCanvas(_canvasPath);
-          }
-          setTimeout(step3_done, 1000);
-        }
-        function step3_done(){
-          hideProgress_fake(null);
-        }
-      },
-
-      /*
-      Uploads base64Encoded file and gets a temp location url
-      */
-      upload_V3 : function (base64File) {
-        var tmp = OC_Utils.getUrl( "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +this.__getSessionId(), {FileDataBase64:base64File});
-        if(tmp!="OK"){
-          //errorCaught(null, "upload_v3.php: " +tmp);
-          alert("ERROR");
-          return null;
-        }
-        tmp = OC_Utils.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId());
-        tmp = OC_Parser.getXmlDoc(tmp);
-        tmp = OC_Parser.getXmlNode(tmp, "FILE")
-        tmp = OC_Parser.getXmlNodeAttribute(tmp, 'URL');
-        return tmp;
-      },
-    
-      _sessionId: false,
-
-      __getSessionId : function () {
-        if(this._sessionId == false){
-          this._sessionId = new Date().getTime();
-          this._sessionId += this.__S4() +this.__S4() +this.__S4() +this.__S4() +this.__S4() +this.__S4();
-          this._sessionId = this._sessionId.substring(0,32);
-        }
-        return this._sessionId;
-      },
-
-      __S4 : function () {
-        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-      },
-
+      },    
+      
       //**********************************************************************
       //html5 uploader
       //**********************************************************************

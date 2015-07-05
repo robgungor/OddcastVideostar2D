@@ -1,8 +1,8 @@
 // Positioning.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "utils/OC_Utils", "utils/OC_Parser"],
+define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "utils/OC_Utils", "utils/OC_Parser", "utils/OC_Uploader"],
 
-  function($, Backbone, Model, template, OC_Utils, OC_Parser){
+  function($, Backbone, Model, template, OC_Utils, OC_Parser, OC_Uploader){
       
     var Positioning = Backbone.View.extend({
 
@@ -16,12 +16,13 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         self.render();
 
         //TODO - REFACTOR THIS SECTION
-        self.upload_image_to_touchCanvas();
+        self.prepareImageForPositioning();
       },
         
       // View Event Handlers
       events: {
-        'change input': 'onFileInputChange'      
+        // 'change input': 'onFileInputChange'  
+        'click .next':'onNextClicked'    
       },            
 
 
@@ -36,9 +37,13 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       
         return this;
       },           
-      
+      onNextClicked: function(e) {
+        var self = this;
+        
+        self.drawFinalFace_mask();
+      },
       //TODO - REFACTOR THIS SECTION
-      upload_image_to_touchCanvas: function() {
+      prepareImageForPositioning: function() {
         var self = this;
         
         var url = self.model.get('tempImageURL');
@@ -107,7 +112,200 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
           self.touchCanvas.resetCanvas(_canvasPath);
         }        
       },
+           
+      drawFinalFace_mask: function() {
+        var self = this;
 
+        var maskImg = new Image();
+        maskImg.crossOrigin="anonymous";
+        maskImg.src = OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/face_mask.png';
+        maskImg.onload = function() {
+          var cMask = document.getElementById("finalMaskCanvas");
+          var cMaskTX = cMask.getContext("2d");
+          cMaskTX.clearRect(0, 0, cMask.width, cMask.height);
+          cMaskTX.drawImage(maskImg, 0, 0, cMask.width, cMask.height);
+          setTimeout(function(){ self.drawFinalFace_now(); }, 100);
+        };  
+      },
+
+      drawFinalFace_now: function() {
+        var self = this;
+        var c = document.getElementById("finalFaceCanvas");
+        var cMask = document.getElementById("finalMaskCanvas");
+        var uploadImg=document.getElementById('uploadFaceCanvas');
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, cMask.width, cMask.height);
+        ctx.save();
+        ctx.drawImage(cMask, 0, 0, cMask.width, cMask.height);
+        ctx.globalCompositeOperation = 'source-in';
+        //ctx.drawImage(uploadImg, 57, 78, cMask.width, cMask.height, 0, 0, cMask.width, cMask.height);
+        ctx.drawImage(uploadImg, 0, 0, cMask.width, cMask.height, 0, 0, cMask.width, cMask.height);
+        ctx.restore();
+        setTimeout(function(){ self.drawFinalFace2_now();}, 100);
+      },
+
+      drawFinalFace2_now: function() {
+        var self = this;
+
+        //TODO - put in settings
+        var curCropInfo=[82, 39, 235, 316]; //x,y,w,h
+        var canvas = document.getElementById("finalFaceCanvas");
+        var canvas2 = document.createElement('canvas');
+        canvas2.width=curCropInfo[2];
+        canvas2.height=curCropInfo[3];
+        var ctx2 = canvas2.getContext('2d');
+        ctx2.drawImage(canvas, curCropInfo[0], curCropInfo[1], canvas2.width, canvas2.height, 0, 0, canvas2.width, canvas2.height);
+        self.drawFinalFace_snapshot(canvas2);
+      },
+
+      drawFinalFace_snapshot: function(_canvas){
+        var self = this;
+
+        var _base64Im = _canvas.toDataURL();
+        _base64Im = _base64Im.substring(_base64Im.indexOf(",")+1);
+        self.model.set({'croppedImage':OC_Uploader.upload_V3(_base64Im)});
+      
+        setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
+      },
+    
+      createFinalSharedVideo: function(){  
+        var self = this;
+                  
+          var _img=finalSharePhoto_croppedHead;
+          var _extradata=escape("hairStyle="+(curMask-1)+"&contrast="+(curBody-1)+"&surname="+curTeamName+"&jerseyNumber="+curTeamNum+"&lang="+curLang+"&isVideo=true");
+          
+          var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="  +OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
+          tmp = OC_Parser.getXmlDoc(tmp);
+          var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
+          var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
+          
+          if(errorTmp != null){
+            var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
+            alert(error_msg);
+            
+          }else{
+            var sessionId=OC_Parser.getXmlNodeAttribute(okTmp, 'SESSIONID');
+                       
+            setTimeout(function(){  self.createFinalSharedVideo_pulling(sessionId);}, 30*1000);
+          }
+        
+      },
+
+      createFinalSharedVideo_pulling: function(_sessionId) {
+        var self = this;
+
+        var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
+        tmp = OC_Parser.getXmlDoc(tmp);
+        var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
+        var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
+        if(errorTmp != null){
+          var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
+          alert(error_msg);
+          hideProgress();
+        }else{
+          var _status=OC_Parser.getXmlNodeAttribute(okTmp, 'STATUS');
+          var _url=OC_Parser.getXmlNodeAttribute(okTmp, 'URL');
+          //alert(_status);
+          if(_status=="0"){
+            //console.log(_status+"  "+_url);
+            setTimeout(function(){createFinalSharedVideo_pulling(_sessionId);}, 2*1000);
+          }else if(_status=="1"){
+            //console.log(_status+"  "+_url);
+            this.model.set({'shareVideoURL':_url, 'videoURL':_url});
+            //document.getElementById("shareVideo").src=_url;
+            self.createFinalSharedVideo_done();
+            OC_ET.event("edvscr");
+          }
+        }
+      },
+
+      createFinalSharedVideo_done: function(){
+        alert('DONE!: '+this.model.get('videoURL'));
+
+      }
+
+      // function precheck_saved_mid(_callback, _callback_afterMidCreated){
+      //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
+      //   var checkedMid=(shareType=="shareVideo")?(savedMidObj.videoMid):(savedMidObj.photoMid);
+      //   if( checkedMid !=null && savedMidObj.body==curBody && savedMidObj.mask==curMask && savedMidObj.teamName==curTeamName  && savedMidObj.teamNum==curTeamNum){
+      //     OC_Social.setFacebookPost(checkedMid+'.3', null);
+      //     OC_Social.setTwitterPost(checkedMid+'.3', null);
+      //     OC_Social.setRenrenPost(checkedMid+'.3', null);
+      //     OC_Social.setWeiboPost(checkedMid+'.3', null);
+      //     OC_Social.setGoolePlusPost(checkedMid+'.3', null);
+      //     OC_Social.setEmailPost(checkedMid+'.2', null);
+      //     OC_Social.setGetUrlPost(checkedMid+'.3', null);
+      //     if(_callback) _callback();
+      //   }else{
+      //     createMessageId();
+      //   }
+        
+      //   function createMessageId(){
+          
+      //     var extradata = {};
+      //       extradata.isVideo = (shareType=="shareVideo");
+      //       extradata.jerseyNumber = curTeamNum;
+      //       extradata.surname = curTeamName;
+      //       extradata.contrast = curBody-1;
+      //       extradata.hairStyle = curMask-1;
+      //       extradata.lang=curLang;
+      //     OC.saveMessage(extradata, function(mid){
+      //       OC_ET.event("edsv"); //Messages created
+      //       loadFinalPhotos_from_mid(mid);
+      //     });
+      //   }
+      //   function loadFinalPhotos_from_mid(mid){
+      //     var allPhotos=new Object();
+      //     var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/php/api/playScene/doorId="  +OC_CONFIG.doorId +"/clientId=" +OC_CONFIG.clientId +"/mId=" +mid);
+      //     tmp = OC_Parser.getXmlDoc(tmp);
+      //     var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
+      //     var okTmp=OC_Parser.getXmlNode(tmp, 'assets');
+
+      //     if(errorTmp != null){
+      //       //alert("create message error");
+      //       openAlertWin("create message error");
+      //       hideProgress();
+      //     }else{
+      //       var tmp1 = OC_Parser.getXmlNode(okTmp, 'bg', 0);
+      //       var tmp2 = OC_Parser.getXmlNode(okTmp, 'bg', 1);
+      //       if(tmp2 ==null) {
+      //         var photoUrl1 = OC_Parser.getXmlNodeValue(tmp1);
+      //         updateShareLinks(mid, photoUrl1);
+      //       }else{
+      //         var photoName1 = OC_Parser.getXmlNodeAttribute(tmp1, 'name');
+      //         var photoUrl1 = OC_Parser.getXmlNodeValue(tmp1);
+      //         photoUrl1=decodeURIComponent(photoUrl1);
+      //         allPhotos[photoName1]=photoUrl1;
+              
+      //         var photoName2 = OC_Parser.getXmlNodeAttribute(tmp2, 'name');
+      //         var photoUrl2 = OC_Parser.getXmlNodeValue(tmp1);
+      //         photoUrl2=decodeURIComponent(photoUrl2);
+      //         allPhotos[photoName2]=photoUrl2;
+              
+      //         updateShareLinks(mid, allPhotos["profilePhoto"]);
+      //       }
+      //     }
+      //   }
+      //   function updateShareLinks(mid, snapshot){
+      //     OC_Social.setFacebookPost(mid+'.3', snapshot);
+      //     OC_Social.setTwitterPost(mid+'.3', snapshot);
+      //     OC_Social.setRenrenPost(mid+'.3', snapshot);
+      //     OC_Social.setWeiboPost(mid+'.3', snapshot);
+      //     OC_Social.setGoolePlusPost(mid+'.3', snapshot);
+      //     OC_Social.setEmailPost(mid+'.2', snapshot);
+      //     OC_Social.setGetUrlPost(mid+'.3', snapshot);
+          
+      //     if(shareType=="shareVideo"){
+      //       savedMidObj.videoMid=mid;
+      //     }else if(shareType=="sharePhoto"){
+      //       savedMidObj.photoMid=mid;
+      //     }
+      //     setTimeout( function() { 
+      //         hideProgress_fake(function(){
+      //           if(_callback_afterMidCreated) _callback_afterMidCreated();
+      //         });
+      //     }, 200);
+      //   }
       //++++++++++++++++++++++++++++++++++++++++++++++
     });
 

@@ -23,6 +23,10 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
             defaults: {
                 'tempImageURL':'',
                 'isTempImageCrossdomain':false,
+                'croppedImage':null,
+                // maybe this could be one - but I'm making it seperate for now, rendering and sharing...
+                'videoURL':null,
+                'shareVideoURL':null,
                 // different model structure for this probably
                 'UPLOAD_PHOTO':'UPLOAD PHOTO',
                 'terms_of_use':'terms of use',
