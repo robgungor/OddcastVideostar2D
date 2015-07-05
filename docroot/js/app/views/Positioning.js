@@ -221,7 +221,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
       createFinalSharedVideo_done: function(){
         alert('DONE!: '+this.model.get('videoURL'));
-
+        window.router.navigate('landing');
       }
 
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
