@@ -27,6 +27,28 @@
       width: 100%;
       height: 100%; }
 
+#positioning-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); }
+  #positioning-container #positioning button.next {
+    display: block;
+    bottom: 10px;
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-image: url("..img/assets/next.png");
+    background-size: 100%; }
+  #positioning-container #positioning .uploadPhoto_bg {
+    width: 400px;
+    height: 400px;
+    background-image: url("/manu-profile-photo/images/ipad/myImgBG.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+
 body {
   background: url("../img/common/bg_portrait.jpg") no-repeat top left;
   background-size: cover;
