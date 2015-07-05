@@ -60,7 +60,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         tempImg.crossOrigin="anonymous";
         tempImg.src = _url;
         tempImg.onload = function(){
-          self.tempImgLoaded(newImg);
+          self.tempImgLoaded(tempImg);
         }
       },
 
