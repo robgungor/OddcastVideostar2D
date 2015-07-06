@@ -105,7 +105,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
             canvas: document.getElementById('uploadFaceCanvas'),
             path: _canvasPath,
             guideCanvas: document.getElementById('uploadGuideCanvas'),
-            guidePath: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/face_mask.png',
+            guidePath: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/face_overlay.png',
           });
         }else{
           self.touchCanvas.freezeCanvas();
