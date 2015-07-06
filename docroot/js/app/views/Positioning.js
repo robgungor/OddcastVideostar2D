@@ -194,7 +194,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       createFinalSharedVideo_pulling: function(_sessionId) {
         var self = this;
 
-        var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
+        var tmp = OC_Utils.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
         tmp = OC_Parser.getXmlDoc(tmp);
         var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
         var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
@@ -256,7 +256,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       //   }
       //   function loadFinalPhotos_from_mid(mid){
       //     var allPhotos=new Object();
-      //     var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/php/api/playScene/doorId="  +OC_CONFIG.doorId +"/clientId=" +OC_CONFIG.clientId +"/mId=" +mid);
+      //     var tmp = OC_Utils.getUrl(OC_CONFIG.baseURL +"/php/api/playScene/doorId="  +OC_CONFIG.doorId +"/clientId=" +OC_CONFIG.clientId +"/mId=" +mid);
       //     tmp = OC_Parser.getXmlDoc(tmp);
       //     var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
       //     var okTmp=OC_Parser.getXmlNode(tmp, 'assets');
