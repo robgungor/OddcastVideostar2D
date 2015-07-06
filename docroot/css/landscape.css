@@ -77,6 +77,32 @@ button, a {
   #landing footer div img {
     width: 100%; }
 
+#landing {
+  height: 100vh; }
+  #landing #video-container {
+    height: 100%; }
+    #landing #video-container video {
+      max-height: calc(100% - 59px); }
+  #landing footer {
+    background-image: url(../img/landing/footer_bg_landscape.jpg);
+    background-size: cover;
+    position: absolute;
+    background-repeat: no-repeat;
+    bottom: 0;
+    width: 100%;
+    height: 59px;
+    overflow: hidden; }
+    #landing footer #star-in-this-video {
+      width: 222px;
+      padding: 6px;
+      margin: auto;
+      display: block; }
+    #landing footer #choose-video, #landing footer #share-video {
+      width: 50px;
+      position: relative;
+      top: -52px;
+      left: calc(100% - 108px); }
+
 #upload-container {
   width: 100vw;
   height: 100vh;
@@ -101,6 +127,12 @@ button, a {
       opacity: 0.000001;
       width: 100%;
       height: 100%; }
+
+#upload-container #upload #buttons div {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  display: inline-block; }
 
 #positioning {
   width: 100vw;
@@ -137,4 +169,4 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
-/*# sourceMappingURL=portrait.css.map */
+/*# sourceMappingURL=landscape.css.map */

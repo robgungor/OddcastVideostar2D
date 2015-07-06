@@ -6,22 +6,25 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       
     var Upload = Backbone.View.extend({
 
-      el: "section#upload-container",
+      el: "#upload-container",
 
       // View constructor
       initialize: function() {
           
         var self = this;     
         
-        self.render();
-
+        self.render();        
       },
         
       // View Event Handlers
       events: {
-        'change input': 'onFileInputChange'      
+        'change input': 'onFileInputChange',      
+        'click .close-x': 'onCloseXClicked',
       },            
 
+      close: function() {
+        this.$el.fadeOut().empty();
+      },
 
       // Renders the view's template to the UI
       render: function() {
@@ -30,10 +33,15 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         self.template = _.template(template, self.model.toJSON());
 
         // Dynamically updates the UI with the view's template
-        self.$el.html(self.template);
-      
+        self.$el.html(self.template).fadeIn();
+        
         return this;
-      },           
+      },    
+
+      onCloseXClicked: function(e) {        
+        e.preventDefault();
+        window.router.navigate('landing', true);
+      },     
       
       onFileInputChange: function (event) {
         
@@ -45,8 +53,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         var files = event.target.files;
 
         for (var i = 0; i < files.length; i++) {
-          if (files[i].type.match(/image.*/)) {
-            console.log(files[i]);
+          if (files[i].type.match(/image.*/)) {            
             self.upload(files[i]);
           }
         }

@@ -59,9 +59,8 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
 
             landing: function() {
                 
-
-                //hacky but it brute
-                //$('#bigshow').html();
+                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+               
                  // Instantiates a new view which will render the header text to the page                
                 this.loadView(new LandingView({model:this.model}));
             },
@@ -73,7 +72,7 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
 
             upload: function() {
                 if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
-              
+                console.log("ROUTING UPLOAD");
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadView({model:this.model}));
             },
@@ -86,7 +85,8 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
             },
 
             loadView : function(view) {
-                this.view && (this.view.close ? this.view.close() : this.view.remove());
+                //this.view && (this.view.close ? this.view.close() : this.view.remove());
+                if(this.view) this.view.close();
                 this.view = view;
             }
     

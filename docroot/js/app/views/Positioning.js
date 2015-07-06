@@ -6,7 +6,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       
     var Positioning = Backbone.View.extend({
 
-      el: "section#positioning-container",
+      el: "section#positioning",
       touchCanvas: null,
       // View constructor
       initialize: function() {
@@ -212,7 +212,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
           }else if(_status=="1"){
             //console.log(_status+"  "+_url);
             this.model.set({'shareVideoURL':_url, 'videoURL':_url});
-            //document.getElementById("shareVideo").src=_url;
+            //document.getElementById("share-video").src=_url;
             self.createFinalSharedVideo_done();
             OC_ET.event("edvscr");
           }
@@ -226,7 +226,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
       //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
-      //   var checkedMid=(shareType=="shareVideo")?(savedMidObj.videoMid):(savedMidObj.photoMid);
+      //   var checkedMid=(shareType=="share-video")?(savedMidObj.videoMid):(savedMidObj.photoMid);
       //   if( checkedMid !=null && savedMidObj.body==curBody && savedMidObj.mask==curMask && savedMidObj.teamName==curTeamName  && savedMidObj.teamNum==curTeamNum){
       //     OC_Social.setFacebookPost(checkedMid+'.3', null);
       //     OC_Social.setTwitterPost(checkedMid+'.3', null);
@@ -243,7 +243,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       //   function createMessageId(){
           
       //     var extradata = {};
-      //       extradata.isVideo = (shareType=="shareVideo");
+      //       extradata.isVideo = (shareType=="share-video");
       //       extradata.jerseyNumber = curTeamNum;
       //       extradata.surname = curTeamName;
       //       extradata.contrast = curBody-1;
@@ -295,7 +295,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       //     OC_Social.setEmailPost(mid+'.2', snapshot);
       //     OC_Social.setGetUrlPost(mid+'.3', snapshot);
           
-      //     if(shareType=="shareVideo"){
+      //     if(shareType=="share-video"){
       //       savedMidObj.videoMid=mid;
       //     }else if(shareType=="sharePhoto"){
       //       savedMidObj.photoMid=mid;

@@ -33,7 +33,9 @@ require.config({
 
       // "touchcanvas": "/libs/img-touch-canvas"
 
-      "img-get-img-data":"img-get-img-data.min.js"
+      "img-get-img-data":"img-get-img-data.min.js",
+
+      "backbone.touch":"../libs/plugins/backbone.touch.min.js"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -50,7 +52,9 @@ require.config({
         deps: ['jquery']
      },
       // Backbone.validateAll plugin that depends on Backbone
-      "backbone.validateAll": ["backbone"]
+      "backbone.validateAll": ["backbone"],
+
+      "backbone.touch":["backbone", "jquery", "underscore"]
       
   },
   // will not fail even with the slowest connection... dangerous??

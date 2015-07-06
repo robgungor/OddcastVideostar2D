@@ -1,0 +1,18 @@
+@import "upload";
+
+// _upload.scss
+#upload-container {
+  
+  #upload {
+  
+    #buttons {
+      
+      div {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        display: inline-block;   
+      }
+    }
+  }
+}

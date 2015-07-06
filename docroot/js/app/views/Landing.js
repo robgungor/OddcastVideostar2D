@@ -17,7 +17,7 @@ define(["jquery",
         var Landing = Backbone.View.extend( {
 
             // The DOM Element associated with this view
-            el: "main#landing",
+            el: "main#landing-container",
             sharing: null,
             // View constructor
             initialize: function() {
@@ -39,18 +39,15 @@ define(["jquery",
                 
             },
             
+            close: function() {
+              this.$el.fadeOut().empty();
+            },
+
             // View Event Handlers
             events: {
-              'click .poster-image': 'onVideoPreviewClick',
-              'click .email'  : 'onEmailShareClick',
-              'click .fb'     : 'onFbShareClick',
-              'click .twitter': 'onTwitterShareClick',              
-
-              'change input'  : 'onInputChange',
-              'keyup input'  : 'onInputChange',
-              'focus #tName'  : 'onToFocus',
-              'focus #fName'  : 'onFromFocus',        
-              'mousedown .video-select':'onVideoSelectClick',   
+              'click #star-in-this-video': 'onStarInThisVideoClicked',
+              'click #share-video': 'onShareVideoClicked',
+              'click #choose-video': 'onChooseVideoClicked',
 
               'orientationchange':'onOrientationChange'
             },     
@@ -64,68 +61,33 @@ define(["jquery",
                 // Dynamically updates the UI with the view's template
                 this.$el.html(this.template);
                 // $('#upload-container').html(_.template(uploadTemplate, this.model.toJSON()));
-                $('#video-preview').html(_.template(previewTemplate, this.model.toJSON()));
+                $('#video-container').empty().html(_.template(previewTemplate, this.model.toJSON()));
 
                 // first time, show this
                 $('.poster-image').css({opacity:1});
                 $('#video-loading-spinner').hide();
-
-                $('.snuggledotcom-logo').on('click', function(e){
-                    OC_ET.event("ce17");
-                });
+               
                 return this;
             },
             
-            onInputChange: function(e) {
-                var self = this;
-                
-                if( !self.checkForBadWords() ) self.updateInputValues();     
-            },
-
-            checkForBadWords: function(){
+            onStarInThisVideoClicked: function(e) {
+              e.preventDefault();
               var self = this;
-
-              var badWordsPresent = false;
-              // if either are true, set to true - otherwise it's false              
-              badWordsPresent = self.checkFieldForBadWords($('#tname')) || self.checkFieldForBadWords($('#fname'));
-              if(badWordsPresent) 
-              {
-                  self.renderBadWordsAlert();
-                  $('#alert').fadeIn(300);
-              }
-              return badWordsPresent;
+              window.router.navigate('upload', true);
             },
 
-            checkFieldForBadWords: function($field){
+            onShareVideoClicked: function(e) {
+              e.preventDefault();
               var self = this;
-
-              var badWordsPresent = self.model.badWords.isBadWord($field.val());              
-              if(badWordsPresent) $field.val('');             
-              return badWordsPresent;
+              window.router.navigate('share', true);
             },
 
-            renderBadWordsAlert: function() {
+            onChooseVideoClicked: function(e) {
+              e.preventDefault();
               var self = this;
-              if($('#alert')) $('#alert').remove();
-              $('body').append(_.template(alertTemplate, {'title':'Please use a different word.'}));
-              $('#bad-words-ok').on('click', function(e){ self.onBadWordsOkClick(e);});
+              window.router.navigate('choosevideo', true);
             },
-
-            onBadWordsOkClick: function(e){
-              $('#alert').fadeOut(300);
-            },
-
-            // on click of a thumbnail
-            onVideoPreviewClick: function(e) {
-                // prevent default actions
-                e.preventDefault();
-                
-                OC_ET.event("ce3");
-                if( this.model.get('namesHaveChanged') )this.loadAndPlayVideo();
-                else this.playVideo();
-                
-            },
-            
+                       
             loadAndPlayVideo: function() {
                 var self = this;
 
