@@ -174,7 +174,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
           var _img=self.model.get('croppedImage');
           var _extradata=escape("isVideo=true");
           
-          var tmp = OC_Utilities.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="  +OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
+          var tmp = OC_Utils.getUrl(OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="  +OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
           tmp = OC_Parser.getXmlDoc(tmp);
           var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
           var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
