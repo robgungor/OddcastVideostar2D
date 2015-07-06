@@ -97,6 +97,9 @@ button, a {
       padding: 6px;
       margin: auto;
       display: block; }
+      @media only screen and (max-width: 615px) {
+        #landing footer #star-in-this-video {
+          margin-left: 190px; } }
     #landing footer #choose-video, #landing footer #share-video {
       width: 50px;
       position: relative;
