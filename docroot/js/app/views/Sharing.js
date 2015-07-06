@@ -37,7 +37,24 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             
               return this;
           },           
-         
+          onEmailShareClick: function(e) {              
+            var self = this;              
+            //self.shareEmailInit();
+            window.router.navigate('share-email', true);
+          },
+
+          onFbShareClick: function(e) {
+            var self = this;
+            //self.shareFacebookInit();
+            window.router.navigate('share-facebook', true);
+          },
+
+          onTwitterShareClick: function(e) {
+            var self = this;        
+            //self.shareTwitterInit();
+            window.router.navigate('share-twitter', true);
+          },
+
           shareFacebookInit: function(){
               var self = this;        
               self.facebookShare.login();    
@@ -107,8 +124,9 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
                   OC_MessageSaver.saveMessage(self.model, {}, onMessageSaveComplete);
               }
 
-          }
+          },
 
+          
         });
 
         // Returns the View class

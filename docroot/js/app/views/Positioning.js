@@ -167,7 +167,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       
         setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },
-    
+      // do this in model?
       createFinalSharedVideo: function(){  
         var self = this;
                   

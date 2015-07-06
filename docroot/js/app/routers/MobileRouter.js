@@ -59,7 +59,7 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
 
             landing: function() {
                 
-                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+                if(this.model == null) return this.index();
                
                  // Instantiates a new view which will render the header text to the page                
                 this.loadView(new LandingView({model:this.model}));
@@ -71,14 +71,14 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
             },
 
             upload: function() {
-                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+                if(this.model == null) return this.index();
                 console.log("ROUTING UPLOAD");
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadView({model:this.model}));
             },
 
             positioning: function() {
-                if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+                if(this.model == null) return this.index();
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new PositioningView({model:this.model}));
