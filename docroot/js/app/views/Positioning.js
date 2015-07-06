@@ -208,7 +208,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
           //alert(_status);
           if(_status=="0"){
             //console.log(_status+"  "+_url);
-            setTimeout(function(){createFinalSharedVideo_pulling(_sessionId);}, 2*1000);
+            setTimeout(function(){self.createFinalSharedVideo_pulling(_sessionId);}, 2*1000);
           }else if(_status=="1"){
             //console.log(_status+"  "+_url);
             this.model.set({'shareVideoURL':_url, 'videoURL':_url});
