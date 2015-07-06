@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
         var Sharing = Backbone.View.extend({
 
           // The DOM Element associated with this view
-          //el: "sharing",
+          el: "#sharing-container",
           twitterShare: null,
           emailShare: null,
           facebookShare: null,
@@ -16,16 +16,25 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               
               var self = this;
 
-              self.twitterShare   = new ShareTwitter({model:self.model});
-              self.emailShare     = new ShareEmail({model:self.model});
-              self.facebookShare  = new ShareFacebook({model:self.model});
+              // self.twitterShare   = new ShareTwitter({model:self.model});
+              // self.emailShare     = new ShareEmail({model:self.model});
+              // self.facebookShare  = new ShareFacebook({model:self.model});
+              self.render();
           },
             
           // View Event Handlers
-          events: {           
+          events: {        
+            'click .close-x': 'onCloseXClicked',   
           },            
 
+          close: function() {
+            this.$el.fadeOut().empty();
+          },
 
+          onCloseXClicked: function(e) {        
+            e.preventDefault();
+            window.router.navigate('landing', true);
+          },     
           // Renders the view's template to the UI
           render: function() {
               
@@ -33,7 +42,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               this.template = _.template(template, {});
 
               // Dynamically updates the UI with the view's template
-              this.$el.html(this.template);
+              this.$el.html(this.template).fadeIn();
             
               return this;
           },           

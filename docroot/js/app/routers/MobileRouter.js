@@ -1,8 +1,8 @@
 // MobileRouter.js
 // ---------------
-define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "collections/Collection"],
+define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "views/Sharing", "collections/Collection"],
         
-    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, Collection) {
+    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, SharingView, Collection) {
 
         var MobileRouter = Backbone.Router.extend({
             model: null,
@@ -23,7 +23,8 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 "landing":"landing",
                 "bigshow":"bigshow",
                 "upload":"upload",
-                "positioning":"positioning"
+                "positioning":"positioning",
+                "sharing":"sharing"
 
 
             },
@@ -59,7 +60,7 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
 
             landing: function() {
                 
-                if(this.model == null) return this.index();
+                if(this.model == null) return this.navigate('', true);
                
                  // Instantiates a new view which will render the header text to the page                
                 this.loadView(new LandingView({model:this.model}));
@@ -71,17 +72,24 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
             },
 
             upload: function() {
-                if(this.model == null) return this.index();
-                console.log("ROUTING UPLOAD");
+                if(this.model == null) return this.navigate('', true);
+                
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadView({model:this.model}));
             },
 
             positioning: function() {
-                if(this.model == null) return this.index();
+                if(this.model == null) return this.navigate('', true);
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new PositioningView({model:this.model}));
+            },
+
+            sharing: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new SharingView({model:this.model}));
             },
 
             loadView : function(view) {

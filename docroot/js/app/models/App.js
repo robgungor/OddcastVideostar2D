@@ -30,7 +30,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 // different model structure for this probably
                 'UPLOAD_PHOTO':'UPLOAD PHOTO',
                 'terms_of_use':'terms of use',
-                'termsLink':'http://google.com'
+                'termsLink':'http://www.oddcast.com/terms_of_use/'
             },
 
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)

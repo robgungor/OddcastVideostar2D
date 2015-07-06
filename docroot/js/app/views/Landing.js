@@ -24,8 +24,7 @@ define(["jquery",
                 var self = this;
 
                 self.model.set( {'selectedVideo':'1', 'autoplay':''} );
-                self.model.set( {'hasChanged':true, 'namesHaveChanged':true} );
-                self.sharing = new Sharing( {model:this.model} );
+                self.model.set( {'hasChanged':true, 'namesHaveChanged':true} );                
                 
                 //self.model.set({'videoURL':'http://host-vd.oddcast.com/ccs7/tmp/APS/video/75/c6/75c622f1465ba12c3d297fe22ac056fb/75c622f1465ba12c3d297fe22ac056fb.mp4'});
 
@@ -78,8 +77,9 @@ define(["jquery",
 
             onShareVideoClicked: function(e) {
               e.preventDefault();
+              
               var self = this;
-              window.router.navigate('share', true);
+              window.router.navigate('sharing', true);
             },
 
             onChooseVideoClicked: function(e) {
