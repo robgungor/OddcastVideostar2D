@@ -6,7 +6,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       
     var Positioning = Backbone.View.extend({
 
-      el: "section#positioning",
+      el: "section#positioning-container",
       touchCanvas: null,
       // View constructor
       initialize: function() {
@@ -33,7 +33,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         self.template = _.template(template, self.model.toJSON());
 
         // Dynamically updates the UI with the view's template
-        self.$el.html(self.template);
+        self.$el.html(self.template).fadeIn();
       
         return this;
       },           

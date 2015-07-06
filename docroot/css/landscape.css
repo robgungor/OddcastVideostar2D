@@ -137,11 +137,11 @@ button, a {
   margin-bottom: 0;
   display: inline-block; }
 
-#positioning {
+#positioning-container {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75); }
-  #positioning button.next {
+  #positioning-container #positioning button.next {
     display: block;
     bottom: 10px;
     position: absolute;
@@ -149,7 +149,7 @@ button, a {
     height: 30px;
     background-image: url("../img/assets/next.png");
     background-size: 100%; }
-  #positioning .uploadPhoto_bg {
+  #positioning-container #positioning .uploadPhoto_bg {
     width: 400px;
     height: 400px;
     background-image: url("/manu-profile-photo/images/ipad/myImgBG.png");

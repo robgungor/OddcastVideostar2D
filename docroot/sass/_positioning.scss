@@ -1,27 +1,31 @@
 // positioning.scss
-#positioning {
-	width: 100vw;
+#positioning-container {
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,.75);
 
-  button.next { 
-    display: block;
-    bottom: 10px;
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background-image: url('../img/assets/next.png'); 
-    background-size: 100%;
-  }
+  #positioning {
+  	
 
-	.uploadPhoto_bg {
-    width: 400px;
-    height: 400px;
-    background-image: url('/manu-profile-photo/images/ipad/myImgBG.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    button.next { 
+      display: block;
+      bottom: 10px;
+      position: absolute;
+      width: 60px;
+      height: 30px;
+      background-image: url('../img/assets/next.png'); 
+      background-size: 100%;
+    }
+
+  	.uploadPhoto_bg {
+      width: 400px;
+      height: 400px;
+      background-image: url('/manu-profile-photo/images/ipad/myImgBG.png');
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
   }
 }
