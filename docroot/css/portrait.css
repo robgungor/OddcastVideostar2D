@@ -210,8 +210,10 @@ button, a {
     position: absolute;
     width: 60px;
     height: 30px;
+    background-color: transparent;
     background-image: url("../img/assets/next.png");
-    background-size: 100%; }
+    background-size: 100%;
+    border: 0; }
   #positioning-container #positioning .uploadPhoto_bg {
     width: 400px;
     height: 400px;
