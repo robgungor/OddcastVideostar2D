@@ -58,11 +58,11 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         OC_ET.event("edbgu");
       },
 
-      preloadTempImage: function(_url) {
+      preloadTempImage: function(_url, useCrossOrigin) {
         var self = this;
 
         var tempImg = document.createElement("img");
-        tempImg.crossOrigin="anonymous";
+        if(useCrossOrigin) tempImg.crossOrigin="anonymous";
         tempImg.src = _url;
         tempImg.onload = function(){
           self.tempImgLoaded(tempImg);
