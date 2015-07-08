@@ -62,7 +62,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         var self = this;
 
         var tempImg = document.createElement("img");
-        if(useCrossOrigin) tempImg.crossOrigin="anonymous";
+        //if(useCrossOrigin) tempImg.crossOrigin="anonymous";
         tempImg.src = _url;
         tempImg.onload = function(){
           self.tempImgLoaded(tempImg);
