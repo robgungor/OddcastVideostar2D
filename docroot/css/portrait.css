@@ -57,13 +57,31 @@ button, a {
   -webkit-tap-highlight-color: transparent; }
 
 .close-x {
-  width: 50px;
+  width: 40px;
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 1000; }
   .close-x img {
     width: 100%; }
+
+button.next, button.back {
+  display: block;
+  position: absolute;
+  width: 90px;
+  height: 45px;
+  background-color: transparent;
+  background-size: 100%;
+  border: 0; }
+
+button.next {
+  bottom: 10px;
+  right: 10px;
+  background-image: url("../img/assets/next.png"); }
+
+button.back {
+  top: 10px;
+  background-image: url("../img/assets/back.png"); }
 
 #landing video {
   width: 100%; }
@@ -237,16 +255,6 @@ button, a {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
   display: none; }
-  #positioning-container #positioning button.next {
-    display: block;
-    bottom: 10px;
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background-color: transparent;
-    background-image: url("../img/assets/next.png");
-    background-size: 100%;
-    border: 0; }
   #positioning-container #positioning .uploadPhoto_bg {
     width: 400px;
     height: 400px;
