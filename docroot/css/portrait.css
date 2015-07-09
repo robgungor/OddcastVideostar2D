@@ -195,6 +195,8 @@ button, a {
     display: inline-block;
     width: 30%;
     max-width: 160px; }
+    #choose-video-container #choose-video #buttons div img {
+      width: 100%; }
 
 #upload-container {
   width: 100vw;
