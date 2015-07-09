@@ -85,7 +85,7 @@ define(["jquery",
             onChooseVideoClicked: function(e) {
               e.preventDefault();
               var self = this;
-              window.router.navigate('choosevideo', true);
+              window.router.navigate('choose-video', true);
             },
                        
             loadAndPlayVideo: function() {
