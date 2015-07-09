@@ -35,9 +35,13 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
           onVideoSelectClicked: function(e) {        
             e.preventDefault();
             var selected = e.currentTarget.id.split('video-').join('');
-            
-            console.log(selected);
-            // window.router.navigate('landing', true);
+
+            this.model.set({'selectedVideo':selected});
+            //TODO - check if there has been an uploaded head and generate new video 
+            // else {
+            this.model.set({'videoURL':'videos/'+selected+'.mp4'});
+            //}
+            window.router.navigate('landing', true);
           },     
           // Renders the view's template to the UI
           render: function() {
