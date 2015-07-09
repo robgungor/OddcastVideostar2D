@@ -40,7 +40,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       onNextClicked: function(e) {
         var self = this;
         
-        self.drawFinalFace_mask();
+        //self.drawFinalFace_mask();
+        window.router.navigate('landing', true);
+        
       },
       //TODO - REFACTOR THIS SECTION
       prepareImageForPositioning: function() {

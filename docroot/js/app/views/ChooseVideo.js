@@ -36,8 +36,7 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
             e.preventDefault();
             var s = e.currentTarget.id.split('video-').join('');
 
-            this.model.set({'selectedVideo':s});
-            console.log("CHOOSE VIDEO: "+this.model.get('selectedVideo'));
+            this.model.set({'selectedVideo':s});            
             //TODO - check if there has been an uploaded head and generate new video 
             // else {
             this.model.set({'videoURL':'videos/'+s+'.mp4'});
