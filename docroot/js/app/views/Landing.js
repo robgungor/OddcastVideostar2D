@@ -59,6 +59,8 @@ define(["jquery",
 
                 // Dynamically updates the UI with the view's template
                 this.$el.html(this.template);
+
+                console.log("LANDING selected video: "+this.model.get('selectedVideo'));
                 // $('#upload-container').html(_.template(uploadTemplate, this.model.toJSON()));
                 $('#video-container').empty().html(_.template(previewTemplate, this.model.toJSON()));
 
