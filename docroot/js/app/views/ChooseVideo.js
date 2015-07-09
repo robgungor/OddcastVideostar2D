@@ -34,7 +34,9 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
 
           onVideoSelectClicked: function(e) {        
             e.preventDefault();
-            console.log(e);
+            var selected = e.currentTarget.id.split('video-').join('');
+            
+            console.log(selected);
             // window.router.navigate('landing', true);
           },     
           // Renders the view's template to the UI
