@@ -10,7 +10,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             settings: null,
             app: null,      
             // Model Constructor
-            initialize: function() {
+            initialize: function(options) {
                 this.config = options.config;     
                 this.settings = options.settings;
                 this.app = options.app;
