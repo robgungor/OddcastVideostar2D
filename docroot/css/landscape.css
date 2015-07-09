@@ -117,6 +117,8 @@ button, a {
   #sharing-container #sharing h1 {
     margin-bottom: 10px; }
   #sharing-container #sharing #buttons div {
+    width: 100px;
+    margin: auto;
     margin-bottom: 10px; }
 
 #sharing-facebook #friend-selection {
