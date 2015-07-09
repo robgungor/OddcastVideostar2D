@@ -25,7 +25,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         'click .next':'onNextClicked'    
       },            
 
-      
+
       // Renders the view's template to the UI
       render: function() {
         var self = this;
@@ -42,7 +42,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         
         //self.drawFinalFace_mask();
         window.router.navigate('landing', true);
-        
+
       },
       //TODO - REFACTOR THIS SECTION
       prepareImageForPositioning: function() {
@@ -107,7 +107,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
             canvas: document.getElementById('uploadFaceCanvas'),
             path: _canvasPath,
             guideCanvas: document.getElementById('uploadGuideCanvas'),
-            guidePath: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/face_overlay.png',
+            guidePath: OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/positioning/face_overlay.png',
           });
         }else{
           self.touchCanvas.freezeCanvas();
@@ -120,7 +120,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
         var maskImg = new Image();
         maskImg.crossOrigin="anonymous";
-        maskImg.src = OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/face_mask.png';
+        maskImg.src = OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/positioning/face_mask.png';
         maskImg.onload = function() {
           var cMask = document.getElementById("finalMaskCanvas");
           var cMaskTX = cMask.getContext("2d");
