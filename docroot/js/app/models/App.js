@@ -2,7 +2,7 @@
 // --------
 define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "services/Facebook"],
 
-    function($, Backbone, Names, Settings, BadWords) {
+    function($, Backbone, Names, Settings, BadWords, FacebookService) {
 
         // Creates a new Backbone Model class object
         var App = Backbone.Model.extend({
@@ -16,7 +16,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
             initialize: function(options) {                
                 this.settings   = new Settings(     {config:options.config});            
                 this.badWords   = new BadWords([],  {config:options.config})
-                this.facebook   = new Facebook( {config:options.config, settings:this.settings, app:this});
+                this.facebook   = new FacebookService( {config:options.config, settings:this.settings, app:this});
                 this.config     = options.config;
             },
 
