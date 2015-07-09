@@ -11,11 +11,12 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
             settings: null,            
             friends: null,
             badWords: null,
+            facebook: null,
             // Model Constructor
             initialize: function(options) {                
                 this.settings   = new Settings(     {config:options.config});            
                 this.badWords   = new BadWords([],  {config:options.config})
-
+                this.facebook   = new Facebook( {config:options.config, settings:this.settings, app:this});
                 this.config     = options.config;
             },
 

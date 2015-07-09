@@ -6,10 +6,14 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
         
         var Facebook = Backbone.Model.extend({
 
-
+            config: null,
+            settings: null,
+            app: null,      
             // Model Constructor
             initialize: function() {
-                
+                this.config = options.config;     
+                this.settings = options.settings;
+                this.app = options.app;
             },
 
             // Default values for all of the Model attributes
@@ -31,11 +35,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                     /*display: 'touch',*/
                     method: 'feed',
                     //link: this._fbPost.link,
-                    link: "http://host-d.oddcast.com/fbrd.html?ocu=" +encodeURIComponent(self.model.getMessageLink()),
-                    picture: self.model.settings.get('FACEBOOK_POST_IMAGE_URL'), 
-                    name: self.model.settings.get('FACEBOOK_POST_NAME'), 
-                    caption: self.model.settings.get('FACEBOOK_POST_CAPTION'), 
-                    description: self.model.settings.get('FACEBOOK_POST_DESCRIPTION'),
+                    link: "http://host-d.oddcast.com/fbrd.html?ocu=" +encodeURIComponent(self.app.getMessageLink()),
+                    picture: self.settings.get('FACEBOOK_POST_IMAGE_URL'), 
+                    name: self.settings.get('FACEBOOK_POST_NAME'), 
+                    caption: self.settings.get('FACEBOOK_POST_CAPTION'), 
+                    description: self.settings.get('FACEBOOK_POST_DESCRIPTION'),
                     to: friendID
                 };
 
@@ -56,8 +60,8 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             },
 
             onPostedToFacebook: function(event){
-                $('.share-in').fadeOut();
-                $('.share-result').fadeIn();
+                // $('.share-in').fadeOut();
+                // $('.share-result').fadeIn();
             },
 
             //facebook api loading in... 
@@ -126,11 +130,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             onConnected: function (user_id, response) {
                 var self = this;
 
-                self.model.set({'FBuserId':user_id});
+                self.set({'FBuserId':user_id});
                 if (user_id == null || user_id == undefined) {
                 }
                 else {
-                    self.model.set({'FBAccessToken':response.authResponse.accessToken});
+                    self.set({'FBAccessToken':response.authResponse.accessToken});
                     self.getFriendsInfo(true);
                 }
             },
@@ -154,14 +158,17 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             if fbcRequiredApplicationPermissions is defined. fbcRequiredApplicationPermissions can be set from application attributes.
             */
             login: function() {
+                var self = this;
+
                 // if we have already logged in and have a friends list don't login
-                if(this.model.get('FBuserId') && this.model.get('friends')) {
+                //if(self.get('FBuserId') && self.get('friends')) {
+                if(self.get('FBuserId')) {
                     $('#main-loading-spinner').fadeOut(300);
                     return;
                 }
 
                 //http://developers.facebook.com/docs/authentication/permissions
-                var self = this;
+                
                 var strPermissions = "";
                 //User related permissions  
                 //user_about_me is appended at the end
