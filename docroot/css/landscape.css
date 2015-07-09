@@ -220,7 +220,7 @@ button, a {
     background-image: url("../img/assets/next.png");
     background-size: 100%;
     border: 0; }
-  #choose-video-container #choose-video .buttons div {
+  #choose-video-container #choose-video #buttons div {
     display: inline-block;
     width: 30%;
     max-width: 160px; }
