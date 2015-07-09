@@ -17,10 +17,20 @@
     #buttons {
       
       div {
-        margin-bottom: 10px;    
+        margin-bottom: 20px;    
+        width: 90px;
+        height: 90px;
+
+        img {
+          width: 100%;
+        }
       }
     }
   	
+    #terms  {
+      font-size: 20px;
+      font-weight: 100;
+    }
     #camera-button-wrap {
   		background: url(../img/upload/camera.png);
   		background-size: 100%;

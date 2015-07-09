@@ -25,7 +25,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         'click .next':'onNextClicked'    
       },            
 
-
+      
       // Renders the view's template to the UI
       render: function() {
         var self = this;
@@ -225,7 +225,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         alert('DONE!: '+this.model.get('videoURL'));
         window.router.navigate('landing');
       }
-
+      close: function() {
+        this.$el.fadeOut().empty();
+      },
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
       //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
       //   var checkedMid=(shareType=="share-video")?(savedMidObj.videoMid):(savedMidObj.photoMid);
