@@ -23,8 +23,8 @@ define(["jquery",
             initialize: function() {
                 var self = this;
 
-                self.model.set( {'selectedVideo':'1', 'autoplay':''} );
-                self.model.set( {'hasChanged':true, 'namesHaveChanged':true} );                
+                // self.model.set( {'selectedVideo':'1', 'autoplay':''} );
+                // self.model.set( {'hasChanged':true, 'namesHaveChanged':true} );                
                 
                 //self.model.set({'videoURL':'http://host-vd.oddcast.com/ccs7/tmp/APS/video/75/c6/75c622f1465ba12c3d297fe22ac056fb/75c622f1465ba12c3d297fe22ac056fb.mp4'});
 
@@ -61,6 +61,7 @@ define(["jquery",
                 this.$el.html(this.template);
 
                 console.log("LANDING selected video: "+this.model.get('selectedVideo'));
+                console.log("LANDING  video: "+this.model.get('selectedVideo'));
                 // $('#upload-container').html(_.template(uploadTemplate, this.model.toJSON()));
                 $('#video-container').empty().html(_.template(previewTemplate, this.model.toJSON()));
 
