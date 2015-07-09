@@ -107,9 +107,12 @@ button.back {
   #sharing-container #sharing h1 {
     margin-bottom: 10px; }
   #sharing-container #sharing #buttons div {
-    width: 100px;
     margin: auto;
-    margin-bottom: 10px; }
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px; }
+    #sharing-container #sharing #buttons div img {
+      width: 100%; }
 
 #sharing-facebook #friend-selection {
   margin-top: 50px; }
