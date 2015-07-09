@@ -8,23 +8,19 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
 
           // The DOM Element associated with this view
           el: "#choose-video-container",
-          twitterShare: null,
-          emailShare: null,
-          facebookShare: null,
+          
           // View constructor
           initialize: function() {
               
               var self = this;
-
-              // self.twitterShare   = new ShareTwitter({model:self.model});
-              // self.emailShare     = new ShareEmail({model:self.model});
-              // self.facebookShare  = new ShareFacebook({model:self.model});
+           
               self.render();
           },
             
           // View Event Handlers
           events: {        
-            'click .close-x': 'onCloseXClicked',   
+            'click .close-x': 'onCloseXClicked',
+            'click .video-select': 'onVideoSelectClicked',   
           },            
 
           close: function() {
@@ -34,6 +30,12 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
           onCloseXClicked: function(e) {        
             e.preventDefault();
             window.router.navigate('landing', true);
+          },   
+
+          onVideoSelectClicked: function(e) {        
+            e.preventDefault();
+            console.log(e);
+            // window.router.navigate('landing', true);
           },     
           // Renders the view's template to the UI
           render: function() {
