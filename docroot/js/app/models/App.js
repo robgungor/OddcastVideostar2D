@@ -1,6 +1,6 @@
 // Model.js
 // --------
-define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords"],
+define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "services/Facebook"],
 
     function($, Backbone, Names, Settings, BadWords) {
 
