@@ -27,10 +27,12 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 // maybe this could be one - but I'm making it seperate for now, rendering and sharing...
                 'videoURL':'../video/1.mp4',
                 'shareVideoURL':null,
+                'selectedVideo':null,
                 // different model structure for this probably
                 'UPLOAD_PHOTO':'UPLOAD PHOTO',
                 'terms_of_use':'terms of use',
-                'termsLink':'http://www.oddcast.com/terms_of_use/'
+                'termsLink':'http://www.oddcast.com/terms_of_use/',
+                
             },
 
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
