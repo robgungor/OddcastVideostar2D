@@ -229,6 +229,7 @@ button.back {
   #upload-container #upload h1 {
     margin-bottom: 10px; }
   #upload-container #upload #buttons div {
+    margin: auto;
     margin-bottom: 20px;
     width: 90px;
     height: 90px; }
