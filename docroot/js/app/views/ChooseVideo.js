@@ -34,12 +34,13 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
 
           onVideoSelectClicked: function(e) {        
             e.preventDefault();
-            var selected = e.currentTarget.id.split('video-').join('');
+            var s = e.currentTarget.id.split('video-').join('');
 
-            this.model.set({'selectedVideo':selected});
+            this.model.set({'selectedVideo':s});
+            console.log("CHOOSE VIDEO: "+this.model.get('selectedVideo'));
             //TODO - check if there has been an uploaded head and generate new video 
             // else {
-            this.model.set({'videoURL':'videos/'+selected+'.mp4'});
+            this.model.set({'videoURL':'videos/'+s+'.mp4'});
             //}
             window.router.navigate('landing', true);
           },     
