@@ -106,6 +106,128 @@ button, a {
       top: -52px;
       left: calc(100% - 108px); }
 
+#sharing-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  #sharing-container #sharing h1 {
+    margin-bottom: 10px; }
+  #sharing-container #sharing #buttons div {
+    margin-bottom: 10px; }
+
+#sharing-facebook #friend-selection {
+  margin-top: 50px; }
+  @media screen and (min-device-width: 375px) {
+    #sharing-facebook #friend-selection {
+      margin-top: 19px; } }
+  @media screen and (min-device-width: 414px) {
+    #sharing-facebook #friend-selection {
+      margin-top: 30px; } }
+  #sharing-facebook #friend-selection nav button {
+    position: absolute;
+    top: 50%;
+    width: 26px;
+    height: 30px;
+    border: 0;
+    margin-top: -15px;
+    outline: none; }
+    #sharing-facebook #friend-selection nav button#move-right {
+      background: url("../img/common/arrow-right@2x.png") no-repeat;
+      background-size: 100%;
+      right: 3px; }
+    #sharing-facebook #friend-selection nav button#move-left {
+      background: url("../img/common/arrow-left@2x.png") no-repeat;
+      background-size: 100%;
+      left: 3px; }
+  #sharing-facebook #friend-selection #back {
+    position: absolute;
+    bottom: 31px;
+    width: 80px;
+    height: 25px;
+    background: url("../img/common/back-button@2x.png") no-repeat;
+    background-size: 100%;
+    border: 0;
+    margin-left: -40px; }
+  #sharing-facebook #friend-selection #friend-wrap {
+    position: absolute;
+    left: 35px;
+    width: calc(100vw - 70px);
+    overflow: hidden;
+    overflow-x: scroll;
+    height: calc(100vh - 142px);
+    margin-top: 15px; }
+    @media screen and (min-device-width: 414px) {
+      #sharing-facebook #friend-selection #friend-wrap {
+        width: calc(100vw - 100px);
+        left: 53px; } }
+    #sharing-facebook #friend-selection #friend-wrap #friend-container {
+      position: absolute; }
+      #sharing-facebook #friend-selection #friend-wrap #friend-container .page {
+        float: left;
+        width: calc(100vw - 45px); }
+        @media screen and (min-device-width: 414px) {
+          #sharing-facebook #friend-selection #friend-wrap #friend-container .page {
+            width: calc(100vw - 79px); } }
+        #sharing-facebook #friend-selection #friend-wrap #friend-container .page .col {
+          float: left;
+          width: calc(33vw - 39px);
+          margin-right: 25px; }
+          @media screen and (min-device-width: 414px) {
+            #sharing-facebook #friend-selection #friend-wrap #friend-container .page .col {
+              width: calc(33vw - 50px); } }
+        #sharing-facebook #friend-selection #friend-wrap #friend-container .page .friend {
+          position: relative;
+          float: left;
+          margin-bottom: 25px;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          /* future proofing */
+          -khtml-border-radius: 5px;
+          /* for old Konqueror browsers */
+          width: 100%;
+          background-size: cover;
+          padding-bottom: 100%; }
+        #sharing-facebook #friend-selection #friend-wrap #friend-container .page .thumb {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          -khtml-border-radius: 5px;
+          background-size: cover;
+          padding-bottom: 100%; }
+
+#choose-video-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none; }
+  #choose-video-container #choose-video button.next {
+    display: block;
+    bottom: 10px;
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url("../img/assets/next.png");
+    background-size: 100%;
+    border: 0; }
+  #choose-video-container #choose-video .uploadPhoto_bg {
+    width: 400px;
+    height: 400px;
+    background-image: url("/manu-profile-photo/images/ipad/myImgBG.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+
 #upload-container {
   width: 100vw;
   height: 100vh;

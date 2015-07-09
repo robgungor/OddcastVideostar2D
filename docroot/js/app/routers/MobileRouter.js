@@ -1,8 +1,8 @@
 // MobileRouter.js
 // ---------------
-define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "views/Sharing", "collections/Collection"],
+define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "views/Sharing", "views/ChooseVideo", "collections/Collection"],
         
-    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, SharingView, Collection) {
+    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, SharingView, ChooseVideoView, Collection) {
 
         var MobileRouter = Backbone.Router.extend({
             model: null,
@@ -24,7 +24,8 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 "bigshow":"bigshow",
                 "upload":"upload",
                 "positioning":"positioning",
-                "sharing":"sharing"
+                "sharing":"sharing",
+                "choose-video":"chooseVideo",
 
 
             },
@@ -90,6 +91,14 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new SharingView({model:this.model}));
+            },
+
+
+            chooseVideo: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new ChooseVideoView({model:this.model}));
             },
 
             loadView : function(view) {

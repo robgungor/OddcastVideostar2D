@@ -174,6 +174,31 @@ button, a {
           background-size: cover;
           padding-bottom: 100%; }
 
+#choose-video-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none; }
+  #choose-video-container #choose-video button.next {
+    display: block;
+    bottom: 10px;
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: transparent;
+    background-image: url("../img/assets/next.png");
+    background-size: 100%;
+    border: 0; }
+  #choose-video-container #choose-video .uploadPhoto_bg {
+    width: 400px;
+    height: 400px;
+    background-image: url("/manu-profile-photo/images/ipad/myImgBG.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+
 #upload-container {
   width: 100vw;
   height: 100vh;
