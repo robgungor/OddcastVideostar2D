@@ -27,7 +27,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 // maybe this could be one - but I'm making it seperate for now, rendering and sharing...
                 'videoURL':'videos/1.mp4',
                 'shareVideoURL':null,
-                'selectedVideo':null,
+                'selectedVideo':'1',
                 // different model structure for this probably
                 'UPLOAD_PHOTO':'UPLOAD PHOTO',
                 'terms_of_use':'terms of use',
