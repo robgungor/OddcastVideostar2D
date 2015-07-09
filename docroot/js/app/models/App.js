@@ -25,7 +25,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 'isTempImageCrossdomain':false,
                 'croppedImage':null,
                 // maybe this could be one - but I'm making it seperate for now, rendering and sharing...
-                'videoURL':'../videos/1.mp4',
+                'videoURL':'videos/1.mp4',
                 'shareVideoURL':null,
                 'selectedVideo':null,
                 // different model structure for this probably
