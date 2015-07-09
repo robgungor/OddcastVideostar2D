@@ -27,7 +27,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
             validate: function(attrs) {
 
-            }
+            },
 
             postToFacebook : function (friendID) {
                 var self = this;
