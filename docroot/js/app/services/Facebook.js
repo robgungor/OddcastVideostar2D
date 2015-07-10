@@ -313,7 +313,9 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 
                 strFQL += ' ORDER BY name DESC ' +strQueryLimit;
                                 
-                self.processFqlRequest(strFQL, function(result){ self.onGotFriendsInfo(result); });
+                self.processFqlRequest(strFQL, function(result){ 
+                    self.onGotFriendsInfo(result); 
+                });
             },
 
             loadPhotos: function(cb) {
@@ -371,10 +373,12 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                     
                 var strFQL = 'SELECT ' +strFQLfields +' FROM photo WHERE aid IN ';
                 strFQL += ' ( SELECT aid FROM album WHERE owner=\'' +requestedId +'\' )';
-                //strFQL += ' AND strlen(src_big)>7 ';  
+                strFQL += ' AND strlen(src_big)>7 ';  
                 strFQL += ' ORDER BY created DESC ' +strQueryLimit;
                 
-                self.processFqlRequest(strFQL, function(result){ self.setPicturesFromAlbums(result); });
+                self.processFqlRequest(strFQL, function(result){ 
+                    self.setPicturesFromAlbums(result); 
+                });
             },
 
             setPicturesFromAlbums: function (result){
