@@ -62,7 +62,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('#photo-wrap').on('scrollstop', function(e){ self.onScrollStop(e); });
                 $('#photo-wrap').on('scroll', function(e){ self.onScroll(e); });
                 
-                self.renderPhotos();
+                if(self.model.facebook.get('photos')) self.renderPhotos();
 
                 return this;
             },
