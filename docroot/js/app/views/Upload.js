@@ -12,7 +12,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       initialize: function() {
           
         var self = this;     
-        
+        _.bindAll(self, 'onFileInputChange');
         self.render();        
       },
         
