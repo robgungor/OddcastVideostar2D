@@ -328,6 +328,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 else $('#move-right').show();
             },
 
+            close: function() {
+                this.$el.fadeOut().empty();
+            },
             
         });
 
