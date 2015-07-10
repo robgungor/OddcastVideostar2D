@@ -1,6 +1,6 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html", "text!templates/friend.html", 'collections/Friends'],
+define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html", "text!templates/photo.html", 'collections/FBPhotos'],
 
     function($, Backbone, Model, template, friendTemplate, Friends){
         
@@ -155,10 +155,23 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             
             onPhotoClick: function(e) {                
                 var self = this;
-                // var friendID = $(e.currentTarget).attr('data-id');
+                var id = $(e.currentTarget).attr('data-id');
                 // self.postToFacebook(friendID);
                 $('#photo-selection').fadeOut();
                 $('.share-result').fadeIn();
+
+
+
+                // function choosePhotoThumb(_id, _fromWhichSN){
+                //     var curPhotoUrl=(_fromWhichSN=="fb")?(fbPhotos[_id-1].photoUrl):(gpPhotos[_id-1].photoUrl);
+                //     OC_ET.event((_fromWhichSN=="fb")?"ce7":"ce8");
+                //     closePopwin("popwin_selectPhoto");
+                //     upload_image_to_touchCanvas(curPhotoUrl, null, (curLang=="cn")?(true):(false));
+                // }
+                var url = "";
+                self.model.set({'tempImageURL':url});
+
+
             },
 
 
