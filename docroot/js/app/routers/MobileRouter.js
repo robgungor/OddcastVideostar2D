@@ -141,7 +141,7 @@ define(["jquery",
 
             loadView : function(view) {
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
-                if(this.view) this.view.close();
+                if(this.view && this.view.close) this.view.close();
                 this.view = view;
             }
     

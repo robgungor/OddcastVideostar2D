@@ -32,7 +32,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 'click .photo'              :'onPhotoClick',
                 'click #move-right'         :'onRightClick',
                 'click #move-left'          :'onLeftClick',
-                'click #back'               :'onBackClick',                
+                'click .back'               :'onBackClick',                
                 'swipe'                     :'onSwipe',
                 'dragEnd'                   :'onSwipe',
                 'click #test'               : 'testPhotoUpload',
@@ -207,8 +207,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             },
 
             onBackClick : function(e) {
-                this.$el.fadeOut(200);
-                $('main').fadeIn();
+                window.navigate('upload', true);
             },
 
             onScrollStop: function(e) {

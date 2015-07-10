@@ -275,15 +275,6 @@ button.back {
       background: url("../img/common/arrow-left@2x.png") no-repeat;
       background-size: 100%;
       left: 3px; }
-  #upload-facebook-container #fb-photo-selection #back {
-    position: absolute;
-    bottom: 31px;
-    width: 80px;
-    height: 25px;
-    background: url("../img/common/back-button@2x.png") no-repeat;
-    background-size: 100%;
-    border: 0;
-    margin-left: -40px; }
   #upload-facebook-container #fb-photo-selection #photo-wrap {
     position: absolute;
     left: 35px;
