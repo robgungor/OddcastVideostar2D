@@ -17,7 +17,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               var self = this;
 
               //MAKE SURE TO REMOVE THIS AFTER BETA
-              self.set({'mId':'123456'});
+              self.model.set({'mId':'123456'});
               self.render();
           },
             
