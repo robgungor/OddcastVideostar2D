@@ -48,9 +48,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 self.template = _.template(template, {shareMethod:'Facebook'});
 
                 // Dynamically updates the UI with the view's template
-                self.$el.html(self.template);
-
-                $('.share-result').hide();
+                self.$el.html(self.template).fadeIn();                
 
                 $('#ok').on("click", function(e){
                     self.onOKClick(e);
