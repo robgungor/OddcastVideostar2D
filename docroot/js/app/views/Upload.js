@@ -19,7 +19,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       // View Event Handlers
       events: {
         'change input': 'onFileInputChange',      
-        'click .close-x': 'onCloseXClicked',
+        'click .close-x': 'onCloseXClicked',        
         'click #facebook': 'onFacebookClicked',
       },            
 

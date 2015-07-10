@@ -22,9 +22,10 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       // View Event Handlers
       events: {
         // 'change input': 'onFileInputChange'  
-        'click .next':'onNextClicked'    
-      },            
-
+        'click .next':'onNextClicked', 
+        'click .back': 'onBackClicked',
+        'route:positioning': 'render'
+      },                 
 
       // Renders the view's template to the UI
       render: function() {
