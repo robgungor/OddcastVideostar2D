@@ -321,9 +321,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 if(self.get('FBuserId')) {
                    self.getPicturesFromAlbums();
                 } else {
+
                     self.onConnectedCallback = function() {
                         self.getPicturesFromAlbums();
                     }
+                    self.login();
                 }
             },
 
