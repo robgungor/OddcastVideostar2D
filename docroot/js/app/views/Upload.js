@@ -20,6 +20,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       events: {
         'change input': 'onFileInputChange',      
         'click .close-x': 'onCloseXClicked',
+        'click #facebook': 'onFacebookClicked',
       },            
 
       close: function() {
@@ -37,6 +38,11 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         
         return this;
       },    
+
+      onFacebookClicked: function(e) {        
+        e.preventDefault();
+        window.router.navigate('upload-facebook', true);
+      },     
 
       onCloseXClicked: function(e) {        
         e.preventDefault();

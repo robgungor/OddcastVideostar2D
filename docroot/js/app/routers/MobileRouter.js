@@ -51,6 +51,7 @@ define(["jquery",
                 "sharing":"sharing",
                 "choose-video":"chooseVideo",
                 "share-facebook":"shareFacebook",
+                "upload-facebook":"uploadFacebook",
 
             },
 
