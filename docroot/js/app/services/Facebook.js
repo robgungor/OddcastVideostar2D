@@ -1,8 +1,8 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html", "text!templates/friend.html", 'collections/Friends'],
+define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html", "text!templates/friend.html", 'collections/Friends', 'collections/FBPhotos'],
 
-    function($, Backbone, Model, template, friendTemplate, Friends){
+    function($, Backbone, Model, template, friendTemplate, Friends, FBPhotos){
         
         var Facebook = Backbone.Model.extend({
 
@@ -320,7 +320,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                         self.getPicturesFromAlbums();
                     }
                 }
-            }
+            },
 
             /*
             Function: fbcGetPicturesFromAlbums
@@ -365,28 +365,32 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 strFQL += ' ORDER BY created DESC ' +strQueryLimit;
                 
                 self.processFqlRequest(strFQL, function(result){ self.setPicturesFromAlbums(result); });
-             
             },
 
             setPicturesFromAlbums: function (result){
             //console.log("fbcSetUserPictures: ");
             //console.log(result)
 
-                fbPhotos=new Array();
-                fbPhotos.loadedThumbs=0;
-                for(i=0; i<result.length; i++){
+                // fbPhotos=new Array();
+                // fbPhotos.loadedThumbs=0;
+                // for(i=0; i<result.length; i++){
 
-                    var strBig = result[i]['src_big']
-                    var strSmall = result[i]['src_small']   
+                //     var strBig = result[i]['src_big']
+                //     var strSmall = result[i]['src_small']   
 
-                    console.log("strBig:" +strBig +" small:" +strSmall)
+                //     console.log("strBig:" +strBig +" small:" +strSmall)
                     
-                    var fbPhotoObj=new Object();
-                    fbPhotoObj.thumbUrl=strSmall;
-                    fbPhotoObj.photoUrl=strBig;
-                    fbPhotos.push(fbPhotoObj);
-                }
-                if(fbStatusCallback !=null) fbStatusCallback();
+                //     var fbPhotoObj=new Object();
+                //     fbPhotoObj.thumbUrl=strSmall;
+                //     fbPhotoObj.photoUrl=strBig;
+                //     fbPhotos.push(fbPhotoObj);
+                // }
+                var this = self;
+
+                var photos = new FBPhotos();
+                photos.set(result);
+
+                self.set({'photos':photos});            
             },
 
             /*

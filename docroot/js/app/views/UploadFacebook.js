@@ -29,7 +29,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             // View Event Handlers
             events: {
                 'click #sharing-nav .email' :'onEmailShareClick',
-                'click .friend'             :'onFriendClick',
+                'click .photo'              :'onPhotoClick',
                 'click #move-right'         :'onRightClick',
                 'click #move-left'          :'onLeftClick',
                 'click #back'               :'onBackClick',                
@@ -151,10 +151,10 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 self.updateNavArrows();
             },
             
-            onFriendClick: function(e) {                
+            onPhotoClick: function(e) {                
                 var self = this;
-                var friendID = $(e.currentTarget).attr('data-id');
-                self.postToFacebook(friendID);
+                // var friendID = $(e.currentTarget).attr('data-id');
+                // self.postToFacebook(friendID);
                 $('#photo-selection').fadeOut();
                 $('.share-result').fadeIn();
             },
