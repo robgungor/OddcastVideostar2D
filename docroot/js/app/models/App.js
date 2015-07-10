@@ -83,8 +83,47 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                     if(cb!=undefined)cb(url);  
                   }
               })
-            }
+            },
+            // this should maybe be in a utility but this thang ain't MVC at this point
+            sendEmail: function(){
+                var self = this;
+                //var here_link = "<a href='http://"+_wsSettings.baseURL +"/"+_wsSettings.appDirectory+"?mId="+isaac_mId+"'>here</a>";
+                var here_link = "here (http://"+self.config.baseURL +"/"+self.config.appDirectory+"?mId="+self.get('mId')+")";
+                var link = self.getMessageLink();
+                self.set({'pickUpLink':link});
 
+                var mail_href_msg = "mailto:?subject=You%E2%80%99ve Received a Special Valentine%E2%80%99s Day Snug&";               
+                mail_href_msg += 'body=Hi '+self.get('toName')+'!%0D%0A%0D%0A'+self.get('fromName')+' sent you a Snug!%0D%0A%0D%0A';
+                mail_href_msg += 'Click here to see your customized video Valentine featuring Sunggle Bear.%0D%0A%0D%0A';
+                mail_href_msg += self.get('pickUpLink');
+
+                window.top.location = mail_href_msg;          
+
+                //Sharing via email
+                OC_ET.event("edems");
+                //email message sent to 1 or more recipients 
+                OC_ET.event("evrcpt"); 
+                OC_ET.event("ce11");
+                try {
+                    if(self.config.messageId.length > 4) {
+                        OC_ET.embed_session = 2;
+                        OC_ET.event("edems");
+                    }
+                } catch(e) {}    
+            },
+
+            postToTwitter : function () {
+              window.open(this.getTwitterLink(), '_blank');
+              //OC_ET.event("ce12");
+                OC_ET.event("uiebfb");
+                OC_ET.event("ce10");
+                try {
+                    if(OC_CONFIG.messageId.length > 4) {
+                        OC_ET.embed_session = 2;
+                        OC_ET.event("uiebfb");
+                    }
+                } catch(e) {}
+            },
         });
 
         // Returns the Model class

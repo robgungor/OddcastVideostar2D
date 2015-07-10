@@ -16,9 +16,8 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               
               var self = this;
 
-              // self.twitterShare   = new ShareTwitter({model:self.model});
-              // self.emailShare     = new ShareEmail({model:self.model});
-              // self.facebookShare  = new ShareFacebook({model:self.model});
+              //MAKE SURE TO REMOVE THIS AFTER BETA
+              self.set({'mId':'123456'});
               self.render();
           },
             
@@ -45,22 +44,40 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               this.$el.html(this.template).fadeIn();
             
               return this;
-          },           
+          },   
+
+          MIDisValid: function() {
+            return !this.model.hasChanged('videoURL') && !OC_Utils.isUndefined(this.model.get('mId'));
+          },
+
           onEmailShareClick: function(e) {              
             var self = this;              
-            //self.shareEmailInit();
-            window.router.navigate('share-email', true);
+            
+            if(this.MIDisValid()) {
+              self.model.sendEmail();
+            }
+            // } else {
+            //   self.getVideoLink(function(){
+            //     window.router.navigate('share-email', true);
+            //   });
+            // }
           },
 
           onFbShareClick: function(e) {
             var self = this;
-            //self.shareFacebookInit();
+            
             window.router.navigate('share-facebook', true);
+            
+            //self.shareFacebookInit();
+            
           },
 
           onTwitterShareClick: function(e) {
             var self = this;        
             //self.shareTwitterInit();
+             if(this.MIDisValid()) {
+              self.model.postToTwitter();
+            }
             window.router.navigate('share-twitter', true);
           },
 
@@ -80,17 +97,17 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               self.getVideoLink(self.emailShare);
           },        
                   
-          getVideoLink: function(shareView){
+          getVideoLink: function(callback){
               var self = this;              
               var videoURL = self.model.get('videoURL');
-              var hasChanged = self.model.get('hasChanged');
+              var hasChanged = self.model.hasChanged('croppedImage');
 
               var onGotVideoLink = function(link){
                   if(OC_Utils.isUndefined(link)) {
                     // try again... the server may have given an initial false response... 
                     //self.getVideoLink(shareView);
                   } else {
-                    self.getMID(shareView);            
+                    self.getMID(callback);            
                   }
                   
               }
@@ -107,20 +124,20 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
              
           },
 
-          getMID: function(shareView){
+          getMID: function(callback){
               var self = this;
               var mId = self.model.get('mId');              
 
               $('main').fadeOut();
               
-              if( !OC_Utils.isUndefined(mId) && !self.model.get('hasChanged') ) {
+              if( !OC_Utils.isUndefined(mId) && !self.model.hasChanged('videoURL') ) {
                 // if we have an mId, reuse it
-                if(shareView) shareView.share.apply(shareView, [mId]);
+                if(callback) callback();//shareView.share.apply(shareView, [mId]);
               } else {
                   var onMessageSaveComplete = function(mId){
                     // set the mId to our model so it is not forgetten about                    
                     self.model.set({'mId': mId});                       
-                    self.model.set({'hasChanged': false});  
+                    
                     $('#main-loading-spinner').fadeOut(300);
                     
                     OC_ET.event("edsv");//Messages created

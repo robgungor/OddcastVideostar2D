@@ -9,9 +9,12 @@ define(["jquery",
         "views/Upload", 
         "views/Positioning", 
         "views/Sharing", 
-        "views/ChooseVideo", 
-        "views/ShareFacebook", 
+        "views/ChooseVideo",         
         "views/UploadFacebook", 
+        "views/ShareFacebook", 
+        "views/ShareEmail",
+        "views/ShareYouTube", 
+        "views/ShareTwitter", 
         "collections/Collection"],
         
     function($, 
@@ -23,9 +26,12 @@ define(["jquery",
             UploadView, 
             PositioningView, 
             SharingView, 
-            ChooseVideoView, 
-            ShareFacebookView, 
+            ChooseVideoView,             
             UploadFacebookView,
+            ShareFacebookView, 
+            ShareEmailView, 
+            ShareYouTubeView, 
+            ShareTwitterView, 
             Collection) {
 
         var MobileRouter = Backbone.Router.extend({
@@ -123,6 +129,27 @@ define(["jquery",
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ShareFacebookView({model:this.model}));
+            },
+
+            shareEmail: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new ShareEmailView({model:this.model}));
+            },
+
+            shareTwitter: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new ShareTwitterView({model:this.model}));
+            },
+
+            shareYouTube: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new ShareYouTubeView({model:this.model}));
             },
 
             uploadFacebook: function() {

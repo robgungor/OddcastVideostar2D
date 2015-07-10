@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
         var ShareEmail = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            //el: "sharing",
+            el: "#sharing",
 
             // View constructor
             initialize: function() {                
@@ -56,7 +56,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
 
             onOKClick: function(e){
                 e.preventDefault();
-                this.sendEmail();
+                this.model.sendEmail();
 
                 $('.share-in').fadeOut();
                 $('.share-result').fadeIn();
@@ -69,41 +69,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 $('main').fadeIn();
                 OC_ET.event("ce12");
             },
-
-            sendEmail: function(){
-                //var here_link = "<a href='http://"+_wsSettings.baseURL +"/"+_wsSettings.appDirectory+"?mId="+isaac_mId+"'>here</a>";
-                var here_link = "here (http://"+this.model.config.baseURL +"/"+this.model.config.appDirectory+"?mId="+this.model.get('mId')+")";
-                var link = this.model.getMessageLink();
-                this.model.set({'pickUpLink':link});
-
-                var mail_href_msg = "mailto:?subject=You%E2%80%99ve Received a Special Valentine%E2%80%99s Day Snug&";
-                // mail_href_msg += "body=Hi "+Someone wants to make your holidays merry and bright!%0D%0A%0D%0A";
-                // mail_href_msg += "Click "+here_link+" to see your Note from the Nutcracker!%0D%0A%0D%0A";
-                // mail_href_msg += "Privacy Policy (http://content.oddcast.com/host/nutcracker/privacy.php)";
-                mail_href_msg += 'body=Hi '+this.model.get('toName')+'!%0D%0A%0D%0A'+this.model.get('fromName')+' sent you a Snug!%0D%0A%0D%0A';
-
-                mail_href_msg += 'Click here to see your customized video Valentine featuring Sunggle Bear.%0D%0A%0D%0A';
-                mail_href_msg += this.model.get('pickUpLink');
-
-//                mail_href_msg += _.template(EmailMessage, this.model.toJSON());
-                //  var mail_href_msg = "mailto:?subject=You%E2%80%99ve Received a Note from the Nutcracker and Lindeman%E2%80%99s!&";
-                // mail_href_msg += "body=Hi%2C%0D%0A%0D%0ASomeone wants to make your holidays merry and bright!%0D%0A%0D%0A";
-                // mail_href_msg += "Click "+here_link+" to see your Note from the Nutcracker!%0D%0A%0D%0A";
-                // mail_href_msg += "Privacy Policy (http://content.oddcast.com/host/nutcracker/privacy.php)";
-                //window.location.href = mail_href_msg;          
-                window.top.location = mail_href_msg;          
-                //Sharing via email
-                OC_ET.event("edems");
-                //email message sent to 1 or more recipients 
-                OC_ET.event("evrcpt"); 
-                OC_ET.event("ce11");
-                try {
-                if(this.model.config.messageId.length > 4) {
-                    OC_ET.embed_session = 2;
-                    OC_ET.event("edems");
-                }
-            } catch(e) {}    
-            },
+            
 
             emailMessage : function (mid, fromInfo, toInfos, extradata, cb){
                 var strExtraData = "";

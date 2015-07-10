@@ -47,7 +47,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html",],
             
             onOKClick: function(e){
                 e.preventDefault();
-                this.postToTwitter();
+                this.model.postToTwitter();
 
                 $('.share-in').fadeOut();
                 $('.share-result').fadeIn();
@@ -69,18 +69,6 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html",],
                 $('.share-in').fadeIn();
             },
 
-            postToTwitter : function () {
-              window.open(this.model.getTwitterLink(), '_blank');
-              //OC_ET.event("ce12");
-                OC_ET.event("uiebfb");
-                OC_ET.event("ce10");
-                try {
-                    if(OC_CONFIG.messageId.length > 4) {
-                        OC_ET.embed_session = 2;
-                        OC_ET.event("uiebfb");
-                    }
-                } catch(e) {}
-            },
             
             twLogin: function(cb) {
                 var self = this;
