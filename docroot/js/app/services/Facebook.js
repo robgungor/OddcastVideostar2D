@@ -315,8 +315,10 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 self.processFqlRequest(strFQL, function(result){ self.onGotFriendsInfo(result); });
             },
 
-            loadPhotos: function() {
+            loadPhotos: function(cb) {
                 var self = this;
+                
+                if(cb) self.callback = cb;                
 
                 if(self.get('FBuserId')) {
                    self.getPicturesFromAlbums();
@@ -397,7 +399,9 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 var photos = new FBPhotos();
                 photos.set(result);
 
-                self.set({'photos':photos});            
+                self.set({'photos':photos});    
+                if(self.callback) self.callback();
+                self.callback = null;        
             },
 
             /*

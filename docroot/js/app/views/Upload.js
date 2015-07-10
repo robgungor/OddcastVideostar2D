@@ -41,7 +41,17 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
       onFacebookClicked: function(e) {        
         e.preventDefault();
-        window.router.navigate('upload-facebook', true);
+        var self = this;
+        
+        self.close();
+        $('#main-loading-spinner').show();
+
+        self.model.facebook.loadPhotos(function(){
+          $('#main-loading-spinner').hide();
+          window.router.navigate('upload-facebook', true);  
+        });
+
+        
       },     
 
       onCloseXClicked: function(e) {        
