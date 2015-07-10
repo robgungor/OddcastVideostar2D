@@ -346,7 +346,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             getPicturesFromAlbums: function(strFriendId, nNumberOfPictures) {
                 var self = this;
 
-                var requestedId = fbcUserId;
+                var requestedId = self.get('FBuserId');
                 
                 if(strFriendId!=undefined)
                     requestedId = strFriendId;
