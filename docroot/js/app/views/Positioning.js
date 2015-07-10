@@ -51,11 +51,11 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         
         var url = self.model.get('tempImageURL');
         var crossDomainErrors = self.model.get('isTempImageCrossdomain');        
-       
+        var useAnonymous = self.model.get('uploadSource') == 'facebook';
         if(crossDomainErrors) {
           self.fixImageDomain(url);
         } else {
-          self.preloadTempImage(url);
+          self.preloadTempImage(url, useAnonymous);
         }
         
         OC_ET.event("edbgu");
