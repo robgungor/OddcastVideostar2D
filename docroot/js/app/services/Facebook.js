@@ -385,7 +385,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 //     fbPhotoObj.photoUrl=strBig;
                 //     fbPhotos.push(fbPhotoObj);
                 // }
-                var this = self;
+                var self = this;
 
                 var photos = new FBPhotos();
                 photos.set(result);

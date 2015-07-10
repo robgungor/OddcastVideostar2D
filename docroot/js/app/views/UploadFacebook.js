@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
         var UploadFacebook = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            el: "#upload-facebook-container",
+            el                    : "#upload-facebook-container",
             thumbPageIndex        : 0,
             shifting              : null,
             scrolling             : false,
@@ -62,6 +62,8 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 $('#photo-wrap').on('scrollstop', function(e){ self.onScrollStop(e); });
                 $('#photo-wrap').on('scroll', function(e){ self.onScroll(e); });
                 
+                self.renderPhotos();
+
                 return this;
             },
             
@@ -77,7 +79,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 self.renderFriends();
             },
 
-            renderFriends: function() {
+            renderPhotos: function() {
 
                 var self = this, col = 0, row = 0, index = -1, page = 0, prevCol,
                     $colEl = $('<div class="col"></div>'),
@@ -86,7 +88,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 $('#photo-container').empty();
                 
                 $('#photo-container').append($pageEl);
-
+                console.log(self.model.facebook.get('photos'));
                 self.model.facebook.get('photos').each(function(friend) {  
                     var f = _.template(friendTemplate, friend.toJSON());                   
                     index++;
