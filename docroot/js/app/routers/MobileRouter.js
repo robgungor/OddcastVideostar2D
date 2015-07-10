@@ -1,8 +1,32 @@
 // MobileRouter.js
 // ---------------
-define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "views/BigShow", "views/Upload", "views/Positioning", "views/Sharing", "views/ChooseVideo", "collections/Collection"],
+define(["jquery", 
+        "backbone", 
+        "models/App", 
+        "models/Message", 
+        "views/Landing", 
+        "views/BigShow", 
+        "views/Upload", 
+        "views/Positioning", 
+        "views/Sharing", 
+        "views/ChooseVideo", 
+        "views/ShareFacebook", 
+        "views/UploadFacebook", 
+        "collections/Collection"],
         
-    function($, Backbone, AppModel, MessageModel, LandingView, BigShowView, UploadView, PositioningView, SharingView, ChooseVideoView, Collection) {
+    function($, 
+            Backbone, 
+            AppModel, 
+            MessageModel, 
+            LandingView, 
+            BigShowView, 
+            UploadView, 
+            PositioningView, 
+            SharingView, 
+            ChooseVideoView, 
+            ShareFacebookView, 
+            UploadFacebookView,
+            Collection) {
 
         var MobileRouter = Backbone.Router.extend({
             model: null,
@@ -26,7 +50,7 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 "positioning":"positioning",
                 "sharing":"sharing",
                 "choose-video":"chooseVideo",
-
+                "share-facebook":"shareFacebook",
 
             },
 
@@ -93,6 +117,19 @@ define(["jquery", "backbone", "models/App", "models/Message", "views/Landing", "
                 this.loadView(new SharingView({model:this.model}));
             },
 
+            shareFacebook: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new ShareFacebookView({model:this.model}));
+            },
+
+            uploadFacebook: function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new UploadFacebookView({model:this.model}));
+            },
 
             chooseVideo: function() {
                 if(this.model == null) return this.navigate('', true);

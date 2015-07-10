@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
         var ShareTwitter = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            //el: "sharing",
+            el: "#sharing-facebook-container",
             thumbPageIndex        : 0,
             shifting              : null,
             scrolling             : false,
@@ -39,7 +39,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 
                var self = this;
 
-                self.$el = $('#sharing-facebook');
+                // self.$el = $('#sharing-facebook');
                 // Setting the view's template using the template method
                 self.template = _.template(template, {shareMethod:'Facebook'});
 

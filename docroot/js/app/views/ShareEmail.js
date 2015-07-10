@@ -40,9 +40,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 $('#ok-after').on("click", function(e){
                     self.onOKAfterClick(e);
                 });
-                $('.snuggledotcom-logo').on('click', function(e){
-                    OC_ET.event("ce17");
-                });
+                
                 return this;
             },
             
