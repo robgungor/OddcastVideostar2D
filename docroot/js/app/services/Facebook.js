@@ -124,7 +124,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
                 window.fbAsyncInit = function() { 
                    self.getConnectState();
-                   FB.init({appId: self.config.fbcAppKey, status: true, cookie: true});
+                   // FB.init({appId: self.config.fbcAppKey, status: true, cookie: true});
                 };
             },
 
