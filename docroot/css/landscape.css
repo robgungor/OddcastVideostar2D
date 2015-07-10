@@ -254,12 +254,12 @@ button.back {
     #choose-video-container #choose-video #buttons div img {
       width: 100%; }
 
-#upload-facebook {
+#upload-facebook-container {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
   display: none; }
-  #upload-facebook #fb-photo-selection nav button {
+  #upload-facebook-container #fb-photo-selection nav button {
     position: absolute;
     top: 50%;
     width: 26px;
@@ -267,15 +267,15 @@ button.back {
     border: 0;
     margin-top: -15px;
     outline: none; }
-    #upload-facebook #fb-photo-selection nav button#move-right {
+    #upload-facebook-container #fb-photo-selection nav button#move-right {
       background: url("../img/common/arrow-right@2x.png") no-repeat;
       background-size: 100%;
       right: 3px; }
-    #upload-facebook #fb-photo-selection nav button#move-left {
+    #upload-facebook-container #fb-photo-selection nav button#move-left {
       background: url("../img/common/arrow-left@2x.png") no-repeat;
       background-size: 100%;
       left: 3px; }
-  #upload-facebook #fb-photo-selection #back {
+  #upload-facebook-container #fb-photo-selection #back {
     position: absolute;
     bottom: 31px;
     width: 80px;
@@ -284,7 +284,7 @@ button.back {
     background-size: 100%;
     border: 0;
     margin-left: -40px; }
-  #upload-facebook #fb-photo-selection #photo-wrap {
+  #upload-facebook-container #fb-photo-selection #photo-wrap {
     position: absolute;
     left: 35px;
     width: calc(100vw - 70px);
@@ -293,25 +293,25 @@ button.back {
     height: calc(100vh - 142px);
     margin-top: 15px; }
     @media screen and (min-device-width: 414px) {
-      #upload-facebook #fb-photo-selection #photo-wrap {
+      #upload-facebook-container #fb-photo-selection #photo-wrap {
         width: calc(100vw - 100px);
         left: 53px; } }
-    #upload-facebook #fb-photo-selection #photo-wrap #photo-container {
+    #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container {
       position: absolute; }
-      #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page {
+      #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
         float: left;
         width: calc(100vw - 45px); }
         @media screen and (min-device-width: 414px) {
-          #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page {
+          #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
             width: calc(100vw - 79px); } }
-        #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page .col {
+        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
           float: left;
           width: calc(33vw - 39px);
           margin-right: 25px; }
           @media screen and (min-device-width: 414px) {
-            #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page .col {
+            #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
               width: calc(33vw - 50px); } }
-        #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page .friend {
+        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .friend {
           position: relative;
           float: left;
           margin-bottom: 25px;
@@ -324,7 +324,7 @@ button.back {
           width: 100%;
           background-size: cover;
           padding-bottom: 100%; }
-        #upload-facebook #fb-photo-selection #photo-wrap #photo-container .page .thumb {
+        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .thumb {
           position: absolute;
           left: 0;
           width: 100%;
