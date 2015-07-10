@@ -108,6 +108,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             loadSDK: function() {
                 var self = this;        
 
+                // var fbcRequestStreamPermissions = false;
+                // var fbcRequestEmailPermissions = false;
+                // var fbcRequiredApplicationPermissions = "user_photos";
+                // var fbcApplicationKey = "115894191772758";
+                console.log('self.config.fbcAppKey: '+self.config.fbcAppKey);
                 (function(d, debug){
                     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
                     if (d.getElementById(id)) {return;}
@@ -115,7 +120,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js#xfbml=1&appId="+self.config.fbcAppKey;
                     ref.parentNode.insertBefore(js, ref);
 
-                }(document, /*debug*/ false));
+                }(document, /*debug*/ true));
 
                 window.fbAsyncInit = function() { 
                    self.getConnectState();
@@ -226,7 +231,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 //strPermissions+= "friends_interests, friends_likes, friends_location, friends_notes, friends_photo_video_tags, friends_photos, ";
                 //strPermissions+= "friends_relationships, friends_relationship_details, friends_religion_politics, friends_status, friends_videos, friends_website, friends_work_history, ";
                 //strDefaultPermissions+= "friends_checkins, friends_online_presence, ";
-                strPermissions+= "public_profile, user_friends";                 
+                strPermissions+= "public_profile, user_friends, user_photos";                 
                             
                                
                 FB.login(function(response) {
