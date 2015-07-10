@@ -142,7 +142,8 @@ button.back {
       margin: 10px;
       margin-bottom: 20px;
       width: 90px;
-      height: 90px; }
+      height: 90px;
+      display: inline-block; }
       #sharing-container #sharing #buttons div img {
         width: 100%; }
 
