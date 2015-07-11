@@ -23,7 +23,11 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             
           // View Event Handlers
           events: {        
-            'click .close-x': 'onCloseXClicked',   
+            'click .close-x'  : 'onCloseXClicked',
+            'click #facebook' : 'onFbShareClick',   
+            'click #email'    : 'onEmailShareClick',   
+            'click #twitter'    : 'onTwitterShareClick',   
+            //'click #youtube'    : 'onEmailShareClick',   
           },            
 
           close: function() {
