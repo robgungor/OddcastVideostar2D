@@ -133,7 +133,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 var perPage    = 8,
                     total       = this.model.facebook.get('photos').length;
 
-                var totalPages = Math.floor(total/perPage);
+                var totalPages = Math.ceil(total/perPage);
                 var $container = $('#photo-container');
                 $container.css({'width':totalPages * ($container.find('.page').width()) });
 
