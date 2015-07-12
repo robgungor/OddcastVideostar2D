@@ -363,13 +363,13 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 strFQLfields += "src_big_width, src, src_height, src_width, link, caption, created, modified, object_id ";
                 
                 var strFQL = 'SELECT ' +strFQLfields +' FROM photo WHERE pid IN ';
-                strFQL += ' ( SELECT pid FROM photo_tag WHERE subject=\'' +fbcUserId +'\' ) ';
+                strFQL += ' ( SELECT pid FROM photo_tag WHERE subject=\'' + self.get('FBuserId') +'\' ) ';
                 strFQL += ' or pid IN ';
                 strFQL += ' (SELECT pid FROM photo ';
                 strFQL += ' WHERE aid IN (SELECT aid FROM album ';
-                strFQL += ' WHERE owner=\'' +fbcUserId +'\' AND type!=\'profile\' ) ';
+                strFQL += ' WHERE owner=\'' + self.get('FBuserId') +'\' AND type!=\'profile\' ) ';
                 strFQL += ')';
-                strFQL += ' ORDER BY created DESC ' +strQueryLimit;
+                strFQL += ' ORDER BY created DESC ' + strQueryLimit;
                 
                 var cb = _.bind(self.setUserPictures, self);
                 self.processFqlRequest(strFQL, cb);
