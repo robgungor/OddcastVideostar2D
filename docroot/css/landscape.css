@@ -268,11 +268,11 @@ button.back {
     margin-top: -15px;
     outline: none; }
     #upload-facebook-container #fb-photo-selection nav button#move-right {
-      background: url("../img/assets/arrow-right.png") no-repeat;
+      background: url("../img/assets/arrow_right.png") no-repeat;
       background-size: 100%;
       right: 3px; }
     #upload-facebook-container #fb-photo-selection nav button#move-left {
-      background: url("../img/assets/arrow-left.png") no-repeat;
+      background: url("../img/assets/arrow_left.png") no-repeat;
       background-size: 100%;
       left: 3px; }
   #upload-facebook-container #fb-photo-selection #photo-wrap {
