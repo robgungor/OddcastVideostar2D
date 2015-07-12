@@ -101,6 +101,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                     } catch(e){
                         console.log(e);
                     }
+                    console.log(blob);
                     var f = _.template(friendTemplate, blob);                   
                     index++;
                     row  = index % 5;
