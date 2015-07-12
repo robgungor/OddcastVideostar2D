@@ -110,7 +110,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                     // preload images (in case we aren't visible yet)
                     var img = new Image();
                     // load the image
-                    img.src = friend.get('pic_big');
+                    img.src = photo.get('pic_big');
 
                     if(row == 0) {
                         $colEl = $('<div class="col"></div>');
