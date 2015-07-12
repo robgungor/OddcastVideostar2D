@@ -104,9 +104,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                     console.log(blob);
                     var f = _.template(friendTemplate, blob);                   
                     index++;
-                    row  = index % 5;
-                    col  = Math.floor(index / 5);
-                    page = col % 3;
+                    row  = index % 4;
+                    col  = Math.floor(index / 4);
+                    page = col % 2;
 
                     // preload images (in case we aren't visible yet)
                     var img = new Image();
@@ -136,8 +136,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             },
             
             onResize: function(){
-                var perPage    = 9,
-                    total       = this.model.get('friends').length;
+                var perPage    = 8,
+                    total       = this.facebook.model.get('photos').length;
 
                 var totalPages = Math.floor(total/perPage);
                 var $container = $('#photo-container');
