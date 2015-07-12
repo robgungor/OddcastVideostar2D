@@ -91,7 +91,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                         OC_ET.event("uiebfb");
                         OC_ET.event("ce9");
                         try {
-                            if(self.model.config.messageId.length > 4) {
+                            if(self.config.messageId.length > 4) {
                                 OC_ET.embed_session = 2;
                                 OC_ET.event("uiebfb");
                             }
@@ -314,10 +314,10 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 
                 //var strFQL = 'SELECT uid, name, pic_square, pic_big, current_location, sex, meeting_sex FROM user WHERE ( uid IN ';
                 var strFQL = 'SELECT ' +strFQLfields +' FROM user WHERE ( uid IN ';
-                strFQL += ' ( SELECT uid2 FROM friend WHERE uid1=\'' +self.model.get('FBuserId') +'\' )';
+                strFQL += ' ( SELECT uid2 FROM friend WHERE uid1=\'' +self.get('FBuserId') +'\' )';
              
                 if (bIncludeYourSelf != undefined && bIncludeYourSelf == true) {
-                    strFQL += ' OR uid=\'' + self.model.get('FBuserId') + '\'';
+                    strFQL += ' OR uid=\'' + self.get('FBuserId') + '\'';
                 }
                 
                 strFQL += ' ) '; //end of user id restrictions
@@ -378,7 +378,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 
                 var self = this;
 
-                var requestedId = self.model.get('FBuserId');
+                var requestedId = self.get('FBuserId');
                 
                 if(typeof strFriendId != 'undefined' && strFriendId.length > 0)
                     requestedId = strFriendId;
