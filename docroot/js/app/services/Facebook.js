@@ -341,13 +341,24 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 
                 if(cb) self.callback = cb;                
 
-                if(self.get('FBuserId')) {
+                if(self.get('FBuserId') && self.get('FBAccessToken')) {
                    self.getPicturesFromAlbums();
                 } else {
-
                     self.onConnectedCallback = _.bind(self.getPicturesFromAlbums, self);
                     self.login();
                 }
+
+
+
+                // //if(fbPhotos==null){
+                // if(fbcAccessToken==null || fbcAccessToken==""){
+                //     fbStatusCallback=clickUploadBtn_fb_step2;
+                //     fbcLogin();
+                // }else{
+                //     clickUploadBtn_fb_step2();
+                // }
+                
+
             },
 
 
