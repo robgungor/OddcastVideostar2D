@@ -95,7 +95,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('#photo-container').append($pageEl);
                 console.log(self.model.facebook.get('photos'));
                 self.model.facebook.get('photos').each(function(friend) {  
-                    var f = _.template(friendTemplate, friend.toJSON());                   
+                    //var f = _.template(friendTemplate, friend.toJSON());                   
                     index++;
                     row  = index % 5;
                     col  = Math.floor(index / 5);
@@ -119,7 +119,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                    
                     // Dynamically updates the UI with the view's template
                     $pageEl.append($colEl);
-                    $colEl.append(f);
+                    //$colEl.append(f);
                 });
                 
                 self.onResize();
