@@ -302,7 +302,9 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 <fbcCallFlash>
             */
             getFriendsInfo: function (bIncludeYourSelf, nNumberOfFriends) {
+
                 var self = this;
+
                 var strQueryLimit = '';
                 if(nNumberOfFriends!=undefined)
                     strQueryLimit = ' LIMIT ' +nNumberOfFriends;
@@ -341,15 +343,63 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 if(cb) self.callback = cb;                
 
                 if(self.get('FBuserId')) {
-                   self.getAllPictures();
+                   self.getPicturesFromAlbums();
                 } else {
 
-                    self.onConnectedCallback = _.bind(self.getAllPictures, self);
+                    self.onConnectedCallback = _.bind(self.getPicturesFromAlbums, self);
                     self.login();
                 }
             },
 
 
+
+            /*
+            Function: fbcGetPicturesFromAlbums
+
+            Picture information from all albums of the requested user are sent to fbcSetProfileAlbum. The requested user might not be tagged in these pictures.
+            fields: pid, aid, owner, src_small, src_small_height, src_small_width, src_big, src_big_height, src_big_width, src, src_height, src_width, link, caption, created, modified, object_id  
+
+            Parameters:
+                
+                strFriendId - userId of the user
+                nNumberOfPictures - Max number of pictures to include.
+                    
+            Returns:
+                
+            See Also:
+
+                <fbcGetSubjectsFromPictureId>
+                <fbcGetUserPictures>
+                <fbcGetProfileAlbumCover>
+                <fbcProcessFqlRequest>  
+                <fbcCallFlash>
+            */
+            getPicturesFromAlbums: function(strFriendId, nNumberOfPictures) {
+                
+                var self = this;
+
+                var requestedId = self.model.get('FBuserId');
+                
+                if(typeof strFriendId != 'undefined' && strFriendId.length > 0)
+                    requestedId = strFriendId;
+                
+                var strQueryLimit = '';
+                if(nNumberOfPictures!=undefined)
+                    strQueryLimit = 'LIMIT ' +nNumberOfPictures;
+                    
+                var strFQLfields = "";
+                strFQLfields += "pid, aid, owner, src_small, src_small_height, src_small_width, src_big, src_big_height, ";
+                strFQLfields += "src_big_width, src, src_height, src_width, link, caption, created, modified, object_id ";
+                    
+                var strFQL = 'SELECT ' +strFQLfields +' FROM photo WHERE aid IN ';
+                strFQL += ' ( SELECT aid FROM album WHERE owner=\'' +requestedId +'\' )';
+                //strFQL += ' AND strlen(src_big)>7 ';  
+                strFQL += ' ORDER BY created DESC ' +strQueryLimit;
+
+                var cb = _.bind(self.onGotFriendsInfo, self);
+                self.processFqlRequest(strFQL, cb);
+             
+            },
 
             getAllPictures: function(nNumberOfPictures) {
                 var self = this;
