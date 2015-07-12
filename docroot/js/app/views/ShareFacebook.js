@@ -19,7 +19,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 var self = this;  
                 
                 //facebook api loading in... 
-                self.loadSDK();
+                self.model.facebook.loadSDK();
                 this.render();      
             },
             
