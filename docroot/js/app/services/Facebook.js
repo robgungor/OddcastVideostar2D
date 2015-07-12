@@ -17,6 +17,8 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 this.settings = options.settings;
                 this.app = options.app;
 
+                this.getConnectState();
+                
                 //this.loadSDK();
             },
 
