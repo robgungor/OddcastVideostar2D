@@ -148,7 +148,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                             logging: true,
                             /*authResponse: true,*/
                             oauth  : true,
-                            version: "v2.3"
+                            version: "v2.0"
                             });
                                                                    
 
