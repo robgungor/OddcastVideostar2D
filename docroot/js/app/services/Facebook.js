@@ -137,17 +137,17 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             */
             getConnectState: function () {
                 var self = this;                                
-                
-                $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+                //connect.facebook.net/en_US/sdk/debug.js
+                $.getScript('//connect.facebook.net/en_US/debug.js', function(){
                     FB.init({
                             appId: fbcApplicationKey , 
                             status: true, 
                             cookie: true, 
-                            xfbml: true,
+                            xfbml: false,
                             logging: false,
                             /*authResponse: true,*/
                             oauth  : true,
-                            version: "v1.0"
+                            version: "v2.3"
                             });
                                                                    
 
