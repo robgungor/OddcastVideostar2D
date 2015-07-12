@@ -396,9 +396,22 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 //strFQL += ' AND strlen(src_big)>7 ';  
                 strFQL += ' ORDER BY created DESC ' +strQueryLimit;
 
-                var cb = _.bind(self.onGotFriendsInfo, self);
+                var cb = _.bind(self.setPicturesFromAlbums, self);
                 self.processFqlRequest(strFQL, cb);
              
+            },
+
+            setPicturesFromAlbums: function (result){
+                
+                var self = this;
+
+                var photos = new FBPhotos();
+                photos.set(result);
+
+                self.set({'photos':photos});    
+                if(self.callback) self.callback();
+                self.callback = null; 
+                     
             },
 
             getAllPictures: function(nNumberOfPictures) {
@@ -428,84 +441,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
             setUserPictures: function(result) {
 
-                var self = this;
+               
 
-                var photos = new FBPhotos();
-                photos.set(result);
+            },            
 
-                self.set({'photos':photos});    
-                if(self.callback) self.callback();
-                self.callback = null; 
-
-            },
-
-            /*
-            Function: fbcGetPicturesFromAlbums
-
-            Picture information from all albums of the requested user are sent to fbcSetProfileAlbum. The requested user might not be tagged in these pictures.
-            fields: pid, aid, owner, src_small, src_small_height, src_small_width, src_big, src_big_height, src_big_width, src, src_height, src_width, link, caption, created, modified, object_id  
-
-            Parameters:
-                
-                strFriendId - userId of the user
-                nNumberOfPictures - Max number of pictures to include.
-                    
-            Returns:
-                
-            See Also:
-
-                <fbcGetSubjectsFromPictureId>
-                <fbcGetUserPictures>
-                <fbcGetProfileAlbumCover>
-                <fbcProcessFqlRequest>  
-                <fbcCallFlash>
-            */
-            getPicturesFromAlbums: function(strFriendId, nNumberOfPictures) {
-                var self = this;
-
-                var requestedId = self.get('FBuserId');
-                
-                if(strFriendId!=undefined)
-                    requestedId = strFriendId;
-                
-                var strQueryLimit = '';
-                if(nNumberOfPictures!=undefined)
-                    strQueryLimit = 'LIMIT ' +nNumberOfPictures;
-                    
-                var strFQLfields = "";
-                strFQLfields += "pid, aid, owner, src_small, src_small_height, src_small_width, src_big, src_big_height, ";
-                strFQLfields += "src_big_width, src, src_height, src_width, link, caption, created, modified, object_id ";
-                    
-                var strFQL = 'SELECT ' +strFQLfields +' FROM photo WHERE aid IN ';
-                strFQL += ' ( SELECT aid FROM album WHERE owner=\'' +requestedId +'\' )';
-                strFQL += ' AND strlen(src_big)>7 ';  
-                strFQL += ' ORDER BY created DESC ' +strQueryLimit;
-                
-                self.processFqlRequest(strFQL, function(result){ 
-                    self.setPicturesFromAlbums(result); 
-                });
-            },
-
-            setPicturesFromAlbums: function (result){
-            //console.log("fbcSetUserPictures: ");
-            //console.log(result)
-
-                // fbPhotos=new Array();
-                // fbPhotos.loadedThumbs=0;
-                // for(i=0; i<result.length; i++){
-
-                //     var strBig = result[i]['src_big']
-                //     var strSmall = result[i]['src_small']   
-
-                //     console.log("strBig:" +strBig +" small:" +strSmall)
-                    
-                //     var fbPhotoObj=new Object();
-                //     fbPhotoObj.thumbUrl=strSmall;
-                //     fbPhotoObj.photoUrl=strBig;
-                //     fbPhotos.push(fbPhotoObj);
-                // }
-                     
-            },
+            
 
             /*
             Function: fbcProcessFqlRequest
