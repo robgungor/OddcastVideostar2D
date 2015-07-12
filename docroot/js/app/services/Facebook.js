@@ -18,7 +18,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 this.app = options.app;
 
                 this.getConnectState();
-                
+
                 //this.loadSDK();
             },
 
@@ -147,7 +147,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                             logging: false,
                             /*authResponse: true,*/
                             oauth  : true,
-                            version: fbcVersion
+                            version: "v2.0"
                             });
                             
                     FB.Canvas.setAutoGrow();                                                        
