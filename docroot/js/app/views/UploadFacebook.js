@@ -174,7 +174,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 //     upload_image_to_touchCanvas(curPhotoUrl, null, (curLang=="cn")?(true):(false));
                 // }
                 
-                self.model.set({'tempImageURL':selected.get('src_big')});
+                self.model.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
                 window.router.navigate('positioning', true);
 
 
