@@ -250,7 +250,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 //strPermissions+= "friends_interests, friends_likes, friends_location, friends_notes, friends_photo_video_tags, friends_photos, ";
                 //strPermissions+= "friends_relationships, friends_relationship_details, friends_religion_politics, friends_status, friends_videos, friends_website, friends_work_history, ";
                 //strDefaultPermissions+= "friends_checkins, friends_online_presence, ";
-                strPermissions+= "public_profile, user_photos";                 
+                strPermissions+= "public_profile, email, user_friends";                 
                             
                                
                 FB.login(function(response) {
