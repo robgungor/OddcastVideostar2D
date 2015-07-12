@@ -173,8 +173,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 //     closePopwin("popwin_selectPhoto");
                 //     upload_image_to_touchCanvas(curPhotoUrl, null, (curLang=="cn")?(true):(false));
                 // }
-                var url = "";
-                self.model.set({'tempImageURL':selected.get('pic_big')});
+                
+                self.model.set({'tempImageURL':selected.get('src_big')});
+                window.router.navigate('positioning', true);
 
 
             },
