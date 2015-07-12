@@ -147,7 +147,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                             logging: false,
                             /*authResponse: true,*/
                             oauth  : true,
-                            version: "v2.0"
+                            version: "v1.0"
                             });
                             
                     FB.Canvas.setAutoGrow();                                                        
