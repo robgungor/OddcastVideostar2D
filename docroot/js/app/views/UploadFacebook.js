@@ -93,16 +93,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('#photo-container').empty();
                 
                 $('#photo-container').append($pageEl);
-                console.log(self.model.facebook.get('photos'));
+               
                 self.model.facebook.get('photos').each(function(photo) {  
-                    var blob = {};
-                    try {
-                        blob = photo.toJSON();
-                    } catch(e){
-                        console.log(e);
-                    }
-                    console.log(blob);
-                    var f = _.template(friendTemplate, blob);                   
+                   
+                    var f = _.template(friendTemplate, photo.toJSON());                   
                     index++;
                     row  = index % 4;
                     col  = Math.floor(index / 4);
@@ -137,7 +131,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             
             onResize: function(){
                 var perPage    = 8,
-                    total       = this.facebook.model.get('photos').length;
+                    total       = this.model.facebook.get('photos').length;
 
                 var totalPages = Math.floor(total/perPage);
                 var $container = $('#photo-container');
