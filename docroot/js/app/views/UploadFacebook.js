@@ -135,7 +135,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
 
                 var totalPages = Math.floor(total/perPage);
                 var $container = $('#photo-container');
-                $container.css({'width':totalPages * ($container.find('.page').width()-25) });
+                $container.css({'width':totalPages * ($container.find('.page').width()) });
 
                 $('body').css({'min-height':$(window).height()});   
                 $('#fb-photo-selection').css({'min-height':$(window).height()});   
