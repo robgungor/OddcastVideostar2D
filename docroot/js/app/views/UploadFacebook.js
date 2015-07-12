@@ -150,7 +150,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('.share-result').fadeOut();
                 
                 // we arlready have friends, hide the spinner
-                if(this.model.get('FBuserId') && this.model.get('friends')) {
+                if(this.model.get('FBuserId') && this.model.facebook.get('photos')) {
                     $('#main-loading-spinner').fadeOut(300);                
                 } else {
                     $('#main-loading-spinner').fadeIn(300);
@@ -163,10 +163,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 var self = this;
                 var id = $(e.currentTarget).attr('data-id');
                 // self.postToFacebook(friendID);
-                $('#photo-selection').fadeOut();
-                $('.share-result').fadeIn();
+                
 
-
+                var selected = this.model.facebook.get('photos').find(function(model) { return model.get('pid') == id; });
 
                 // function choosePhotoThumb(_id, _fromWhichSN){
                 //     var curPhotoUrl=(_fromWhichSN=="fb")?(fbPhotos[_id-1].photoUrl):(gpPhotos[_id-1].photoUrl);
@@ -175,7 +174,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 //     upload_image_to_touchCanvas(curPhotoUrl, null, (curLang=="cn")?(true):(false));
                 // }
                 var url = "";
-                self.model.set({'tempImageURL':url});
+                self.model.set({'tempImageURL':selected.get('pic_big')});
 
 
             },
