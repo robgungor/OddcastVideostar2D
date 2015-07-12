@@ -141,11 +141,11 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 //connect.facebook.net/en_US/sdk/debug.js
                 $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
                     FB.init({
-                            appId: fbcApplicationKey , 
+                            appId: self.config.fbcAppKey , 
                             status: true, 
                             cookie: true, 
                             xfbml: true,
-                            logging: true,
+                            logging: false,
                             /*authResponse: true,*/
                             oauth  : true,
                             version: "v2.0"
