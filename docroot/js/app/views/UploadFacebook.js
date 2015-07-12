@@ -144,7 +144,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $container.css({'width':totalPages * ($container.find('.page').width()-25) });
 
                 $('body').css({'min-height':$(window).height()});   
-                $('#sharing-facebook').css({'min-height':$(window).height()});   
+                $('#fb-photo-selection').css({'min-height':$(window).height()});   
             },
 
             share: function(mId){
