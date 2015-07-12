@@ -302,7 +302,7 @@ button.back {
           @media screen and (min-device-width: 414px) {
             #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
               width: calc(33vw - 50px); } }
-        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .friend {
+        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .photo {
           position: relative;
           float: left;
           margin-bottom: 25px;
