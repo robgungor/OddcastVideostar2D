@@ -300,7 +300,7 @@ button.back {
             width: calc(100vw - 79px); } }
         #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
           float: left;
-          width: calc(45% - 12px);
+          width: calc(42% - 12px);
           max-width: 93px;
           margin-right: 12px;
           margin-left: 12px; }
