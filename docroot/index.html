@@ -40,9 +40,30 @@ END info -->
    <div id="loading">        
        
         <div class="loading-bar">            
-            <div id="loading-bar-fill" >                
-                <img src="img/loading/loading-bar-fill.png">
+            <div id="loading-bar-fill" >   
+                <div class="left-hinge">             
+                    <img src="img/loading/bar-fill-hinge-left.png">
+                </div>
+                <div class="middle">
+                    <img src="img/loading/bar-fill-middle.png">
+                </div>
+                <div class="right-hinge">
+                    <img src="img/loading/bar-fill-hinge-right.png">
+                </div>
             </div>
+
+            <div id="loading-bar-bg" >   
+                <div class="left-hinge">             
+                    <img src="img/loading/bar-bg-hinge-left.png">
+                </div>
+                <div class="middle">
+                    <img src="img/loading/bar-bg-middle.png">
+                </div>
+                <div class="right-hinge">
+                    <img src="img/loading/bar-bg-hinge-right.png">
+                </div>
+            </div>
+            
         </div>
 
         <div class="loading-oddcast-logo"><img src="img/loading/oddcast-loading-logo@2x.png"></div>        
@@ -68,7 +89,7 @@ END info -->
     <div id='fb-root'></div>
 
 <script type="text/javascript">
-    function preloadOnload(){document.getElementById("loading").style.opacity = '1';document.getElementById("loading-spinner").style.opacity = '0';window.scrollTo(0, 1);var e=document.createElement("script");e.src="js/preload.js";document.body.appendChild(e)}if(window.addEventListener)window.addEventListener("load",preloadOnload,false);else if(window.attachEvent)window.attachEvent("onload",preloadOnload);else window.onload=preloadOnload
+    function preloadOnload(){document.getElementById("loading").style.opacity = '1';var h = document.getElementById('someDiv').clientHeight;document.getElementById("loading-spinner").style.opacity = '0';window.scrollTo(0, 1);var e=document.createElement("script");e.src="js/preload.js";document.body.appendChild(e)}if(window.addEventListener)window.addEventListener("load",preloadOnload,false);else if(window.attachEvent)window.attachEvent("onload",preloadOnload);else window.onload=preloadOnload
 </script>
 
 

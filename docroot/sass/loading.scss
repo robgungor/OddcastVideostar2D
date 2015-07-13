@@ -56,122 +56,62 @@ body {
     }
 
     .loading-bar {
-        background: url("../img/loading/loading-bar-bg.png") no-repeat left top;
+        // background: url("../img/loading/loading-bar-bg.png") no-repeat left top;
         background-size: 100%;
         float: left;
         position: absolute;
         left: 50%;
         width: 300px;
-        height: 103px;
+        height: 12px;
         bottom: 65px;
         margin-left: -150px; 
-    }
     
- 
-    #loading-bar-fill {
-        position: absolute;
-        top: 2px;
-        width: 1px;
-        overflow: hidden; 
-        -webkit-transition: width .5s ease-out 0;
-        -moz-transition: width .5s ease-out 0;
-        -o-transition: width .5s ease-out 0;
-        transition: width .5s ease-out 0;
+        #loading-bar-bg, #loading-bar-fill{
 
-        img { 
-            width: 100%;
-        }
-    }  
+            height: 100%;
 
-    @media only screen 
-    and (min-device-width : 320px) 
-    and (max-device-width : 480px) {
-         .loading-logo, .loading-bar, .loading-oddcast-logo {
-            -webkit-transform: scale(.8);
-            transform: scale(.8);
-            -ms-transform: scale(.8); 
-    		bottom: 70px;
-        }
-        .loading-logo{
-            margin-top: -39%;
-        }
-        .loading-bar {
-            bottom: 5%;
-        }
-        .snuggle-logo {    
-            width: 63px;
-        }
+            div {
+                float: left;
+            }
+            .left-hinge {
+                width: 14px;
+                img {
+                    width: 100%;
+                }
+            }
 
-        .share-a-snug .loading-text {
-            margin-top: -10%;
-        }
+            .middle {           
+                width: calc(100% - 28px);
+                overflow: hidden;
+                position: absolute;
+                height: 100%;
+                left: 14px;                
+                img {
+                    height: 100%;
+                }
+            }
 
-        .share-a-snug img{
-           width: 77%;
-           margin: auto;
-           &.standard {
-                margin: auto;
-           }
-        }
-       
-    }
-    
-    @media only screen 
-    and (max-width : 320px) 
-    { 
-        .share-a-snug img{
-           width: 77%;
-           margin: auto;
-        }
-        .share-a-snug {
-            margin-top: -42vw;
-        }
-    }
-    @media only screen 
-    and (min-width : 600px) 
-    { 
-        .share-a-snug {
-            margin-top: 0;
-            top: 0;          
-            position: absolute;
-        }
-        .loading-bar {
-            top: 73%;
-        }
-
-    }
-
-    @media only screen 
-    and (min-device-width : 768px) 
-    and (max-device-width : 1024px) 
-    and (orientation : portrait)
-    { 
-    	.loading-text {
-    		margin-top: -4%;
-    	}
-
-    	.share-a-snug {
-    		margin-top: -80px;
-    	}
-
-    	.loading-bar {
-    		top: 73%;
-            transform: scale(1.5);
-            -webkit-transform: scale(1.5);
-            -ms-transform: scale(1.5);
-    	}
-
-
-    	.loading-oddcast-logo {
-    		top: 79%;
-    	}
-        .share-a-snug{
-            
-            img{
-                max-width: 550px;
+            .right-hinge {
+                width: 14px;
+                float: right;
+                img {
+                    width: 100%;
+                }
             }
         }
-        
-    }
+       
+        #loading-bar-fill {
+            position: absolute;
+            width: 1%;
+            min-width: 28px;
+            z-index: 100;
+            overflow: hidden; 
+            -webkit-transition: width .5s ease-out 0;
+            -moz-transition: width .5s ease-out 0;
+            -o-transition: width .5s ease-out 0;
+            transition: width .5s ease-out 0;
+            
+        }  
+    }    
 
 }
