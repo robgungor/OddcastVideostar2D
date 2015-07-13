@@ -274,7 +274,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                     pageW       = Math.ceil($wrap.width())+16,
                     perPage     = 9;
 
-                var total = this.model.facebook.get('photo').length;
+                var total = this.model.facebook.get('photos').length;
                 var totalPages = $container.find('.page').length;//Math.floor(total/perPage);
                 var lastPageIndex = totalPages-1;
                 

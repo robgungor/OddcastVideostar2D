@@ -263,7 +263,7 @@ button.back {
     position: absolute;
     top: 50%;
     width: 26px;
-    height: 30px;
+    height: 40px;
     border: 0;
     margin-top: -15px;
     outline: none; }
@@ -369,7 +369,8 @@ button.back {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
-  display: none; }
+  display: none;
+  overflow: hidden; }
   #positioning-container #positioning .uploadPhoto_bg {
     width: 100%;
     max-width: 400px;
