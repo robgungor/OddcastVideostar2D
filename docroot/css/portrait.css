@@ -248,13 +248,13 @@ button.back {
       left: 3px; }
   #upload-facebook-container #fb-photo-selection #photo-wrap {
     position: absolute;
-    left: 13vw;
-    width: 77vw;
+    left: 50%;
+    width: 234px;
     overflow: hidden;
     overflow-x: scroll;
     height: 448px;
     margin-top: 15px;
-    max-width: 238px; }
+    margin-left: -117px; }
     @media screen and (min-device-width: 414px) {
       #upload-facebook-container #fb-photo-selection #photo-wrap {
         width: calc(100vw - 100px);
