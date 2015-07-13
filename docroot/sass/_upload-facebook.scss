@@ -28,19 +28,18 @@
             background-size: 100%;
             left: 3px;
           }
-        }
-
+      }
     }
    
-
     #photo-wrap {
       position: absolute;
-      left: 35px;
-      width: calc(100vw - 70px);
+      left: 13vw;
+      width: 77vw;
       overflow: hidden;
       overflow-x: scroll;
-      height: calc(100vh - 142px);
+      height: 448px;
       margin-top: 15px;
+      max-width: 238px;
       
       @media screen 
       and (min-device-width: $iphone6plus) 
@@ -54,8 +53,10 @@
         
         .page{
           float: left;
-          width: calc(100vw - 45px);
-          
+          width: calc(100vw - 45px);            
+          width: 75vw;
+          max-width: 234px;
+
           @media screen 
           and (min-device-width: $iphone6plus) 
           {                 
@@ -63,10 +64,13 @@
           }
 
           .col {
-            float: left;          
-            width: calc(33vw - 39px);
-            margin-right: 25px;
-            
+            float: left;
+            width: calc(45% - 12px);
+            max-width: 93px;
+            margin-right: 12px;
+            margin-left: 12px;
+
+
             @media screen 
             and (min-device-width: $iphone6plus) 
             {                 
