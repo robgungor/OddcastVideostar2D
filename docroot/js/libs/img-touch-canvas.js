@@ -18,13 +18,13 @@ This code may be freely distributed under the MIT License
         }
 
         this.canvas         = options.canvas;
-        this.canvas.width   = this.canvas.clientWidth;
+        //this.canvas.width   = this.canvas.clientWidth;
         //this.canvas.height  = this.canvas.clientHeight;
         this.context        = this.canvas.getContext('2d');
 		
         this.guideCanvas     = options.guideCanvas;
-        this.guideCanvas.width   = this.guideCanvas.clientWidth;
-        this.guideCanvas.height  = this.guideCanvas.clientHeight;
+        //this.guideCanvas.width   = this.guideCanvas.clientWidth;
+        //this.guideCanvas.height  = this.guideCanvas.clientHeight;
         this.guideContext    = this.guideCanvas.getContext('2d');
 		
 		this.dAllowX=50;
