@@ -371,13 +371,21 @@ button.back {
   background-color: rgba(0, 0, 0, 0.75);
   display: none; }
   #positioning-container #positioning .uploadPhoto_bg {
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 100%;
     background-image: url("../img/positioning/face_background.png");
     background-position: 0 0;
     background-repeat: no-repeat;
     left: 0px;
     top: 0px; }
+  #positioning-container #positioning #mycontainer, #positioning-container #positioning #mycontainer2 {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 100%;
+    top: 0px;
+    left: 0px; }
 
 body {
   background: url("../img/common/bg_portrait.jpg") no-repeat top left;
