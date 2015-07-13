@@ -41,8 +41,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       onNextClicked: function(e) {
         var self = this;
         
-        //self.drawFinalFace_mask();
-        window.router.navigate('landing', true);
+        self.drawFinalFace_mask();
+        
 
       },
       //TODO - REFACTOR THIS SECTION
@@ -176,7 +176,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
                   
           var _img=self.model.get('croppedImage');
           var _extradata=escape("isVideo=true");
-          
+          console.log(_img);
+          window.router.navigate('landing', true);
+          return;
           var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
           tmp = OC_Parser.getXmlDoc(tmp);
           var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
