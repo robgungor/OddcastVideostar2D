@@ -164,22 +164,12 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 var id = $(e.currentTarget).attr('data-id');
                 // self.postToFacebook(friendID);
                 
-
                 var selected = this.model.facebook.get('photos').find(function(model) { return model.get('pid') == id; });
 
-                // function choosePhotoThumb(_id, _fromWhichSN){
-                //     var curPhotoUrl=(_fromWhichSN=="fb")?(fbPhotos[_id-1].photoUrl):(gpPhotos[_id-1].photoUrl);
-                //     OC_ET.event((_fromWhichSN=="fb")?"ce7":"ce8");
-                //     closePopwin("popwin_selectPhoto");
-                //     upload_image_to_touchCanvas(curPhotoUrl, null, (curLang=="cn")?(true):(false));
-                // }
-                
                 self.model.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
+
                 window.router.navigate('positioning', true);
-
-
             },
-
 
             onOKClick : function(e){
                 e.preventDefault();

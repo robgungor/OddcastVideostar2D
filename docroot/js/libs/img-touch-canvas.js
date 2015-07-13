@@ -19,7 +19,7 @@ This code may be freely distributed under the MIT License
 
         this.canvas         = options.canvas;
         this.canvas.width   = this.canvas.clientWidth;
-        this.canvas.height  = this.canvas.clientHeight;
+        //this.canvas.height  = this.canvas.clientHeight;
         this.context        = this.canvas.getContext('2d');
 		
         this.guideCanvas     = options.guideCanvas;
