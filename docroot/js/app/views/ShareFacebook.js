@@ -1,8 +1,8 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html", "text!templates/friend.html", 'collections/Friends'],
+define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html", "text!templates/friend.html", 'collections/Friends', "utils/OC_Utils"],
 
-    function($, Backbone, Model, template, friendTemplate, Friends){
+    function($, Backbone, Model, template, friendTemplate, Friends, OC_Utils){
         
         var ShareTwitter = Backbone.View.extend({
 
