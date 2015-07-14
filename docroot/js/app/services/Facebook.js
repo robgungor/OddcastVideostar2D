@@ -73,7 +73,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
             postToFacebook : function (friendID) {
                 var self = this;
-                var friendID = 
+                
                 var obj = {
                     /*display: 'touch',*/
                     method: 'feed',
@@ -83,7 +83,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                     name: self.settings.get('FACEBOOK_POST_NAME'), 
                     caption: self.settings.get('FACEBOOK_POST_CAPTION'), 
                     description: self.settings.get('FACEBOOK_POST_DESCRIPTION'),
-                    to: friendID
+                    //to: friendID
                 };
 
                 FB.ui(obj, function(event){
