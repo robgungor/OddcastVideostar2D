@@ -51,6 +51,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
           },   
 
           MIDisValid: function() {
+            console.log('MID: '+this.model.get('mId'));
             return !this.model.hasChanged('videoURL') && !OC_Utils.isUndefined(this.model.get('mId'));
           },
 
