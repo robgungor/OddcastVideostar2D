@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
         var ShareEmail = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            el: "#sharing",
+            el: "#share-email-container",
 
             // View constructor
             initialize: function() {                
