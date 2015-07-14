@@ -135,7 +135,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
               } else {
                   var onMessageSaveComplete = function(mId){
                     console.log('onMessageSaveComplete: '+mId);
-                    
+                    if(mId == null) mId = "123456";
                     // set the mId to our model so it is not forgetten about                    
                     self.set({'mId': mId});                       
                     
