@@ -25,7 +25,6 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             
             // View Event Handlers
             events: {
-                'click #sharing-nav .email' :'onEmailShareClick',
                 'click .friend'             :'onFriendClick',
                 'click #move-right'         :'onRightClick',
                 'click #move-left'          :'onLeftClick',
@@ -44,7 +43,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 self.template = _.template(template, {shareMethod:'Facebook'});
 
                 // Dynamically updates the UI with the view's template
-                self.$el.html(self.template);
+                self.$el.html(self.template).fadeIn();
 
                 $('.share-result').hide();
 
@@ -52,15 +51,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                     self.onOKClick(e);
                 });
 
-                $('#ok-after').on("click", function(e){
-                    self.onOKAfterClick(e);
-                });
-
-                $('#friend-wrap').on('scrollstop', function(e){ self.onScrollStop(e); });
-                $('#friend-wrap').on('scroll', function(e){ self.onScroll(e); });
-                $('.snuggledotcom-logo').on('click', function(e){
-                    OC_ET.event("ce17");
-                });
+                
                 return this;
             },
             

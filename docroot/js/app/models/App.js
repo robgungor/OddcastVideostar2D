@@ -134,6 +134,8 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 if(callback) callback();//shareView.share.apply(shareView, [mId]);
               } else {
                   var onMessageSaveComplete = function(mId){
+                    console.log('onMessageSaveComplete: '+mId);
+                    
                     // set the mId to our model so it is not forgetten about                    
                     self.set({'mId': mId});                       
                     
