@@ -76,7 +76,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
             onOKClick : function(e){
                 e.preventDefault();
-                this.postToFacebook();
+                this.model.facebook.postToFacebook();
 
                 $('.share-in').fadeOut();
                 $('.share-result').fadeIn();
