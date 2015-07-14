@@ -15,7 +15,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
             
             // View Event Handlers
             events: {
-                
+                "click #ok": 'onOKClick', 
             },            
 
             // Renders the view's template to the UI
@@ -31,19 +31,10 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 self.$el.html(self.template);
 
                 $('.share-result').hide();
-                
-
-                $('#ok').on("click", function(e){
-                    self.onOKClick(e);
-                });
-
-                $('#ok-after').on("click", function(e){
-                    self.onOKAfterClick(e);
-                });
-                
+                                
                 return this;
             },
-            
+                       
             share: function(mId){
 
                 this.render();                
@@ -58,7 +49,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 e.preventDefault();
                 this.model.sendEmail();
 
-                $('.share-in').fadeOut();
+                $('.share-confirm').fadeOut();
                 $('.share-result').fadeIn();
             },
 

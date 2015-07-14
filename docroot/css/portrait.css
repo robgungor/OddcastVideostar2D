@@ -118,6 +118,9 @@ button.back {
       #sharing-container #sharing #buttons div img {
         width: 100%; }
 
+.share-result {
+  display: none; }
+
 #sharing-facebook #friend-selection {
   margin-top: 50px; }
   @media screen and (min-device-width: 375px) {

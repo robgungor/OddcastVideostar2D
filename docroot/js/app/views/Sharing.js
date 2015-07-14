@@ -59,6 +59,8 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             
             if(this.MIDisValid()) {
               self.model.sendEmail();
+            } else {
+              self.model.getMID(_.bind(self.model.sendEmail, self.model));
             }
             // } else {
             //   self.getVideoLink(function(){
@@ -71,7 +73,11 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             var self = this;
             
             window.router.navigate('share-facebook', true);
-            
+            if(this.MIDisValid()) {
+              self.model.sendEmail();
+            } else {
+              self.model.getMID();
+            }
             //self.shareFacebookInit();
             
           },
@@ -128,33 +134,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
              
           },
 
-          getMID: function(callback){
-              var self = this;
-              var mId = self.model.get('mId');              
-
-              $('main').fadeOut();
-              
-              if( !OC_Utils.isUndefined(mId) && !self.model.hasChanged('videoURL') ) {
-                // if we have an mId, reuse it
-                if(callback) callback();//shareView.share.apply(shareView, [mId]);
-              } else {
-                  var onMessageSaveComplete = function(mId){
-                    // set the mId to our model so it is not forgetten about                    
-                    self.model.set({'mId': mId});                       
-                    
-                    $('#main-loading-spinner').fadeOut(300);
-                    
-                    OC_ET.event("edsv");//Messages created
-
-                    // pass along to next step, use apply for scope and inheritance
-                    if(shareView) shareView.share.apply(shareView, [mId]);
-                  }
-                  $('#main-loading-spinner').fadeIn(300);
-                  // save our message
-                  OC_MessageSaver.saveMessage(self.model, {}, onMessageSaveComplete);
-              }
-
-          },
+          
 
           
         });

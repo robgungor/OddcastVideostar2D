@@ -92,9 +92,9 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var link = self.getMessageLink();
                 self.set({'pickUpLink':link});
 
-                var mail_href_msg = "mailto:?subject=You%E2%80%99ve Received a Special Valentine%E2%80%99s Day Snug&";               
-                mail_href_msg += 'body=Hi '+self.get('toName')+'!%0D%0A%0D%0A'+self.get('fromName')+' sent you a Snug!%0D%0A%0D%0A';
-                mail_href_msg += 'Click here to see your customized video Valentine featuring Sunggle Bear.%0D%0A%0D%0A';
+                var mail_href_msg = "mailto:?subject=you are a video star&";               
+                mail_href_msg += 'body=Hi '+self.get('toName')+'!%0D%0A%0D%0A'+self.get('fromName')+' made you a star!%0D%0A%0D%0A';
+                mail_href_msg += 'Click here to see your customized video YOU!%0D%0A%0D%0A';
                 mail_href_msg += self.get('pickUpLink');
 
                 window.top.location = mail_href_msg;          
@@ -124,6 +124,33 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                     }
                 } catch(e) {}
             },
+
+            getMID: function(callback){
+              var self = this;
+              var mId = self.get('mId');              
+              
+              if( !OC_Utils.isUndefined(mId) && !self.hasChanged('videoURL') && !self.hasChanged('croppedImage') ) {
+                // if we have an mId, reuse it
+                if(callback) callback();//shareView.share.apply(shareView, [mId]);
+              } else {
+                  var onMessageSaveComplete = function(mId){
+                    // set the mId to our model so it is not forgetten about                    
+                    self.set({'mId': mId});                       
+                    
+                    $('#main-loading-spinner').fadeOut(300);
+                    
+                    OC_ET.event("edsv");//Messages created
+
+                    // pass along to next step, use apply for scope and inheritance
+                    if(callback) callback();
+                  }
+                 
+                  $('#main-loading-spinner').fadeIn(300);
+                  // save our message
+                  OC_MessageSaver.saveMessage(self, {}, onMessageSaveComplete);
+              }
+
+          },
         });
 
         // Returns the Model class

@@ -19,7 +19,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
                 this.getConnectState();
 
-                //this.loadSDK();
+                //\this.loadSDK();
             },
 
             // Default values for all of the Model attributes
@@ -73,6 +73,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
 
             postToFacebook : function (friendID) {
                 var self = this;
+                var friendID = 
                 var obj = {
                     /*display: 'touch',*/
                     method: 'feed',
