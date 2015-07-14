@@ -72,11 +72,12 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
           onFbShareClick: function(e) {
             var self = this;
             
-            window.router.navigate('share-facebook', true);
-            if(this.MIDisValid()) {
-              self.model.sendEmail();
+            if(this.MIDisValid()) {              
+              window.router.navigate('share-facebook', true);
             } else {
-              self.model.getMID();
+              self.model.getMID(function() {
+                window.router.navigate('share-facebook', true);
+              });
             }
             //self.shareFacebookInit();
             
