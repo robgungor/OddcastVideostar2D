@@ -121,6 +121,9 @@ button.back {
 .share-result {
   display: none; }
 
+.share-confirm {
+  text-align: center; }
+
 #ok {
   display: block;
   position: absolute;
