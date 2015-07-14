@@ -49,8 +49,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
               return this;
           },   
 
-          MIDisValid: function() {
-            console.log('MID: '+this.model.get('mId'));
+          MIDisValid: function() {            
             return !this.model.hasChanged('videoURL') && !OC_Utils.isUndefined(this.model.get('mId'));
           },
 
@@ -72,10 +71,11 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
           onFbShareClick: function(e) {
             var self = this;
             
-            if(this.MIDisValid()) {              
+            if(this.MIDisValid()) {         
               window.router.navigate('share-facebook', true);
             } else {
               self.model.getMID(function() {
+                console.log('MID got!');
                 window.router.navigate('share-facebook', true);
               });
             }
