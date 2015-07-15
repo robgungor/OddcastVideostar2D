@@ -57,7 +57,9 @@ button, a {
   -webkit-tap-highlight-color: transparent; }
 
 h4 {
-  font-weight: 100; }
+  font-weight: 100;
+  margin: 55px 0 0 0;
+  font-size: 20px; }
 
 .close-x {
   width: 40px;
