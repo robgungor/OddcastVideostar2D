@@ -155,13 +155,15 @@ button.back {
 
 #ok {
   display: block;
-  position: absolute;
+  /* position: absolute; */
   width: 90px;
   height: 90px;
   background-color: transparent;
   background-size: 100%;
   border: 0;
-  background-image: url("../img/share/ok.png"); }
+  background-image: url("../img/share/ok.png");
+  margin: auto;
+  margin-top: 50px; }
 
 #share-facebook-container,
 #share-email-container,
