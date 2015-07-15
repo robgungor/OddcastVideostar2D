@@ -57,10 +57,13 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 e.preventDefault();
                
                 this.$el.fadeOut(200);
-                $('main').fadeIn();
+                window.router.navigate('landing', true);
                 OC_ET.event("ce12");
             },
             
+            close: function() {
+                this.$el.fadeOut().empty();
+            },
 
             emailMessage : function (mid, fromInfo, toInfos, extradata, cb){
                 var strExtraData = "";

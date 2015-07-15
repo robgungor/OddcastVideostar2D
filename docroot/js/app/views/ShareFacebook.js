@@ -82,12 +82,14 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
             onOKAfterClick : function(e){
                 e.preventDefault();
                
-                this.$el.fadeOut(200);
-                $('main').fadeIn();
+                window.router.navigate('landing', true);
+                
                 OC_ET.event("ce12");
             },            
             
-           
+            close: function() {
+                this.$el.fadeOut().empty();
+            },
 
 
             
