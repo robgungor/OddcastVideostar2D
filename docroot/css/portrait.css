@@ -56,6 +56,9 @@ button, a {
   user-select: none;
   -webkit-tap-highlight-color: transparent; }
 
+h4 {
+  font-weight: 100; }
+
 .close-x {
   width: 40px;
   position: absolute;

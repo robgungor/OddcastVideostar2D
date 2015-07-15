@@ -78,7 +78,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 e.preventDefault();
                 this.model.facebook.postToFacebook();
 
-                $('.share-in').fadeOut();
+                $('.share-confirm').fadeOut();
                 $('.share-result').fadeIn();
             },
 
