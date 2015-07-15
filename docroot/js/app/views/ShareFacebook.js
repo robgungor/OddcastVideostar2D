@@ -28,7 +28,8 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 'click .friend'             :'onFriendClick',
                 'click #move-right'         :'onRightClick',
                 'click #move-left'          :'onLeftClick',
-                'click #back'               :'onBackClick',                
+                'click #back'               :'onBackClick',
+                'click .ok'                 :'onOKClick',                
                 'swipe'                     :'onSwipe',
                 'dragEnd'                   :'onSwipe'                
             },            
@@ -46,12 +47,7 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 self.$el.html(self.template).fadeIn();
 
                 $('.share-result').hide();
-
-                $('#ok').on("click", function(e){
-                    self.onOKClick(e);
-                });
-
-                
+                            
                 return this;
             },
             

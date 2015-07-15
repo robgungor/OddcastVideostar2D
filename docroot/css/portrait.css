@@ -129,7 +129,7 @@ button.back {
 .share-confirm {
   text-align: center; }
 
-#ok {
+.ok {
   display: block;
   /* position: absolute; */
   width: 90px;
