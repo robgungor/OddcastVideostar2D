@@ -29,7 +29,8 @@ define(["jquery", "backbone", "models/App", "text!templates/share-facebook.html"
                 'click #move-right'         :'onRightClick',
                 'click #move-left'          :'onLeftClick',
                 'click #back'               :'onBackClick',
-                'click .ok'                 :'onOKClick',                
+                'click .share-confirm .ok'  :'onOKClick',                
+                'click .share-result .ok'   :'onOKAfterClick',                
                 'swipe'                     :'onSwipe',
                 'dragEnd'                   :'onSwipe'                
             },            
