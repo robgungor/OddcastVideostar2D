@@ -68,6 +68,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             
             testPhotoUpload: function(e) {
                 var url ="https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xtp1/v/t1.0-9/11665498_10152810240946895_8821017623086265598_n.jpg?oh=8df975a6e306e1d46b23446e395b0772&oe=560F4F2A";
+                
                 this.model.set({'tempImageURL':url, 'uploadSource':'facebook'});
                 window.router.navigate('positioning', true);
             },
@@ -165,8 +166,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 // self.postToFacebook(friendID);
                 
                 var selected = this.model.facebook.get('photos').find(function(model) { return model.get('pid') == id; });
-
-                self.model.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
+                var head = this.model.heads.currentHead;
+                head.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
 
                 window.router.navigate('positioning', true);
             },
