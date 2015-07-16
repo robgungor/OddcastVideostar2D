@@ -13,7 +13,7 @@
     #heads {
       margin-top: 50px;
       width: 250px;
-      
+
       .head {        
         display: inline-block;
         position: relative;        
@@ -40,7 +40,8 @@
   #buttons {
       position: absolute;
       bottom: 20px;
-
+      text-align: center;
+      
       .button {
         height: 50px;
         display: inline-block;

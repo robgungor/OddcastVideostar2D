@@ -310,7 +310,8 @@ button.back {
         right: 0; }
   #upload-another-container #buttons {
     position: absolute;
-    bottom: 20px; }
+    bottom: 20px;
+    text-align: center; }
     #upload-another-container #buttons .button {
       height: 50px;
       display: inline-block;
