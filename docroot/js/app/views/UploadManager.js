@@ -35,14 +35,15 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
 
               // Dynamically updates the UI with the view's template
               this.$el.html(this.template).fadeIn();
-            
+              this.renderHeads();
+
               return this;
           },     
 
           renderHeads: function() {
 
               var self = this;
-
+              var $heads  = $('#heads')
               _.each(self.model.heads, function(head) {  
                  
                   var h = _.template(headTemplate, head.toJSON());                   
@@ -52,7 +53,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
                   // load the image
                   img.src = head.get('src');
                 
-                  $el.append(h);
+                  $heads.append(h);
               });
                             
               $('#main-loading-spinner').fadeOut(300);
