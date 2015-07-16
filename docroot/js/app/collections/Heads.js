@@ -20,7 +20,7 @@ define(["jquery","backbone","models/Head"],
       addNew: function() {
         var index = this.models.length;
         var maxHeads = 5;
-        if(this.currentHead) index = currentHead.get('index') + 1;
+        if(this.currentHead) index = this.currentHead.get('index') + 1;
         if(index >= maxHeads) index = 0;
         var head;
 
