@@ -24,6 +24,7 @@ body {
   min-height: 100%;
   height: 100%;
   height: 100vh;
+  max-height: 100%;
   width: 100vw;
   min-height: 100vh; }
   body.loaded {
@@ -33,6 +34,16 @@ body {
     @media only screen and (min-device-width: 728px) and (max-device-width: 1024px) and (orientation: portrait) {
       body.loaded {
         background: url(../img/common/ipad-main-bg.jpg) no-repeat; } }
+
+section {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 a:link {
   color: white; }
@@ -100,27 +111,19 @@ button.back {
   #landing footer div img {
     width: 100%; }
 
-#sharing-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0; }
-  #sharing-container #sharing h1 {
-    margin-bottom: 10px; }
-  #sharing-container #sharing #buttons {
-    width: 225px;
-    margin: auto; }
-    #sharing-container #sharing #buttons div {
-      margin: 10px;
-      margin-bottom: 20px;
-      width: 90px;
-      height: 90px;
-      display: inline-block; }
-      #sharing-container #sharing #buttons div img {
-        width: 100%; }
+#sharing-container #sharing h1 {
+  margin-bottom: 10px; }
+#sharing-container #sharing #buttons {
+  width: 225px;
+  margin: auto; }
+  #sharing-container #sharing #buttons div {
+    margin: 10px;
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px;
+    display: inline-block; }
+    #sharing-container #sharing #buttons div img {
+      width: 100%; }
 
 .share-result {
   display: none; }
@@ -152,187 +155,157 @@ button.back {
   top: 0;
   left: 0; }
 
-#choose-video-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none; }
-  #choose-video-container #choose-video button.next {
-    display: block;
-    bottom: 10px;
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background-color: transparent;
-    background-image: url("../img/assets/next.png");
-    background-size: 100%;
-    border: 0; }
-  #choose-video-container #choose-video #buttons div {
-    display: inline-block;
-    width: 90px;
-    max-width: 160px;
-    margin: 10px; }
-    #choose-video-container #choose-video #buttons div img {
-      width: 100%; }
+#choose-video-container #choose-video button.next {
+  display: block;
+  bottom: 10px;
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background-color: transparent;
+  background-image: url("../img/assets/next.png");
+  background-size: 100%;
+  border: 0; }
+#choose-video-container #choose-video #buttons div {
+  display: inline-block;
+  width: 90px;
+  max-width: 160px;
+  margin: 10px; }
+  #choose-video-container #choose-video #buttons div img {
+    width: 100%; }
 
-#upload-facebook-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none; }
-  #upload-facebook-container #fb-photo-selection nav button {
-    position: absolute;
-    top: 50%;
-    width: 26px;
-    height: 40px;
-    border: 0;
-    margin-top: -15px;
-    outline: none; }
-    #upload-facebook-container #fb-photo-selection nav button#move-right {
-      background: url("../img/assets/arrow_right.png") no-repeat;
-      background-size: 100%;
-      right: 3px; }
-    #upload-facebook-container #fb-photo-selection nav button#move-left {
-      background: url("../img/assets/arrow_left.png") no-repeat;
-      background-size: 100%;
-      left: 3px; }
-  #upload-facebook-container #fb-photo-selection #photo-wrap {
-    position: absolute;
-    left: 50%;
-    width: 234px;
-    overflow: hidden;
-    overflow-x: scroll;
-    height: 448px;
-    margin-top: 15px;
-    margin-left: -117px; }
-    @media screen and (min-device-width: 414px) {
-      #upload-facebook-container #fb-photo-selection #photo-wrap {
-        width: calc(100vw - 100px);
-        left: 53px; } }
-    #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container {
-      position: absolute; }
-      #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
+#upload-facebook-container #fb-photo-selection nav button {
+  position: absolute;
+  top: 50%;
+  width: 26px;
+  height: 40px;
+  border: 0;
+  margin-top: -15px;
+  outline: none; }
+  #upload-facebook-container #fb-photo-selection nav button#move-right {
+    background: url("../img/assets/arrow_right.png") no-repeat;
+    background-size: 100%;
+    right: 3px; }
+  #upload-facebook-container #fb-photo-selection nav button#move-left {
+    background: url("../img/assets/arrow_left.png") no-repeat;
+    background-size: 100%;
+    left: 3px; }
+#upload-facebook-container #fb-photo-selection #photo-wrap {
+  position: absolute;
+  left: 50%;
+  width: 234px;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 448px;
+  margin-top: 15px;
+  margin-left: -117px; }
+  @media screen and (min-device-width: 414px) {
+    #upload-facebook-container #fb-photo-selection #photo-wrap {
+      width: calc(100vw - 100px);
+      left: 53px; } }
+  #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container {
+    position: absolute; }
+    #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
+      float: left;
+      width: calc(100vw - 45px);
+      width: 75vw;
+      max-width: 234px; }
+      @media screen and (min-device-width: 414px) {
+        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
+          width: calc(100vw - 79px); } }
+      #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
         float: left;
-        width: calc(100vw - 45px);
-        width: 75vw;
-        max-width: 234px; }
+        width: calc(42% - 12px);
+        max-width: 93px;
+        margin-right: 12px;
+        margin-left: 12px; }
         @media screen and (min-device-width: 414px) {
-          #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
-            width: calc(100vw - 79px); } }
-        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
-          float: left;
-          width: calc(42% - 12px);
-          max-width: 93px;
-          margin-right: 12px;
-          margin-left: 12px; }
-          @media screen and (min-device-width: 414px) {
-            #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
-              width: calc(33vw - 50px); } }
-        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .photo {
-          position: relative;
-          float: left;
-          margin-bottom: 25px;
-          -moz-border-radius: 5px;
-          -webkit-border-radius: 5px;
-          border-radius: 5px;
-          /* future proofing */
-          -khtml-border-radius: 5px;
-          /* for old Konqueror browsers */
-          width: 100%;
-          background-size: cover;
-          padding-bottom: 100%; }
-        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .thumb {
-          position: absolute;
-          left: 0;
-          width: 100%;
-          -moz-border-radius: 5px;
-          -webkit-border-radius: 5px;
-          border-radius: 5px;
-          -khtml-border-radius: 5px;
-          background-size: cover;
-          padding-bottom: 100%; }
-
-#upload-another-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0; }
-  #upload-another-container #upload-another #heads {
-    margin-top: 50px;
-    width: 250px; }
-    #upload-another-container #upload-another #heads .head {
-      display: inline-block;
-      position: relative;
-      margin-bottom: 20px;
-      width: 120px;
-      height: 150px;
-      margin-left: 10px;
-      margin-right: 10px; }
-      #upload-another-container #upload-another #heads .head img {
-        width: 100%; }
-      #upload-another-container #upload-another #heads .head .close-x {
-        width: 30px;
-        height: 30px;
+          #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
+            width: calc(33vw - 50px); } }
+      #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .photo {
+        position: relative;
+        float: left;
+        margin-bottom: 25px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        /* future proofing */
+        -khtml-border-radius: 5px;
+        /* for old Konqueror browsers */
+        width: 100%;
+        background-size: cover;
+        padding-bottom: 100%; }
+      #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .thumb {
         position: absolute;
-        top: 0;
-        right: 0; }
-  #upload-another-container #buttons {
-    position: absolute;
-    bottom: 20px;
-    text-align: center; }
-    #upload-another-container #buttons .button {
-      height: 50px;
-      display: inline-block;
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-bottom: 10px; }
-      @media screen and (max-width: 400px) {
-        #upload-another-container #buttons .button {
-          height: 40px; } }
-      #upload-another-container #buttons .button img {
-        height: 100%; }
+        left: 0;
+        width: 100%;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -khtml-border-radius: 5px;
+        background-size: cover;
+        padding-bottom: 100%; }
 
-#upload-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0; }
-  #upload-container #upload h1 {
-    margin-bottom: 10px; }
-  #upload-container #upload #buttons div {
-    margin: auto;
-    margin-bottom: 20px;
-    width: 90px;
-    height: 90px; }
-    #upload-container #upload #buttons div img {
-      width: 100%; }
-  #upload-container #upload #terms {
-    font-size: 20px;
-    font-weight: 100; }
-  #upload-container #upload #camera-button-wrap {
-    background: url(../img/upload/camera.png);
-    background-size: 100%;
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
+#upload-another-container #upload-another #heads {
+  margin-top: 50px;
+  width: 250px; }
+  #upload-another-container #upload-another #heads .head {
+    display: inline-block;
     position: relative;
-    display: inline-block; }
-    #upload-container #upload #camera-button-wrap input {
-      opacity: 0.000001;
-      width: 100%;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 150px;
+    margin-left: 10px;
+    margin-right: 10px; }
+    #upload-another-container #upload-another #heads .head img {
+      width: 100%; }
+    #upload-another-container #upload-another #heads .head .close-x {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 0;
+      right: 0; }
+#upload-another-container #buttons {
+  position: absolute;
+  bottom: 20px;
+  text-align: center; }
+  #upload-another-container #buttons .button {
+    height: 50px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px; }
+    @media screen and (max-width: 400px) {
+      #upload-another-container #buttons .button {
+        height: 40px; } }
+    #upload-another-container #buttons .button img {
       height: 100%; }
 
+#upload-container #upload h1 {
+  margin-bottom: 10px; }
+#upload-container #upload #buttons div {
+  margin: auto;
+  margin-bottom: 20px;
+  width: 90px;
+  height: 90px; }
+  #upload-container #upload #buttons div img {
+    width: 100%; }
+#upload-container #upload #terms {
+  font-size: 20px;
+  font-weight: 100; }
+#upload-container #upload #camera-button-wrap {
+  background: url(../img/upload/camera.png);
+  background-size: 100%;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block; }
+  #upload-container #upload #camera-button-wrap input {
+    opacity: 0.000001;
+    width: 100%;
+    height: 100%; }
+
 #positioning-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: none;
   overflow: hidden; }
   #positioning-container #positioning .uploadPhoto_bg {
     width: 100%;
