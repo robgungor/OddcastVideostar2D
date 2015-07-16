@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
         var ChooseVideo = Backbone.View.extend({
 
           // The DOM Element associated with this view
-          el: "#choose-video-container",
+          el: "#upload-manager-container",
           
           // View constructor
           initialize: function() {
