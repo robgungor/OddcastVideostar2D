@@ -316,12 +316,12 @@ button.back {
 #upload-another-container #upload-another #buttons #clear-all {
   position: absolute;
   float: left;
-  top: 0;
+  bottom: 0;
   left: 0; }
 #upload-another-container #upload-another #buttons #watch-video {
   position: absolute;
   float: right;
-  top: 0;
+  bottom: 0;
   right: 0; }
 
 #upload-container {
