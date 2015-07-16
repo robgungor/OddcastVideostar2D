@@ -170,6 +170,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         var head = self.model.heads.currentHead;
         head.set({'src':OC_Uploader.upload_V3(_base64Im)});
         
+        window.router.navigate('upload-manager', true);
         //setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },
       
