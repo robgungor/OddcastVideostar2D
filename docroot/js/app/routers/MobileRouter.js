@@ -45,7 +45,7 @@ define(["jquery",
                 // Tells Backbone to start watching for hashchange events
                 Backbone.history.start();
                 window.Preloader.loaded();
-                if(this.views == null) this.views = new Backbone.Model.extend();
+                if(this.views == null) this.views = new Backbone.Model();
                 if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
             },
 
