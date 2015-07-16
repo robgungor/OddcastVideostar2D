@@ -41,13 +41,17 @@
       position: absolute;
       bottom: 20px;
       text-align: center;
-      
+
       .button {
         height: 50px;
         display: inline-block;
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 10px;
+
+        @media screen and (max-width:400px) {
+          height: 40px;
+        }
 
         img {
           height: 100%;
