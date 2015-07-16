@@ -177,7 +177,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         head.set({'src':src});
        
         $('#main-loading-spinner').fadeOut(300);
-        window.router.navigate('upload-manager', true);
+        window.router.navigate('upload-another', true);
         
         //setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },

@@ -75,7 +75,7 @@ define(["jquery",
 
                // go to upload manager if any heads have been uploaded
               if(self.model.heads.models.length > 0) {
-                window.router.navigate('upload-manager', true);                
+                window.router.navigate('upload-another', true);                
               } else {
                 window.router.navigate('upload', true);
               }

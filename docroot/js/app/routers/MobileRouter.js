@@ -15,7 +15,7 @@ define(["jquery",
         "views/ShareEmail",
         "views/ShareYouTube", 
         "views/ShareTwitter",
-        "views/UploadManager", 
+        "views/UploadAnother", 
         "collections/Collection"],
         
     function($, 
@@ -33,7 +33,7 @@ define(["jquery",
             ShareEmailView, 
             ShareYouTubeView, 
             ShareTwitterView, 
-            UploadManager,
+            UploadAnother,
             Collection) {
 
         var MobileRouter = Backbone.Router.extend({
@@ -62,7 +62,7 @@ define(["jquery",
                 "choose-video":"chooseVideo",
                 "share-facebook":"shareFacebook",
                 "upload-facebook":"uploadFacebook",
-                "upload-manager":"uploadManager",
+                "upload-another":"uploadAnother",
 
             },
 
@@ -151,8 +151,8 @@ define(["jquery",
                 this.loadView('chooseVideo', ChooseVideoView);                                                  
             },
 
-            uploadManager : function() {
-                this.loadView('uploadManager', UploadManager);               
+            uploadAnother : function() {
+                this.loadView('uploadAnother', UploadAnother);               
             },
 
             loadView : function(id, View) {
