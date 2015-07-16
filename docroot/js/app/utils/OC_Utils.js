@@ -115,7 +115,7 @@ define(['backbone', 'underscore'], function(Backbone, _) {
 	          complete: function(data, textStatus, errorThrown) { 
 	           
 	            //console.log(data.responseText); 
-	            if(cb!=undefined)cb(data.responseText);  
+	            if(cb!=undefined && _.isFunction(cb) )cb(data.responseText);  
 	          }
 	      }).responseText;
 
