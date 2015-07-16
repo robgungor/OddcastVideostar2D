@@ -190,6 +190,12 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         this.undelegateEvents();
         this.stopListening();
       },
+
+      open: function() {
+        this.delegateEvents();
+        this.startListening();
+        this.render();
+      },
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
       //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
       //   var checkedMid=(shareType=="share-video")?(savedMidObj.videoMid):(savedMidObj.photoMid);
