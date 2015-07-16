@@ -1,0 +1,28 @@
+// _upload.scss
+#upload-manager-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.75);  
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  #upload-manager {
+  	
+
+    #heads {
+      
+      div {
+        margin: auto;
+        margin-bottom: 20px;    
+        width: 90px;
+        height: 90px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }  	
+  }
+}
