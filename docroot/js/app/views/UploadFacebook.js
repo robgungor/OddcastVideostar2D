@@ -196,7 +196,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             },
 
             onBackClick : function(e) {
-                window.navigate('upload', true);
+                window.router.navigate('upload', true);
             },
 
             onScrollStop: function(e) {
