@@ -119,7 +119,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
            
       drawFinalFace_mask: function() {
         var self = this;
-
+        $('#main-loading-spinner').fadeIn(300);
+        
         var maskImg = new Image();
         maskImg.crossOrigin="anonymous";
         maskImg.src = OC_CONFIG.curURL+'/'+OC_CONFIG.appDirectory+'/mobile/img/positioning/face_mask.png';
