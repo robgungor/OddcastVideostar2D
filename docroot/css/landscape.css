@@ -282,6 +282,22 @@ button.back {
           background-size: cover;
           padding-bottom: 100%; }
 
+#upload-manager-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  #upload-manager-container #upload-manager #heads div {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px; }
+    #upload-manager-container #upload-manager #heads div img {
+      width: 100%; }
+
 #upload-container {
   width: 100vw;
   height: 100vh;
