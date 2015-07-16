@@ -24,8 +24,15 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
           events: {        
             'click #close': 'onCloseXClicked',            
             'click #add':'onAddClicked',
-            'click .next':'onNextClicked'
+            'click #watch-video':'onNextClicked',
+            'click #clear-all':'onClearClicked'
           },            
+
+          onClearClicked: function(e) {
+            self.model.heads.each(function(head,index) {  
+              head.destroy();
+            });
+          }
 
           onNextClicked: function(e) {
             e.preventDefault();

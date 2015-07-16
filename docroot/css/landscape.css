@@ -308,9 +308,21 @@ button.back {
         top: 0;
         right: 0; }
   #upload-another-container #upload-another #buttons .button {
-    height: 50px; }
+    height: 50px;
+    display: inline-block; }
     #upload-another-container #upload-another #buttons .button img {
       height: 100%; }
+
+#upload-another-container #upload-another #buttons #clear-all {
+  position: absolute;
+  float: left;
+  top: 0;
+  left: 0; }
+#upload-another-container #upload-another #buttons #watch-video {
+  position: absolute;
+  float: right;
+  top: 0;
+  right: 0; }
 
 #upload-container {
   width: 100vw;

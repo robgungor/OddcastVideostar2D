@@ -10,12 +10,27 @@
       .head {        
 
         img {
-               
+
         }
         .close-x {
           
         }
       }      
-    }  	
+    }
+
+    #buttons {
+      #clear-all {
+        position: absolute;
+        float: left;
+        top: 0;
+        left: 0;        
+      }
+      #watch-video {
+        position: absolute;
+        float: right;
+        top: 0;
+        right: 0;        
+      }
+    } 	
   }
 }

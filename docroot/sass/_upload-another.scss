@@ -37,12 +37,16 @@
     }
 
     #buttons {
+
       .button {
         height: 50px;
+        display: inline-block;
+
         img {
           height: 100%;
         }
       }  
+      
     }   
 
   }

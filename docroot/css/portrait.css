@@ -279,7 +279,8 @@ button.back {
         top: 0;
         right: 0; }
   #upload-another-container #upload-another #buttons .button {
-    height: 50px; }
+    height: 50px;
+    display: inline-block; }
     #upload-another-container #upload-another #buttons .button img {
       height: 100%; }
 

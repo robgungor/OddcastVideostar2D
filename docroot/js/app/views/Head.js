@@ -15,6 +15,8 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
               var self = this;
               
               self.render();
+
+              self.model.listenTo('destroy', self.remove, self);
           },
             
           // View Event Handlers
