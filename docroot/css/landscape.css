@@ -278,7 +278,8 @@ button.back {
   text-align: center;
   margin: auto;
   margin-top: 50px;
-  width: 300px; }
+  width: 300px;
+  margin-bottom: 20px; }
   #upload-another-container #upload-another #heads .head {
     display: inline-block;
     position: relative;
