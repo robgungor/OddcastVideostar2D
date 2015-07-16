@@ -33,7 +33,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
             self.model.heads.each(function(head,index) {  
               head.destroy();
             });
-          }
+          },
 
           onNextClicked: function(e) {
             e.preventDefault();
