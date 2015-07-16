@@ -170,7 +170,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         var _base64Im = _canvas.toDataURL();
         _base64Im = _base64Im.substring(_base64Im.indexOf(",")+1);
         var head = self.model.heads.currentHead;
-        var src = OC_Uploader.upload_V3(_base64Im, function(){
+        var src = OC_Uploader.upload_V3(_base64Im, function(result){
+          console.log("RESULT: "+result);
           $('#main-loading-spinner').fadeOut(300);
           window.router.navigate('upload-manager', true);
         });
