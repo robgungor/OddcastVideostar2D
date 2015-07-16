@@ -18,6 +18,7 @@ define(['backbone', 'underscore', 'utils/OC_Utils', 'utils/OC_Parser'],
 			if(tmp!="OK"){
 			  //errorCaught(null, "upload_v3.php: " +tmp);
 			  alert("ERROR UPLOADING");
+			  $('#main-loading-spinner').hide();
 			  return null;
 			}
 			tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId(), {}, false, callback);
