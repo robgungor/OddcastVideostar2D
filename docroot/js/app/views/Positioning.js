@@ -171,9 +171,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         _base64Im = _base64Im.substring(_base64Im.indexOf(",")+1);
         var head = self.model.heads.currentHead;
         var src = OC_Uploader.upload_V3(_base64Im, function(result){
-             console.log("RESULT: "+result);
+        
         });
-        console.log('SRC: '+src);
+        
         head.set({'src':src});
        
         $('#main-loading-spinner').fadeOut(300);

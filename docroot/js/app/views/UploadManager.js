@@ -1,8 +1,8 @@
 // LandingView.js
 // -------
-define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html", "text!templates/head.html",  "utils/OC_Utils", "utils/OC_MessageSaver"],
+define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html", "views/Head",  "utils/OC_Utils", "utils/OC_MessageSaver"],
 
-    function($, Backbone, Model, template, headTemplate, OC_Utils, OC_MessageSaver){
+    function($, Backbone, Model, template, HeadView, OC_Utils, OC_MessageSaver){
         
         var ChooseVideo = Backbone.View.extend({
 
@@ -57,18 +57,19 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
               var $heads  = $('#heads');
               self.model.heads.each(function(head,index) {  
                  
-                  var h = _.template(headTemplate, head.toJSON());                   
+                  var h = new HeadView({model:head});//_.template(headTemplate, head.toJSON());                   
                  
                   // preload images (in case we aren't visible yet)
                   var img = new Image();
                   // load the image
                   img.src = head.get('src');
                 
-                  $heads.append(h);
+                  $heads.append(h.$el);
               });
                             
               $('#main-loading-spinner').fadeOut(300);
           },
+
           close: function() {
             this.$el.fadeOut().empty();
           },
