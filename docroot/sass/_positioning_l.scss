@@ -1,0 +1,24 @@
+@import "positioning";
+
+#positioning-container 
+{// positioning.scss
+  #positioning {
+     
+  	.uploadPhoto_bg {
+        height: 400px;
+        padding-bottom: 0;
+        margin: auto;      
+    }
+
+    #mycontainer, #mycontainer2{
+      position: absolute;      
+      padding-bottom: 0;
+      height: 400px;      
+
+      @media screen and (min-width: 400px) {
+        left: 50%;
+        margin-left: -200px;
+      }
+    }
+  }
+}
