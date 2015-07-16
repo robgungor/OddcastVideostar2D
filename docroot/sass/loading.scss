@@ -35,7 +35,7 @@ body {
 
 #loading {
     opacity: 0;
-    background: url("../img/loading/bg_portrait.jpg") no-repeat left top #FFFFFF;
+    background: url("../img/loading/bg_portrait.jpg") no-repeat left top #000000;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -45,6 +45,10 @@ body {
     position: absolute;
     z-index: 1000;     
 
+    @media screen and (orientation:landscape){
+        background: url("../img/loading/bg_landscape.jpg") no-repeat left top #000000;
+        background-size: cover;
+    }
     .loading-oddcast-logo {
         position: absolute;
         left: 50%;
