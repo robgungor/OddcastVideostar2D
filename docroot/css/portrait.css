@@ -283,7 +283,7 @@ button.back {
       height: 100%; }
 
 #upload-container #upload {
-  margin-top: 50px; }
+  padding-bottom: 50px; }
   #upload-container #upload h1 {
     margin-bottom: 20px;
     font-size: 2em; }
