@@ -156,15 +156,22 @@ define(["jquery",
             },
 
             loadView : function(id, View) {
+                if(this.view && _.isFunction(this.view.close)) this.view.close();
                 if(this.model == null) return this.navigate('', true);
+                var v;
+                if(this.views.get(id)){
+                    v = this.views.get(id);
+                    if(_.isFunction(v.open)) v.open();
+                    else v.render();
+                } else {
+                    v  = new View({model:this.model});
+                    var attribute = {};
+                    attribute[id] = v;                
+                    this.views.set(attribute);
+                }
 
-                var v = this.views.get(id) ? this.views.get(id) : new View({model:this.model});
-                //this.view && (this.view.close ? this.view.close() : this.view.remove());
-                if(this.view && this.view.close) this.view.close();
                 this.view = v;
-                var attribute = {};
-                attribute[id] = v;                
-                this.views.set(attribute);
+                
             },
 
 

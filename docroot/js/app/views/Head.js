@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
         var Head = Backbone.View.extend({
 
           // The DOM Element associated with this view
-          className: ".head",
+          className: "head",
           
           // View constructor
           initialize: function() {
