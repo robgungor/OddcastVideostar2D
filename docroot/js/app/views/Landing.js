@@ -58,14 +58,13 @@ define(["jquery",
                 this.template = _.template(template, {});
 
                 // Dynamically updates the UI with the view's template
-                this.$el.html(this.template);
+                this.$el.html(this.template).fadeIn();
                               
                 // $('#upload-container').html(_.template(uploadTemplate, this.model.toJSON()));
                 $('#video-container').empty().html(_.template(previewTemplate, this.model.toJSON()));
 
                 // first time, show this
-                $('.poster-image').css({opacity:1});
-                $('#video-loading-spinner').hide();
+              
                
                 return this;
             },
