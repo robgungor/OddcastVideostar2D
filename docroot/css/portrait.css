@@ -328,7 +328,8 @@ button.back {
 body {
   background: url("../img/common/bg_portrait.jpg") no-repeat top left;
   background-size: cover;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  background-color: #000000; }
 
 .va {
   text-align: center;
