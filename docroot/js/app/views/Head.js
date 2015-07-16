@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
         var Head = Backbone.View.extend({
 
           // The DOM Element associated with this view
-          el: ".head",
+          //el: ".head",
           
           // View constructor
           initialize: function() {
@@ -41,7 +41,7 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
               this.template = _.template(template, this.model.toJSON());
 
               // Dynamically updates the UI with the view's template
-              this.$el.html(this.template).fadeIn();
+              this.$el.html(this.template);
             
               return this;
           },           
