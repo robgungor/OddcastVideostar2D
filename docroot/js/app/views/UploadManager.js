@@ -44,7 +44,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
 
               var self = this;
               var $heads  = $('#heads');
-              _.each(self.model.heads, function(head) {  
+              self.model.heads.each(function(index,head) {  
                  
                   var h = _.template(headTemplate, head.toJSON());                   
                  
