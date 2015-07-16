@@ -55,9 +55,6 @@ button, a {
   user-select: none;
   -webkit-tap-highlight-color: transparent; }
 
-h1 {
-  font-size: 3em; }
-
 h4 {
   font-weight: 100;
   margin: 55px 0 0 0;
@@ -409,6 +406,9 @@ body {
   background-size: cover;
   background-color: #000000;
   color: #FFFFFF; }
+
+h1 {
+  font-size: 2.5em; }
 
 .va {
   text-align: center;
