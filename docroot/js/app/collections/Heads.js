@@ -18,7 +18,12 @@ define(["jquery","backbone","models/Head"],
       },
 
       addNew: function() {
-        var head = new Head();
+        var index = this.models.length;
+        var head = new Head({'id':index});
+        var maxHeads = 5;
+        if(this.models.length >= maxHeads) {
+          //remove first head, replace with this one
+        }
         this.add(head);
         return head;
       },
