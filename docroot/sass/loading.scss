@@ -26,6 +26,15 @@ body {
     margin-top: -50px;
 }  
 
+.va {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+  
 #main-loading-spinner {
     display: none;
     background-color: rgba(0,0,0,.75);
