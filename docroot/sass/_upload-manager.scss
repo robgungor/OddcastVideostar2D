@@ -12,7 +12,20 @@
   	
 
     #heads {
-      .head {
+      margin-top: 50px;
+      
+      .head {        
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        margin-bottom: 20px;    
+        width: 90px;
+        height: 90px;      
+
+        img {
+          width: 100%;
+        }
+
         .close-x {
           width: 20px;
           height: 20px;          
@@ -20,17 +33,7 @@
           top: 0;
           right: 0;          
         }
-      }
-      div {
-        margin: auto;
-        margin-bottom: 20px;    
-        width: 90px;
-        height: 90px;
-
-        img {
-          width: 100%;
-        }
-      }
+      }      
     }  	
   }
 }
