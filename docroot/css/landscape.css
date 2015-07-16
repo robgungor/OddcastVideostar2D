@@ -326,7 +326,8 @@ button.back {
 #upload-container #upload {
   margin-top: 50px; }
   #upload-container #upload h1 {
-    margin-bottom: 10px; }
+    margin-bottom: 20px;
+    font-size: 2em; }
   #upload-container #upload #buttons div {
     margin: auto;
     margin-bottom: 20px;
