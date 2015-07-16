@@ -307,18 +307,24 @@ button.back {
         position: absolute;
         top: 0;
         right: 0; }
-  #upload-another-container #upload-another #buttons .button {
-    height: 50px;
-    display: inline-block; }
-    #upload-another-container #upload-another #buttons .button img {
-      height: 100%; }
+  #upload-another-container #buttons {
+    position: absolute;
+    bottom: 20px; }
+    #upload-another-container #buttons .button {
+      height: 50px;
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px; }
+      #upload-another-container #buttons .button img {
+        height: 100%; }
 
-#upload-another-container #upload-another #buttons #clear-all {
+#upload-another-container #buttons #clear-all {
   position: absolute;
   float: left;
   bottom: 0;
   left: 0; }
-#upload-another-container #upload-another #buttons #watch-video {
+#upload-another-container #buttons #watch-video {
   position: absolute;
   float: right;
   bottom: 0;
