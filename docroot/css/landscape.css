@@ -364,12 +364,13 @@ button.back {
   height: 400px;
   padding-bottom: 0;
   margin: auto; }
-#positioning-container #positioning #mycontainer, #positioning-container #positioning #mycontainer2 {
+#positioning-container #positioning #mycontainer {
+  position: relative; }
+#positioning-container #positioning #mycontainer2 {
   position: absolute;
-  padding-bottom: 0;
   height: 400px; }
   @media screen and (min-width: 400px) {
-    #positioning-container #positioning #mycontainer, #positioning-container #positioning #mycontainer2 {
+    #positioning-container #positioning #mycontainer2 {
       left: 50%;
       margin-left: -200px; } }
 

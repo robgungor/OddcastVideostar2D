@@ -10,9 +10,13 @@
         margin: auto;      
     }
 
-    #mycontainer, #mycontainer2{
+    #mycontainer {
+      position: relative;
+    }
+
+    #mycontainer2{
       position: absolute;      
-      padding-bottom: 0;
+      // padding-bottom: 0;
       height: 400px;      
 
       @media screen and (min-width: 400px) {
