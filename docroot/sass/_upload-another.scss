@@ -1,0 +1,39 @@
+// _upload.scss
+#upload-another-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.75);  
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  #upload-another {
+  	
+
+    #heads {
+      margin-top: 50px;
+      
+      .head {        
+        display: inline-block;
+        position: relative;
+        margin: auto;
+        margin-bottom: 20px;    
+        width: 90px;
+        height: 120px;    
+
+        img {
+          width: 100%;
+        }
+
+        .close-x {
+          width: 20px;
+          height: 20px;          
+          position: absolute;
+          top: 0;
+          right: 0;          
+        }
+      }      
+    }  	
+  }
+}
