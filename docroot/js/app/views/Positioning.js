@@ -185,7 +185,7 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       close: function() {
         var self = this;
         if(self.touchCanvas) self.touchCanvas.freezeCanvas();
-        self.touchCanvas = null;
+        //self.touchCanvas = null;
         this.$el.fadeOut().empty();
         this.undelegateEvents();
         this.stopListening();
