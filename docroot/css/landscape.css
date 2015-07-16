@@ -365,7 +365,8 @@ button.back {
   padding-bottom: 0;
   margin: auto; }
 #positioning-container #positioning #mycontainer {
-  position: relative; }
+  position: relative;
+  margin: auto; }
 #positioning-container #positioning #mycontainer2 {
   position: absolute;
   height: 400px; }
