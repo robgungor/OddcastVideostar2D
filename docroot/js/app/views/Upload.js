@@ -13,7 +13,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
           
         var self = this;     
         _.bindAll(self, 'onFileInputChange');
-
+       
         var head =  self.model.heads.currentHead || self.model.heads.addNew();
         self.model.heads.currentHead = head;
 

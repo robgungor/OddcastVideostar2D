@@ -73,7 +73,13 @@ define(["jquery",
             onStarInThisVideoClicked: function(e) {
               e.preventDefault();
               var self = this;
-              window.router.navigate('upload', true);
+
+               // go to upload manager if any heads have been uploaded
+              if(self.model.heads.models.length > 0) {
+                window.router.navigate('upload-manager', true);                
+              } else {
+                window.router.navigate('upload', true);
+              }
             },
 
             onShareVideoClicked: function(e) {

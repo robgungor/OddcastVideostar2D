@@ -23,8 +23,14 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
           // View Event Handlers
           events: {        
             'click #close': 'onCloseXClicked',            
-            'click #add':'onAddClicked'
+            'click #add':'onAddClicked',
+            'click .next':'onNextClicked'
           },            
+
+          onNextClicked: function(e) {
+            e.preventDefault();
+            window.router.navigate('landing', true);
+          },
 
           onAddClicked: function(e) {
             var self = this;
