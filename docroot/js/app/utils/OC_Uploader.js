@@ -20,7 +20,7 @@ define(['backbone', 'underscore', 'utils/OC_Utils', 'utils/OC_Parser'],
 			  alert("ERROR");
 			  return null;
 			}
-			tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId(), null, false, callback);
+			tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId(), {}, false, callback);
 			tmp = OC_Parser.getXmlDoc(tmp);
 			tmp = OC_Parser.getXmlNode(tmp, "FILE")
 			tmp = OC_Parser.getXmlNodeAttribute(tmp, 'URL');
