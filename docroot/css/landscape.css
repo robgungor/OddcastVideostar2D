@@ -294,15 +294,16 @@ button.back {
     #upload-another-container #upload-another #heads .head {
       display: inline-block;
       position: relative;
-      margin: auto;
       margin-bottom: 20px;
-      width: 90px;
-      height: 120px; }
+      width: 120px;
+      height: 150px;
+      margin-left: 10px;
+      margin-right: 10px; }
       #upload-another-container #upload-another #heads .head img {
         width: 100%; }
       #upload-another-container #upload-another #heads .head .close-x {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         position: absolute;
         top: 0;
         right: 0; }

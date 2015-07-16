@@ -15,19 +15,20 @@
       
       .head {        
         display: inline-block;
-        position: relative;
-        margin: auto;
-        margin-bottom: 20px;    
-        width: 90px;
-        height: 120px;    
-
+        position: relative;        
+        margin-bottom: 20px;            
+        width: 120px;
+        height: 150px;
+        margin-left: 10px;
+        margin-right: 10px;
+        
         img {
           width: 100%;
         }
 
         .close-x {
-          width: 20px;
-          height: 20px;          
+          width: 30px;
+          height: 30px;        
           position: absolute;
           top: 0;
           right: 0;          
