@@ -162,7 +162,9 @@ define(["jquery",
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
                 if(this.view && this.view.close) this.view.close();
                 this.view = v;
-                this.views.set({id:v});
+                var attribute = {};
+                attribute[id] = v;                
+                this.views.set(attribute);
             },
 
 
