@@ -20,7 +20,15 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
           // View Event Handlers
           events: {        
             'click .close-x': 'onCloseXClicked',
+            'click #add':'onAddClicked'
           },            
+
+          onAddClicked: function(e) {
+            var self = this;
+            var head = self.model.heads.addNew();
+            self.model.heads.currentHead = head;
+            window.router.navigate('upload', true);
+          },
 
           onCloseXClicked: function(e) {        
             e.preventDefault();

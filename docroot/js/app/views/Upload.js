@@ -13,6 +13,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
           
         var self = this;     
         _.bindAll(self, 'onFileInputChange');
+
+        var head =  self.model.heads.currentHead || self.model.heads.addNew();
+        self.model.heads.currentHead = head;
+
         self.render();        
       },
         
@@ -63,7 +67,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         
         // var imgUploadedFile = document.getElementById('fileUpload'+uploadImgBtnId); 
         // imgUploadedFile.addEventListener('change', function(event){
-        
+        $('#main-loading-spinner').show();
+
         var self = this;
 
         var files = event.target.files;
@@ -112,11 +117,11 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         var self = this;
         var canvasPath=_canvas.toDataURL();
 
-        var head = self.model.heads.addNew();
-
-        head.set({'tempImageURL':canvasPath, 'isTempImageCrossdomain':false});
-        self.model.heads.currentHead = head;
+        var head = self.model.heads.currentHead;
         
+        head.set({'tempImageURL':canvasPath, 'isTempImageCrossdomain':false});
+        
+        $('#main-loading-spinner').hide();
         window.router.navigate('positioning', true);
         //setTimeout(function(){self.upload_image_to_touchCanvas(null, canvasPath, false);}, 100);
       },    
