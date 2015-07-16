@@ -105,7 +105,8 @@ button.back {
 #landing footer #choose-video, #landing footer #share-video {
   width: 15%; }
 #landing footer div {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: middle; }
   #landing footer div img {
     width: 100%; }
 
