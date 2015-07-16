@@ -14,13 +14,13 @@ define(['backbone', 'underscore', 'utils/OC_Utils', 'utils/OC_Parser'],
 		Uploads base64Encoded file and gets a temp location url
 		*/
 		upload_V3 : function (base64File, callback) {
-			var tmp = OC_Utilities.getUrl( "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +this.__getSessionId(), {FileDataBase64:base64File}, false, callback);
+			var tmp = OC_Utilities.getUrl( "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +this.__getSessionId(), {FileDataBase64:base64File});
 			if(tmp!="OK"){
 			  //errorCaught(null, "upload_v3.php: " +tmp);
 			  alert("ERROR");
 			  return null;
 			}
-			tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId());
+			tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +this.__getSessionId(), null, false, callback);
 			tmp = OC_Parser.getXmlDoc(tmp);
 			tmp = OC_Parser.getXmlNode(tmp, "FILE")
 			tmp = OC_Parser.getXmlNodeAttribute(tmp, 'URL');
