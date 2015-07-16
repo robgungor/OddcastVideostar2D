@@ -165,22 +165,29 @@
                     //if (window.devicePixelRatio == 2) {
                       //retina images
                       imagesToLoad.push.apply(imagesToLoad, 
-                        [ 'img/landing/share-a-snug-logo@2x.png',
-                          // 'img/landing/bubble-button-bg@2x.png',
-                          // 'img/landing/bubble-button-bg-active@2x.png',
-                          // 'img/landing/button-email@2x.png',
-                          // 'img/landing/button-email-active@2x.png',
-                          // 'img/landing/button-fb@2x.png',
-                          // 'img/landing/button-fb-active@2x.png',                          
-                          // 'img/landing/button-twitter@2x.png',
-                          // 'img/landing/button-twitter-active@2x.png',                          
-                          // 'img/common/snuggle-logo@2x.png',
-                          // 'img/common/oddcast-logo@2x.png',
-                          // 'img/common/snuggledotcom-logo@2x.png',
-                          // 'img/big_show/create-your-own@2x.png',
-                          // 'img/big_show/create-your-own-active@2x.png'
+                        [ 'img/landing/star_in_this_video.png',
+                          'img/assets/arrow_left.png',
+                          'img/assets/back.png',
+                          'img/assets/button_confirm.png',
+                          'img/assets/close_x.png',
+                          'img/assets/next.png',
+                          'img/landing/choose_video.png',
+                          'img/landing/share_video.png',                      
+                          'img/share/email.png',
+                          'img/share/facebook.png',
+                          'img/share/twitter.png',
+                          'img/share/youtube.png',
+                          'img/assets/ok.png',
+                          'img/video_thumbnails/1.png',
+                          'img/video_thumbnails/2.png', 
+                          'img/video_thumbnails/3.png',
+                          'img/video_thumbnails/4.png', 
+                          'img/video_thumbnails/5.png', 
+                          'img/upload/camera.png',
+                          'img/upload/facebook.png'
                         ]);
-                     
+                      
+                      
                     // } else{
                     //   imagesToLoad.push.apply(imagesToLoad, 
                     //     [ 'img/landing/share-a-snug-logo.png',
