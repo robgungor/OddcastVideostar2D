@@ -187,6 +187,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         if(self.touchCanvas) self.touchCanvas.freezeCanvas();
         self.touchCanvas = null;
         this.$el.fadeOut().empty();
+        this.undelegateEvents();
+        this.stopListening();
       },
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
       //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
