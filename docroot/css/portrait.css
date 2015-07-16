@@ -261,7 +261,8 @@ button.back {
   top: 0;
   left: 0; }
   #upload-another-container #upload-another #heads {
-    margin-top: 50px; }
+    margin-top: 50px;
+    width: 250px; }
     #upload-another-container #upload-another #heads .head {
       display: inline-block;
       position: relative;
