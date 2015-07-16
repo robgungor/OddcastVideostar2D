@@ -93,7 +93,7 @@ button.next {
   background-image: url("../img/assets/next.png"); }
 
 button.back {
-  top: 10px;
+  top: 20px;
   background-image: url("../img/assets/back.png"); }
 
 #landing video {
