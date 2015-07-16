@@ -38,12 +38,14 @@ define(["jquery",
 
         var MobileRouter = Backbone.Router.extend({
             model: null,
+            views: null,
 
             initialize: function() {
 
                 // Tells Backbone to start watching for hashchange events
                 Backbone.history.start();
                 window.Preloader.loaded();
+                if(this.views == null) this.views = new Backbone.Model.extend();
                 if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
             },
 
@@ -93,90 +95,89 @@ define(["jquery",
 
             },
 
-            landing: function() {
+
+            landing: function(route) {
+                console.log("ROUTE: "+route);
                 
-                if(this.model == null) return this.navigate('', true);
-               
                  // Instantiates a new view which will render the header text to the page                
-                this.loadView(new LandingView({model:this.model}));
+                this.loadView('landing', LandingView);
             },
 
             bigShow: function() {
                 // Instantiates a new view which will render the header text to the page                
-                this.loadView(new BigShowView({model:new MessageModel({config:OC_CONFIG})}));
+                this.loadView('bigshow', BigShowView);
             },
 
             upload: function() {
-                if(this.model == null) return this.navigate('', true);
+                
                 
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadView({model:this.model}));
             },
 
             positioning: function() {
-                if(this.model == null) return this.navigate('', true);
+                
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new PositioningView({model:this.model}));
             },
 
             sharing: function() {
-                if(this.model == null) return this.navigate('', true);
+                
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new SharingView({model:this.model}));
             },
 
             shareFacebook: function() {
-                if(this.model == null) return this.navigate('', true);
+            
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ShareFacebookView({model:this.model}));
             },
 
-            shareEmail: function() {
-                if(this.model == null) return this.navigate('', true);
+            shareEmail: function() {            
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ShareEmailView({model:this.model}));
             },
 
-            shareTwitter: function() {
-                if(this.model == null) return this.navigate('', true);
+            shareTwitter: function() {                
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ShareTwitterView({model:this.model}));
             },
 
-            shareYouTube: function() {
-                if(this.model == null) return this.navigate('', true);
+            shareYouTube: function() {            
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ShareYouTubeView({model:this.model}));
             },
 
             uploadFacebook: function() {
-                if(this.model == null) return this.navigate('', true);
-              
+            
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadFacebookView({model:this.model}));
             },
 
             chooseVideo: function() {
-                if(this.model == null) return this.navigate('', true);
+                
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new ChooseVideoView({model:this.model}));
             },
 
             uploadManager : function() {
-                if(this.model == null) return this.navigate('', true);
-              
+                
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadManager({model:this.model}));
             },
 
-            loadView : function(view) {
+            loadView : function(id, View) {
+                if(this.model == null) return this.navigate('', true);
+
+                var view;
+                view = this.views.get(id) ? this.views.get(id) : new View({model:this.model});
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
                 if(this.view && this.view.close) this.view.close();
                 this.view = view;
