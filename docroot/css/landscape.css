@@ -360,16 +360,16 @@ button.back {
     top: 0px;
     left: 0px; }
 
-#positioning .uploadPhoto_bg {
+#positioning-container #positioning .uploadPhoto_bg {
   height: 400px;
   padding-bottom: 0;
   margin: auto; }
-#positioning #mycontainer, #positioning #mycontainer2 {
+#positioning-container #positioning #mycontainer, #positioning-container #positioning #mycontainer2 {
   position: absolute;
   padding-bottom: 0;
   height: 400px; }
   @media screen and (min-width: 400px) {
-    #positioning #mycontainer, #positioning #mycontainer2 {
+    #positioning-container #positioning #mycontainer, #positioning-container #positioning #mycontainer2 {
       left: 50%;
       margin-left: -200px; } }
 
