@@ -31,11 +31,11 @@ define(['backbone', 'underscore', 'utils/OC_Utils', 'utils/OC_Parser'],
 		_sessionId: false,
 
 		__getSessionId : function () {
-			if(this._sessionId == false){
+			//if(this._sessionId == false){
 			  this._sessionId = new Date().getTime();
 			  this._sessionId += this.__S4() +this.__S4() +this.__S4() +this.__S4() +this.__S4() +this.__S4();
 			  this._sessionId = this._sessionId.substring(0,32);
-			}
+			//}
 			return this._sessionId;
 		},
 
