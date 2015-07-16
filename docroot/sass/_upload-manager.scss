@@ -12,7 +12,15 @@
   	
 
     #heads {
-      
+      .head {
+        .close-x {
+          width: 20px;
+          height: 20px;          
+          position: absolute;
+          top: 0;
+          right: 0;          
+        }
+      }
       div {
         margin: auto;
         margin-bottom: 20px;    
