@@ -15,11 +15,14 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
               var self = this;
            
               self.render();
+
+              this.listenTo(this.model.heads, "update", self.render);
+              this.listenTo(this.model.heads, "reset", self.render);
           },
             
           // View Event Handlers
           events: {        
-            'click .close-x': 'onCloseXClicked',
+            'click #close': 'onCloseXClicked',            
             'click #add':'onAddClicked'
           },            
 
