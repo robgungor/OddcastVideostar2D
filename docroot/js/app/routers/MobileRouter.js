@@ -174,7 +174,7 @@ define(["jquery",
               
                 // Instantiates a new view which will render the header text to the page                
                 this.loadView(new UploadManager({model:this.model}));
-            }
+            },
 
             loadView : function(view) {
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
