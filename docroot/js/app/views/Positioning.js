@@ -45,6 +45,10 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         self.drawFinalFace_mask();
       },
 
+      onBackClicked: function(e) {
+        window.router.navigate('upload', true);
+      },
+
       //TODO - REFACTOR THIS SECTION
       prepareImageForPositioning: function() {
         var self = this;
