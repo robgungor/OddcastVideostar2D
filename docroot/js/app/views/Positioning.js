@@ -188,12 +188,11 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         //self.touchCanvas = null;
         this.$el.fadeOut().empty();
         this.undelegateEvents();
-        this.stopListening();
+        //this.stopListening();
       },
 
       open: function() {
-        this.delegateEvents();
-        this.startListening();
+        this.delegateEvents();        
         this.render();
       },
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
