@@ -16,7 +16,7 @@
       margin-top: 50px;
       width: 300px;
       margin-bottom: 20px;
-      
+
       .head {        
         display: inline-block;
         position: relative;        
@@ -54,6 +54,10 @@
 
         @media screen and (max-width:400px) {
           height: 40px;
+        }
+
+        @media screen and (max-width:320px) {
+          height: 30px;
         }
 
         img {

@@ -279,6 +279,9 @@ button.back {
     @media screen and (max-width: 400px) {
       #upload-another-container #buttons .button {
         height: 40px; } }
+    @media screen and (max-width: 320px) {
+      #upload-another-container #buttons .button {
+        height: 30px; } }
     #upload-another-container #buttons .button img {
       height: 100%; }
 
