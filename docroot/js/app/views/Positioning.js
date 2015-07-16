@@ -192,8 +192,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       },
 
       open: function() {
-        this.delegateEvents();        
+        this.delegateEvents();  
         this.render();
+        this.prepareImageForPositioning();
       },
       // function precheck_saved_mid(_callback, _callback_afterMidCreated){
       //   if(_callback_afterMidCreated==null) _callback_afterMidCreated=_callback;
