@@ -278,6 +278,10 @@ button.back {
         position: absolute;
         top: 0;
         right: 0; }
+  #upload-another-container #upload-another #buttons .button {
+    height: 50px; }
+    #upload-another-container #upload-another #buttons .button img {
+      height: 100%; }
 
 #upload-container {
   width: 100vw;
