@@ -30,9 +30,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
 
           onClearClicked: function(e) {
             var self = this;
-            self.model.heads.each(function(head,index) {  
+            var head;
+            while (head = self.model.heads.first()) {
               head.destroy();
-            });
+            }
           },
 
           onNextClicked: function(e) {
