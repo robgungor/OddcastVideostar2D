@@ -69,6 +69,8 @@ define(["jquery",
             index: function() {
                 
                 if(this.model == null) this.model = new AppModel({config:OC_CONFIG});
+                if(this.views == null) this.views = new Backbone.Model();
+
                 if(OC_CONFIG.messageId >0){
                     //Visitor sources from Email
                     if(OC_CONFIG.messageId.slice(-2) == ".2" || OC_CONFIG.messageId.slice(-2) == ".1") {
@@ -96,8 +98,7 @@ define(["jquery",
             },
 
 
-            landing: function(route) {
-                console.log("ROUTE: "+route);
+            landing: function() {
                 
                  // Instantiates a new view which will render the header text to the page                
                 this.loadView('landing', LandingView);
@@ -112,75 +113,56 @@ define(["jquery",
                 
                 
                 // Instantiates a new view which will render the header text to the page                
-                this.loadView(new UploadView({model:this.model}));
+                this.loadView('upload', UploadView);
             },
 
             positioning: function() {
                 
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new PositioningView({model:this.model}));
+                this.loadView('positioning', PositioningView);             
             },
 
             sharing: function() {
                 
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new SharingView({model:this.model}));
+              this.loadView('sharing', SharingView);                             
             },
 
             shareFacebook: function() {
             
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new ShareFacebookView({model:this.model}));
+                this.loadView('shareFacebook', ShareFacebookView);                    
             },
 
             shareEmail: function() {            
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new ShareEmailView({model:this.model}));
+                this.loadView('shareEmail', ShareEmailView);     
             },
 
             shareTwitter: function() {                
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new ShareTwitterView({model:this.model}));
+                this.loadView('shareTwitter', ShareTwitterView);                   
             },
 
             shareYouTube: function() {            
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new ShareYouTubeView({model:this.model}));
+              this.loadView('shareYouTube', ShareYouTubeView);                     
             },
 
             uploadFacebook: function() {
-            
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new UploadFacebookView({model:this.model}));
+                this.loadView('uploadFacebook', UploadFacebookView);                                    
             },
 
-            chooseVideo: function() {
-                
-              
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new ChooseVideoView({model:this.model}));
+            chooseVideo: function() {                
+                this.loadView('chooseVideo', ChooseVideoView);                                                  
             },
 
             uploadManager : function() {
-                
-                // Instantiates a new view which will render the header text to the page                
-                this.loadView(new UploadManager({model:this.model}));
+                this.loadView('uploadManager', UploadManager);               
             },
 
             loadView : function(id, View) {
                 if(this.model == null) return this.navigate('', true);
 
-                var view;
-                view = this.views.get(id) ? this.views.get(id) : new View({model:this.model});
+                var v = this.views.get(id) ? this.views.get(id) : new View({model:this.model});
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
                 if(this.view && this.view.close) this.view.close();
-                this.view = view;
+                this.view = v;
+                this.views.set({id:v});
             },
 
 
