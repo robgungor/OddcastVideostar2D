@@ -43,7 +43,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-manager.html"
             e.preventDefault();
             window.router.navigate('landing', true);
           },   
-               
+        
           // Renders the view's template to the UI
           render: function() {
               
