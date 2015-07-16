@@ -28,7 +28,7 @@ define(["jquery","backbone","models/Head"],
         if(this.at(index))  {
           head = this.at(index);
           head.clear();
-          head.set('index':index);
+          head.set({'index':index});
         } else {
           head = new Head({'index':index});
         }
