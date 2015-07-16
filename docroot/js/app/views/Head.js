@@ -38,7 +38,7 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
           render: function() {
               
               // Setting the view's template using the template method
-              this.template = _.template(template, {});
+              this.template = _.template(template, this.model.toJSON());
 
               // Dynamically updates the UI with the view's template
               this.$el.html(this.template).fadeIn();
