@@ -223,7 +223,7 @@ This code may be freely distributed under the MIT License
 				//edges cases
 				var newWidth = currentWidth + deltaWidth;
 				var newHeight = currentHeight + deltaHeight;
-				doTraceOnce(newPosX+"        "+newPosY);
+				// doTraceOnce(newPosX+"        "+newPosY);
 				if( newWidth < this.canvas.clientWidth*this.dAllowS) return;
 				//if( newPosX > 0 ) { newPosX = 0; }
 				//if( newPosX < this.canvas.clientWidth-newWidth ) { newPosX = this.canvas.clientWidth-newWidth;}
@@ -232,7 +232,7 @@ This code may be freely distributed under the MIT License
 				//if( newPosY > 0 ) { newPosY = 0; }
 				//if( newPosY < this.canvas.clientHeight-newHeight ) { newPosY = this.canvas.clientHeight-newHeight; }
 				
-				doTrace(newPosX+"        "+newPosY);
+				// doTrace(newPosX+"        "+newPosY);
 				
 				//finally affectations
 				this.scale.x    = newScale;
