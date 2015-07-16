@@ -14,7 +14,8 @@ define(["jquery",
         "views/ShareFacebook", 
         "views/ShareEmail",
         "views/ShareYouTube", 
-        "views/ShareTwitter", 
+        "views/ShareTwitter",
+        "views/UploadManager", 
         "collections/Collection"],
         
     function($, 
@@ -32,6 +33,7 @@ define(["jquery",
             ShareEmailView, 
             ShareYouTubeView, 
             ShareTwitterView, 
+            UploadManager,
             Collection) {
 
         var MobileRouter = Backbone.Router.extend({
@@ -58,6 +60,7 @@ define(["jquery",
                 "choose-video":"chooseVideo",
                 "share-facebook":"shareFacebook",
                 "upload-facebook":"uploadFacebook",
+                "upload-manager":"uploadManager",
 
             },
 
@@ -166,11 +169,20 @@ define(["jquery",
                 this.loadView(new ChooseVideoView({model:this.model}));
             },
 
+            uploadManager : function() {
+                if(this.model == null) return this.navigate('', true);
+              
+                // Instantiates a new view which will render the header text to the page                
+                this.loadView(new UploadManager({model:this.model}));
+            }
+
             loadView : function(view) {
                 //this.view && (this.view.close ? this.view.close() : this.view.remove());
                 if(this.view && this.view.close) this.view.close();
                 this.view = view;
-            }
+            },
+
+
     
         });
 

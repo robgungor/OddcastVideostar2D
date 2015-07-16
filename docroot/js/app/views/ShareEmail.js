@@ -41,24 +41,28 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", "text
                 
                 $('#main-loading-spinner').fadeOut(300);
                 $('#sharing').fadeIn();
-                $('.share-in').fadeIn();
-                
+                $('.share-in').fadeIn();                
+            
             },
 
             onOKClick: function(e){
+            
                 e.preventDefault();
                 this.model.sendEmail();
 
                 $('.share-confirm').fadeOut();
                 $('.share-result').fadeIn();
+            
             },
 
             onOKAfterClick: function(e){
+            
                 e.preventDefault();
                
                 this.$el.fadeOut(200);
                 window.router.navigate('landing', true);
                 OC_ET.event("ce12");
+            
             },
             
             close: function() {

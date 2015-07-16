@@ -111,8 +111,12 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       img_is_FlippedRotated : function (_canvas) {
         var self = this;
         var canvasPath=_canvas.toDataURL();
-        self.model.set({'tempImageURL':canvasPath, 'isTempImageCrossdomain':false});
 
+        var head = self.model.heads.addNew();
+
+        head.set({'tempImageURL':canvasPath, 'isTempImageCrossdomain':false});
+        self.model.heads.currentHead = head;
+        
         window.router.navigate('positioning', true);
         //setTimeout(function(){self.upload_image_to_touchCanvas(null, canvasPath, false);}, 100);
       },    

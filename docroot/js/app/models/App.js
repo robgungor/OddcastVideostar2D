@@ -1,8 +1,8 @@
 // Model.js
 // --------
-define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "services/Facebook", "utils/OC_Utils", "utils/OC_MessageSaver"],
+define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "collections/Heads", "services/Facebook", "utils/OC_Utils", "utils/OC_MessageSaver"],
 
-    function($, Backbone, Names, Settings, BadWords, FacebookService, OC_Utils, OC_MessageSaver) {
+    function($, Backbone, Names, Settings, BadWords, Heads, FacebookService, OC_Utils, OC_MessageSaver) {
 
         // Creates a new Backbone Model class object
         var App = Backbone.Model.extend({
@@ -17,6 +17,8 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 this.settings   = new Settings(     {config:options.config});            
                 this.badWords   = new BadWords([],  {config:options.config})
                 this.facebook   = new FacebookService( {config:options.config, settings:this.settings, app:this});
+                this.heads      = new Heads([],{config:options.config});
+
                 this.config     = options.config;
             },
 
@@ -152,7 +154,76 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   OC_MessageSaver.saveMessage(self, {}, onMessageSaveComplete);
               }
 
-          },
+            },
+           
+            createFinalSharedVideo: function(){  
+              var self = this;
+                        
+                var _img= ''
+                var imgString = "";
+
+                var _extradata=escape("isVideo=true");
+                
+                
+                var index = 1;
+
+                _.each(self.model.heads, function(head){
+                  _img = head.get('croppedImage');
+                  imgString += "&img"+index+"="+_img;  
+                  index++;
+                })
+                
+                var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&extraData="+_extradata);
+                tmp = OC_Parser.getXmlDoc(tmp);
+                var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
+                var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
+                
+                if(errorTmp != null){
+                  var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
+                  alert(error_msg);
+                  
+                }else{
+                  var sessionId=OC_Parser.getXmlNodeAttribute(okTmp, 'SESSIONID');
+                             
+                  setTimeout(function(){  self.createFinalSharedVideo_pulling(sessionId);}, 30*1000);
+                }
+              
+            },
+
+            createFinalSharedVideo_pulling: function(_sessionId) {
+              var self = this;
+
+              var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
+              tmp = OC_Parser.getXmlDoc(tmp);
+              var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
+              var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
+              if(errorTmp != null){
+                var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
+                alert(error_msg);
+                hideProgress();
+              }else{
+                var _status=OC_Parser.getXmlNodeAttribute(okTmp, 'STATUS');
+                var _url=OC_Parser.getXmlNodeAttribute(okTmp, 'URL');
+                //alert(_status);
+                if(_status=="0"){
+                  //console.log(_status+"  "+_url);
+                  setTimeout(function(){self.createFinalSharedVideo_pulling(_sessionId);}, 2*1000);
+                }else if(_status=="1"){
+                  //console.log(_status+"  "+_url);
+                  this.model.set({'shareVideoURL':_url, 'videoURL':_url});
+                  //document.getElementById("share-video").src=_url;
+                  self.createFinalSharedVideo_done();
+                  OC_ET.event("edvscr");
+                }
+              }
+            },
+
+            createFinalSharedVideo_done: function(){
+              alert('DONE!: '+this.model.get('videoURL'));
+              window.router.navigate('landing');
+            },
+            
+
         });
 
         // Returns the Model class

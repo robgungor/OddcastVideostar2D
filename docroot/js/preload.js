@@ -225,6 +225,7 @@
                 imagesTotal = imagesToLoad.length;
                 loadNextImage();
             },  
+            
             updatePercentageView: function(){
                 var self = this;
                                 
@@ -240,6 +241,7 @@
                 // all loaded
                 if(self.percentLoaded >= 1 && self.percentShown >=.99) self.loaded();
             },
+
             loaded: function(){
                 
                 var self = this;

@@ -22,9 +22,9 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       // View Event Handlers
       events: {
         // 'change input': 'onFileInputChange'  
-        'click .next':'onNextClicked', 
-        'click .back': 'onBackClicked',
-        'route:positioning': 'render'
+        'click .next'       :'onNextClicked', 
+        'click .back'       : 'onBackClicked',
+        'route:positioning' : 'render'
       },                 
 
       // Renders the view's template to the UI
@@ -38,20 +38,21 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
       
         return this;
       },           
+
       onNextClicked: function(e) {
         var self = this;
         
         self.drawFinalFace_mask();
-        
-
       },
+
       //TODO - REFACTOR THIS SECTION
       prepareImageForPositioning: function() {
         var self = this;
         
-        var url = self.model.get('tempImageURL');
-        var crossDomainErrors = self.model.get('isTempImageCrossdomain');        
-        var useAnonymous = self.model.get('uploadSource') == 'facebook';
+        var head = self.model.heads.currentHead;
+        var url = head.get('tempImageURL');
+        var crossDomainErrors = head.get('isTempImageCrossdomain');        
+        var useAnonymous = head.get('uploadSource') == 'facebook';
         if(crossDomainErrors) {
           self.fixImageDomain(url);
         } else {
@@ -166,67 +167,10 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
         var _base64Im = _canvas.toDataURL();
         _base64Im = _base64Im.substring(_base64Im.indexOf(",")+1);
-        self.model.set({'croppedImage':OC_Uploader.upload_V3(_base64Im)});
-      
-        setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
-      },
-      // do this in model?
-      createFinalSharedVideo: function(){  
-        var self = this;
-                  
-          var _img=self.model.get('croppedImage');
-          var _extradata=escape("isVideo=true");
-          console.log(_img);
-          window.router.navigate('landing', true);
-          return;
-          var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +"&img1="+_img+"&extraData="+_extradata);
-          tmp = OC_Parser.getXmlDoc(tmp);
-          var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
-          var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
-          
-          if(errorTmp != null){
-            var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
-            alert(error_msg);
-            
-          }else{
-            var sessionId=OC_Parser.getXmlNodeAttribute(okTmp, 'SESSIONID');
-                       
-            setTimeout(function(){  self.createFinalSharedVideo_pulling(sessionId);}, 30*1000);
-          }
+        var head = self.model.heads.currentHead;
+        head.set({'src':OC_Uploader.upload_V3(_base64Im)});
         
-      },
-
-      createFinalSharedVideo_pulling: function(_sessionId) {
-        var self = this;
-
-        var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
-        tmp = OC_Parser.getXmlDoc(tmp);
-        var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
-        var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
-        if(errorTmp != null){
-          var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
-          alert(error_msg);
-          hideProgress();
-        }else{
-          var _status=OC_Parser.getXmlNodeAttribute(okTmp, 'STATUS');
-          var _url=OC_Parser.getXmlNodeAttribute(okTmp, 'URL');
-          //alert(_status);
-          if(_status=="0"){
-            //console.log(_status+"  "+_url);
-            setTimeout(function(){self.createFinalSharedVideo_pulling(_sessionId);}, 2*1000);
-          }else if(_status=="1"){
-            //console.log(_status+"  "+_url);
-            this.model.set({'shareVideoURL':_url, 'videoURL':_url});
-            //document.getElementById("share-video").src=_url;
-            self.createFinalSharedVideo_done();
-            OC_ET.event("edvscr");
-          }
-        }
-      },
-
-      createFinalSharedVideo_done: function(){
-        alert('DONE!: '+this.model.get('videoURL'));
-        window.router.navigate('landing');
+        //setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },
       
       close: function() {
