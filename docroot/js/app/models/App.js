@@ -62,7 +62,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var self = this;
                 var _img= ''
                 var imgString = "";
-
+                var head = self.heads.currentHead;
                 var _extradata=escape("isVideo=true");
                 
                 
