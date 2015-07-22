@@ -60,17 +60,32 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
             },            
             fetchVideoLink: function(cb){
                 var self = this;
-                                
+                var _img= ''
+                var imgString = "";
+
+                var _extradata=escape("isVideo=true");
+                
+                
+                var index = 1;
+                var dataObject = {
+                  video: self.get('selectedVideo'),
+                  doorId: self.config.doorId,
+                  clientId: self.config.clientId,
+                }
+                _.each(self.heads, function(head){
+                  _img = head.get('croppedImage');
+                  dataObject["img"+index] = _img;                  
+                  index++;
+                })
+
+
                 $.ajax({
                   //crossDomain: false,
                   //headers: {'X-Requested-With': 'XMLHttpRequest'},
                   type: 'GET',
-                  data: {
-                    video: 'video_'+self.get('selectedVideo')+'_'+self.getSelectedName(),
-                    from: self.get('fromName'),
-                    to: self.get('toName')
-                  },
-                  url: '//host.oddcast.com/api_misc/1297/api.php',                 
+                  data: dataObject,
+                  url: '//host.oddcast.com/api_misc/generate-video.php', 
+                  //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: true,
                   dataType : 'xml',
@@ -167,13 +182,14 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 
                 var index = 1;
 
-                _.each(self.model.heads, function(head){
+                _.each(self.heads, function(head){
                   _img = head.get('croppedImage');
                   imgString += "&img"+index+"="+_img;  
                   index++;
                 })
-                
-                var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&extraData="+_extradata);
+                //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1
+                var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api_misc/generate-video.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&videoId="+self.get('selectedVideo'));
+                //var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&extraData="+_extradata);
                 tmp = OC_Parser.getXmlDoc(tmp);
                 var errorTmp=OC_Parser.getXmlNode(tmp, 'APIERROR');
                 var okTmp=OC_Parser.getXmlNode(tmp, 'DATA');
@@ -192,6 +208,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
 
             createFinalSharedVideo_pulling: function(_sessionId) {
               var self = this;
+              
 
               var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideoStatus.php?sessionId="  +_sessionId);
               tmp = OC_Parser.getXmlDoc(tmp);
