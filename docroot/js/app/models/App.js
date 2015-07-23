@@ -89,6 +89,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: false,
                   //dataType : 'xml',
+                  dataType : 'text',
                   beforeSend: function(xhr, opts){
                     
                   
