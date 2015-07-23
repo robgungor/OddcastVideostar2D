@@ -72,11 +72,11 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   doorId: self.config.doorId,
                   clientId: self.config.clientId,
                 }
-                _.each(self.heads, function(head){
+                _self.heads.each(function(head){
                   _img = head.get('croppedImage');
                   dataObject["img"+index] = _img;                  
                   index++;
-                })
+                });
 
 
                 $.ajax({
