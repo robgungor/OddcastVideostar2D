@@ -38,10 +38,14 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
 
           onNextClicked: function(e) {
             e.preventDefault();
+            var self = this;
+            $('#main-loading-spinner').show();
+            self.$el.hide();
 
             self.model.fetchVideoLink(function(){
               console.log("GOT THAT VIDEO LANNK");
               window.router.navigate('landing', true);  
+              $('#main-loading-spinner').hide();
             });
             
           },
