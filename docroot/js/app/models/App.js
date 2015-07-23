@@ -73,7 +73,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   clientId: self.config.clientId,
                 }
                 self.heads.each(function(head){
-                  _img = head.get('croppedImage');
+                  _img = head.get('src');
                   dataObject["img"+index] = _img;                  
                   index++;
                 });
