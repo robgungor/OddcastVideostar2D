@@ -38,7 +38,12 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
 
           onNextClicked: function(e) {
             e.preventDefault();
-            window.router.navigate('landing', true);
+
+            self.model.fetchVideoLink(function(){
+              console.log("GOT THAT VIDEO LANNK");
+              window.router.navigate('landing', true);  
+            });
+            
           },
 
           onAddClicked: function(e) {

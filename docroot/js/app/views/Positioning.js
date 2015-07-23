@@ -181,12 +181,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
         head.set({'src':src});
        
         $('#main-loading-spinner').fadeOut(300);
-        self.model.fetchVideoLink(function(){
-          console.log("GOT THAT VIDEO LANNK");
-          window.router.navigate('upload-another', true);  
-        })
-        
-        
+        window.router.navigate('upload-another', true);          
+                
         //setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },
       

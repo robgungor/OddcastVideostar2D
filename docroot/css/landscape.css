@@ -323,16 +323,18 @@ button.back {
     #upload-another-container #buttons .button img {
       height: 100%; }
 
-#upload-another-container #buttons #clear-all {
-  position: absolute;
-  float: left;
-  bottom: 0;
-  left: 0; }
-#upload-another-container #buttons #watch-video {
-  position: absolute;
-  float: right;
-  bottom: 0;
-  right: 0; }
+#upload-another-container #buttons {
+  width: 100%; }
+  #upload-another-container #buttons #clear-all {
+    position: absolute;
+    float: left;
+    bottom: 0;
+    left: 0; }
+  #upload-another-container #buttons #watch-video {
+    position: absolute;
+    float: right;
+    bottom: 0;
+    right: 0; }
 
 #upload-container #upload h1 {
   margin-bottom: 50px;
