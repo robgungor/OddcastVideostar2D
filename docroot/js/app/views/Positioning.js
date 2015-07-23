@@ -170,7 +170,8 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
 
       drawFinalFace_snapshot: function(_canvas){
         var self = this;
-
+        self.$el.hide();
+        
         var _base64Im = _canvas.toDataURL();
         _base64Im = _base64Im.substring(_base64Im.indexOf(",")+1);
         var head = self.model.heads.currentHead;
