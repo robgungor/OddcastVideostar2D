@@ -84,7 +84,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   //headers: {'X-Requested-With': 'XMLHttpRequest'},
                   type: 'GET',
                   data: dataObject,
-                  url: '//host.oddcast.com/api_misc/generate-video.php', 
+                  url: "//"+OC_CONFIG.baseURL +"/api_misc/generate-video.php", 
                   //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: true,
