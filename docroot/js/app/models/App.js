@@ -69,7 +69,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var index = 1;
                 var dataObject = {
                   video: self.get('selectedVideo'),
-                  doorId: self.config.doorId,
+                  doorId: 1300,//self.config.doorId,
                   clientId: self.config.clientId,
                 }
                 self.heads.each(function(head){
