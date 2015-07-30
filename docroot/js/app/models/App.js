@@ -69,7 +69,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var index = 1;
                 var dataObject = {
                   video: self.get('selectedVideo'),
-                  doorId: 1300,//self.config.doorId,
+                  doorId: self.config.doorId,
                   clientId: self.config.clientId,
                 }
                 self.heads.each(function(head){
@@ -84,7 +84,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   //headers: {'X-Requested-With': 'XMLHttpRequest'},
                   type: 'GET',
                   data: dataObject,
-                  url: "//"+OC_CONFIG.baseURL +"/api_misc/1300/generate-video.php", 
+                  url: "//"+OC_CONFIG.baseURL +"/api_misc/"+self.config.doorId+"/generate-video.php", 
                   //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: false,
