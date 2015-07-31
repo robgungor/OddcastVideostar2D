@@ -87,7 +87,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   url: "//"+OC_CONFIG.baseURL +"/api_misc/"+self.config.doorId+"/generate-video.php", 
                   //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
-                  async: false,
+                  async: true,
                   //dataType : 'xml',
                   dataType : 'text',
                   beforeSend: function(xhr, opts){
