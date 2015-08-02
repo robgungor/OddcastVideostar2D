@@ -187,7 +187,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   _img = head.get('src');
                   imgString += "&img"+index+"="+_img;  
                   index++;
-                })
+                });
                 //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1
                 var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api_misc/"+self.config.doorId+"/generate-video.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&videoId="+self.get('selectedVideo'));
                 //var tmp = OC_Utils.getUrl("//"+OC_CONFIG.baseURL +"/api/downloadTempVideo.php?doorId="+OC_CONFIG.doorId +"&clientId=" +OC_CONFIG.clientId +imgString+"&extraData="+_extradata);
