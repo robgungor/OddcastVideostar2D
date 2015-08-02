@@ -40,10 +40,7 @@ define(["jquery", "backbone"],
                   //headers: {'X-Requested-With': 'XMLHttpRequest'},
                   type: 'POST',
                   data: {FileDataBase64:base64File},
-                  url: "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +sessionID, 
-                  //url: "//"+OC_CONFIG.baseURL +"/api_misc/"+OC_CONFIG.doorId+"/generate-video.php", 
-                  //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
-                  //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
+                  url: "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +sessionID,                         
                   async: true,
                   //dataType : 'xml',
                   dataType : 'text',
@@ -51,6 +48,7 @@ define(["jquery", "backbone"],
                     
                   
                   },
+
                   complete: function(data, textStatus, errorThrown) { 
                     
                     var url = $(data.responseText).attr('URL');
@@ -60,21 +58,10 @@ define(["jquery", "backbone"],
                   }
               });
 
-              // if(tmp!="OK"){
-              //   //errorCaught(null, "upload_v3.php: " +tmp);
-              //   alert("ERROR UPLOADING");
-              //   $('#main-loading-spinner').hide();
-              //   return null;
-              // }
-             
             },
 
             getUploadedURL: function(sessionID, callback) {
-              // tmp = OC_Utilities.getUrl("//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php?sessId=" +sessionID, {}, true, callback);
-              // tmp = OC_Parser.getXmlDoc(tmp);
-              // tmp = OC_Parser.getXmlNode(tmp, "FILE")
-              // tmp = OC_Parser.getXmlNodeAttribute(tmp, 'URL');
-
+              
               var self = this;
 
               $.ajax({
@@ -94,8 +81,9 @@ define(["jquery", "backbone"],
                   },
                   complete: function(data, textStatus, errorThrown) { 
                     
-                    console.log("DATA: "+data);
-                    self.set({'src':src});
+               
+                    var url = $(data.responseText).attr('URL');
+                    self.set({'src':url});
                     if(callback!=undefined)callback(url);  
                   }
               });
