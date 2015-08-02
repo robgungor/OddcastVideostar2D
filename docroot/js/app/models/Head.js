@@ -82,7 +82,7 @@ define(["jquery", "backbone"],
                   //headers: {'X-Requested-With': 'XMLHttpRequest'},
                   type: 'GET',
                   data: {sessId:sessionID},
-                  url: OC_CONFIG.baseURL + "/api/getUploaded_v3.php",             
+                  url: "//" + OC_CONFIG.baseURL + "/api/getUploaded_v3.php",             
                   //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: true,
