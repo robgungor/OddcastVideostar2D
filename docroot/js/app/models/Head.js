@@ -55,8 +55,8 @@ define(["jquery", "backbone"],
                     
                     var url = $(data.responseText).attr('URL');
                     //self.set({'videoURL':url});
-                    self.getUploadedURL(sessionID);
-                    if(callback!=undefined) callback(url);  
+                    self.getUploadedURL(sessionID, callback);
+                    
                   }
               });
 
