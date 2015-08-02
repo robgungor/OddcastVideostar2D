@@ -182,9 +182,9 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 
                 
                 var index = 1;
-
-                _.each(self.heads, function(head){
-                  _img = head.get('croppedImage');
+                                            
+                self.heads.each(function(head){
+                  _img = head.get('src');
                   imgString += "&img"+index+"="+_img;  
                   index++;
                 })
