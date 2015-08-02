@@ -41,7 +41,7 @@ define(["jquery", "backbone"],
                   type: 'POST',
                   data: {FileDataBase64:base64File},
                   url: "//" + OC_CONFIG.baseURL + "/api/upload_v3.php?extension=png&convertImage=true&sessId=" +sessionID, 
-                  url: "//"+OC_CONFIG.baseURL +"/api_misc/"+self.config.doorId+"/generate-video.php", 
+                  url: "//"+OC_CONFIG.baseURL +"/api_misc/"+OC_CONFIG.doorId+"/generate-video.php", 
                   //http://host-vd.oddcast.com/api_misc/1300/generate-video.php?doorId=1300&clientId=299&videoId=1                
                   //'//host.oddcast.com/'+self.config.baseURL+'/api_misc/1281/api.php',                 
                   async: true,
