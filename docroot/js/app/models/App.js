@@ -1,8 +1,8 @@
 // Model.js
 // --------
-define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "collections/Heads", "services/Facebook", "utils/OC_Utils", "utils/OC_MessageSaver"],
+define(["jquery", "backbone", "collections/Names",  "models/Settings", "collections/BadWords", "collections/Heads", "services/Facebook", "utils/OC_Utils", "utils/OC_MessageSaver", "utils/OC_Parser"],
 
-    function($, Backbone, Names, Settings, BadWords, Heads, FacebookService, OC_Utils, OC_MessageSaver) {
+    function($, Backbone, Names, Settings, BadWords, Heads, FacebookService, OC_Utils, OC_MessageSaver, OC_Parser) {
 
         // Creates a new Backbone Model class object
         var App = Backbone.Model.extend({
