@@ -323,6 +323,8 @@ button.back {
     #upload-another-container #buttons .button img {
       height: 100%; }
 
+#upload-another-container #upload-another #heads .head {
+  margin-bottom: 90px; }
 #upload-another-container #buttons {
   width: 100%; }
   #upload-another-container #buttons #clear-all {
