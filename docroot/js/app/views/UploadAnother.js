@@ -43,7 +43,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
             self.$el.hide();
             //self.model.createFinalSharedVideo();
             self.model.fetchVideoLink(function(){
-              console.log("GOT THAT VIDEO LANNK");
+              
               window.router.navigate('landing', true);  
               $('#main-loading-spinner').hide();
             });

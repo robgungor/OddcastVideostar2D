@@ -65,7 +65,11 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var head = self.heads.currentHead;
                 var _extradata=escape("isVideo=true");
                 
-                
+                // check if we have to actually generate the video
+                if( !_.isEmpty(self.get('videoURL')) && !self.hasChanged() ) {
+                  if(_.isFunction(cb)) cb(self.get('videoURL'));
+                }
+
                 var index = 1;
                 var dataObject = {
                   videoId: self.get('selectedVideo'),
@@ -98,7 +102,8 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                     
                     var url = $(data.responseText).attr('URL');
                     self.set({'videoURL':url});
-                    if(cb!=undefined)cb(url);  
+                    
+                    if(_.isFunction(cb)) cb(url);  
                   }
               });
             },
@@ -147,7 +152,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
               var self = this;
               var mId = self.get('mId');              
               
-              if( !OC_Utils.isUndefined(mId) && !self.hasChanged('videoURL') && !self.hasChanged('croppedImage') ) {
+              if( !OC_Utils.isUndefined(mId) && !self.hasChanged('videoURL') && !self.hasChanged('croppedImage') && !self.hasChanged() ) {
                 // if we have an mId, reuse it
                 if(callback) callback();//shareView.share.apply(shareView, [mId]);
               } else {
@@ -199,7 +204,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   var error_msg=unescape(OC_Parser.getXmlNodeAttribute(errorTmp, 'ERRORSTR'));
                   alert(error_msg);
                   
-                }else{
+                }else if(okTmp != null){
                   var sessionId=OC_Parser.getXmlNodeAttribute(okTmp, 'SESSIONID');
                              
                   setTimeout(function(){  self.createFinalSharedVideo_pulling(sessionId);}, 30*1000);
