@@ -100,7 +100,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   },
                   complete: function(data, textStatus, errorThrown) { 
                     
-                    var url = $(data.responseText).attr('URL');
+                    var url = $(data.responseText).attr('VURL');
                     self.set({'videoURL':url});
                     
                     if(_.isFunction(cb)) cb(url);  
