@@ -183,9 +183,6 @@ define(["jquery", "backbone", "models/App", "text!templates/positioning.html", "
           window.router.navigate('upload-another', true);  
         });
        
-       
-               
-                
         //setTimeout(function(){ self.createFinalSharedVideo(); }, 100);
       },
       

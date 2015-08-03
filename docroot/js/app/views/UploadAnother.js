@@ -41,12 +41,12 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
             var self = this;
             $('#main-loading-spinner').show();
             self.$el.hide();
-            self.model.createFinalSharedVideo();
-            // self.model.fetchVideoLink(function(){
-            //   console.log("GOT THAT VIDEO LANNK");
-            //   window.router.navigate('landing', true);  
-            //   $('#main-loading-spinner').hide();
-            // });
+            //self.model.createFinalSharedVideo();
+            self.model.fetchVideoLink(function(){
+              console.log("GOT THAT VIDEO LANNK");
+              window.router.navigate('landing', true);  
+              $('#main-loading-spinner').hide();
+            });
             
           },
 

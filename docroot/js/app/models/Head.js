@@ -26,7 +26,12 @@ define(["jquery", "backbone"],
             validate: function(attrs) {
 
             },
-
+            
+            resizeImage: function (base64File, w, h, callback) {
+                var self = this;
+                // w and h for now are max on server, so just upload for nowwwwww
+                self.uploadImage(base64File, callback);
+            },
             /*
             Uploads base64Encoded file and gets a temp location url
             */
@@ -44,17 +49,10 @@ define(["jquery", "backbone"],
                   async: true,
                   //dataType : 'xml',
                   dataType : 'text',
-                  beforeSend: function(xhr, opts){
-                    
-                  
-                  },
+                  beforeSend: function(xhr, opts){},
 
-                  complete: function(data, textStatus, errorThrown) { 
-                    
-                    var url = $(data.responseText).attr('URL');
-                    //self.set({'videoURL':url});
+                  complete: function(data, textStatus, errorThrown) {                    
                     self.getUploadedURL(sessionID, callback);
-                    
                   }
               });
 
@@ -76,13 +74,11 @@ define(["jquery", "backbone"],
                   dataType : 'xml',
                   
                   beforeSend: function(xhr, opts){
-                    
-                  
                   },
-                  complete: function(data, textStatus, errorThrown) { 
-                    
-               
+                  
+                  complete: function(data, textStatus, errorThrown) {                 
                     var url = $(data.responseText).attr('URL');
+
                     self.set({'src':url});
                     if(callback!=undefined)callback(url);  
                   }

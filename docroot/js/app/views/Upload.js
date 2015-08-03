@@ -108,7 +108,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
               var newImgH=image.height/_scale;
               var _base64Im=_dataUrl.substring(_dataUrl.indexOf(",")+1);
               var resizedPhotoUrl = OC_Uploader.upload_V3(_base64Im, newImgW, newImgH);
-              self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
+              var head = self.model.heads.currentHead;
+              head.resizeImage(_base64Im, newImgW, newImgH, function(){
+                 self.rotate_flip_image(resizedPhotoUrl, null, backendUploadMaxWH, orientation, function(_canvas){self.img_is_FlippedRotated(_canvas);});
+              });              
             }
           }
         }
