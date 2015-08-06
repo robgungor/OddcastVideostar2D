@@ -65,6 +65,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
         
           // Renders the view's template to the UI
           render: function() {
+              var self = this;
               var numHeads = 'zero';
               switch(self.model.heads.length){
                 case 1: 
@@ -85,7 +86,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
                 default: 
                   numHeads = 'one';                  
               };
-              
+
               // Setting the view's template using the template method
               this.template = _.template(template, {'numberOfHeads':numHeads});
 
