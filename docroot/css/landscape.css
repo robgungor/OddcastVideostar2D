@@ -236,10 +236,6 @@ button.back {
   height: 448px;
   margin-top: 15px;
   margin-left: -117px; }
-  @media screen and (min-device-width: 414px) {
-    #upload-facebook-container #fb-photo-selection #photo-wrap {
-      width: calc(100vw - 100px);
-      left: 53px; } }
   #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container {
     position: absolute; }
     #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
@@ -247,18 +243,12 @@ button.back {
       width: calc(100vw - 45px);
       width: 75vw;
       max-width: 234px; }
-      @media screen and (min-device-width: 414px) {
-        #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
-          width: calc(100vw - 79px); } }
       #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
         float: left;
         width: calc(42% - 12px);
         max-width: 93px;
         margin-right: 12px;
         margin-left: 12px; }
-        @media screen and (min-device-width: 414px) {
-          #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .col {
-            width: calc(33vw - 50px); } }
       #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page .photo {
         position: relative;
         float: left;

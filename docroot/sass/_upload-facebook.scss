@@ -41,12 +41,12 @@
       margin-top: 15px;
       margin-left: -117px;
       
-      @media screen 
-      and (min-device-width: $iphone6plus) 
-      {                 
-        width: calc(100vw - 100px);
-        left: 53px;
-      }
+      // @media screen 
+      // and (min-device-width: $iphone6plus) 
+      // {                 
+      //   width: calc(100vw - 100px);
+      //   left: 53px;
+      // }
       
       #photo-container {
         position: absolute;
@@ -57,11 +57,11 @@
           width: 75vw;
           max-width: 234px;
 
-          @media screen 
-          and (min-device-width: $iphone6plus) 
-          {                 
-            width: calc(100vw - 79px);
-          }
+          // @media screen 
+          // and (min-device-width: $iphone6plus) 
+          // {                 
+          //   width: calc(100vw - 79px);
+          // }
 
           .col {
             float: left;
@@ -71,11 +71,11 @@
             margin-left: 12px;
 
 
-            @media screen 
-            and (min-device-width: $iphone6plus) 
-            {                 
-              width: calc(33vw - 50px);
-            }
+            // @media screen 
+            // and (min-device-width: $iphone6plus) 
+            // {                 
+            //   width: calc(33vw - 50px);
+            // }
           }
 
           .photo {
