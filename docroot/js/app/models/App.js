@@ -121,10 +121,10 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var link = self.getMessageLink();
                 self.set({'pickUpLink':link});
 
-                var mail_href_msg = "mailto:?subject=you are a video star&";               
-                mail_href_msg += 'body=Hi '+self.get('toName')+'!%0D%0A%0D%0A'+self.get('fromName')+' made you a star!%0D%0A%0D%0A';
-                mail_href_msg += 'Click here to see your customized video YOU!%0D%0A%0D%0A';
-                mail_href_msg += self.get('pickUpLink');
+                var mail_href_msg = "mailto:?"+self.settings.get('EMAIL_SUBJECT')+"&";               
+                mail_href_msg     += 'body='+ self.settings.get('EMAIL_BODY');
+                //mail_href_msg += 'Click here to see your customized video YOU!%0D%0A%0D%0A';
+                mail_href_msg     += self.get('pickUpLink');
 
                 window.top.location = mail_href_msg;          
 
