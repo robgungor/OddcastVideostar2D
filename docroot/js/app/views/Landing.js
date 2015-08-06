@@ -85,7 +85,21 @@ define(["jquery",
               e.preventDefault();
               
               var self = this;
-              window.router.navigate('sharing', true);
+                          
+              if( !self.model.videoIsValid() ) {
+                self.model.fetchVideoLink(function(){
+                  self.model.getMID(function() {
+                    window.router.navigate('sharing', true);
+                  });
+                })
+              } else if( !self.model.MIDisValid() ){
+                self.model.getMID(function() {
+                  window.router.navigate('sharing', true);
+                });
+              }  else {
+                window.router.navigate('sharing', true);
+              }
+              
             },
 
             onChooseVideoClicked: function(e) {

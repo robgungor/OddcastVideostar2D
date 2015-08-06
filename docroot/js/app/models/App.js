@@ -57,7 +57,12 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 url += encodeURIComponent( self.settings.get('TWITTER_DEFAULT_TEXT') );
                 
                 return url;              
-            },            
+            },
+
+            videoIsValid: function(){
+              return this.has('videoURL') && !this.hasChanged('heads') && !this.hasChanged();
+            },
+
             fetchVideoLink: function(cb){
                 var self = this;
                 var _img= ''
@@ -66,7 +71,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var _extradata=escape("isVideo=true");
                 
                 // check if we have to actually generate the video
-                if( !_.isEmpty(self.get('videoURL')) && !self.hasChanged() ) {
+                if( self.videoIsValid() ) {
                   if(_.isFunction(cb)) cb(self.get('videoURL'));
                 }
 
@@ -107,6 +112,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                   }
               });
             },
+
             // this should maybe be in a utility but this thang ain't MVC at this point
             sendEmail: function(){
                 var self = this;
@@ -148,11 +154,16 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 } catch(e) {}
             },
 
+            MIDisValid: function() {            
+              return this.has('mId') && this.videoIsValid() && !this.hasChanged();
+              //self.has('mId') && !self.hasChanged('videoURL') && !self.hasChanged('croppedImage') && !self.hasChanged() )
+            },
+
             getMID: function(callback){
               var self = this;
               var mId = self.get('mId');              
               
-              if( !OC_Utils.isUndefined(mId) && !self.hasChanged('videoURL') && !self.hasChanged('croppedImage') && !self.hasChanged() ) {
+              if( self.MIDisValid() )  {
                 // if we have an mId, reuse it
                 if(callback) callback();//shareView.share.apply(shareView, [mId]);
               } else {
