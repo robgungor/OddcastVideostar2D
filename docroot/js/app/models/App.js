@@ -121,7 +121,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var link = self.getMessageLink();
                 self.set({'pickUpLink':link});
 
-                var mail_href_msg = "mailto:?"+self.settings.get('EMAIL_SUBJECT')+"&";               
+                var mail_href_msg = "mailto:?subject="+self.settings.get('EMAIL_SUBJECT')+"&";               
                 mail_href_msg     += 'body='+ self.settings.get('EMAIL_BODY');
                 //mail_href_msg += 'Click here to see your customized video YOU!%0D%0A%0D%0A';
                 mail_href_msg     += self.get('pickUpLink');
