@@ -33,7 +33,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
             var head;
             while (head = self.model.heads.first()) {
               head.destroy();
-            }
+            };
+            
           },
 
           onNextClicked: function(e) {
@@ -64,9 +65,29 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
         
           // Renders the view's template to the UI
           render: function() {
+              var numHeads = 'zero';
+              switch(self.model.heads.length){
+                case 1: 
+                  numHeads = 'one';
+                  break;
+                case 2: 
+                  numHeads = 'two';
+                  break;
+                case 3: 
+                  numHeads = 'three';
+                  break;
+                case 4: 
+                  numHeads = 'four';
+                  break;
+                case 5: 
+                  numHeads = 'five';
+                  break;
+                default: 
+                  numHeads = 'one';                  
+              };
               
               // Setting the view's template using the template method
-              this.template = _.template(template, {});
+              this.template = _.template(template, {'numberOfHeads':numHeads});
 
               // Dynamically updates the UI with the view's template
               this.$el.html(this.template).fadeIn();
@@ -79,6 +100,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
 
               var self = this;
               var $heads  = $('#heads');
+              
+
               self.model.heads.each(function(head,index) {  
                  
                   var h = new HeadView({model:head});//_.template(headTemplate, head.toJSON());                   

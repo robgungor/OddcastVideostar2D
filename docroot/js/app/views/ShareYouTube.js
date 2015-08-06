@@ -68,6 +68,42 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html",],
                 $('#sharing').fadeIn();
                 $('.share-in').fadeIn();
             },
+            postToYoutube: function(){ 
+                
+                precheck_saved_mid(postToYoutube_step2, postToYoutube_step1);
+                
+                function postToYoutube_step1(){
+                    blocked_url_link=null;
+                    blocked_url_action = postToYoutube_step2;
+                    updateBlockedUrlTitle("yt_share_title", null);
+                    openPopwin('popwin_blockedurl');
+                }
+                function postToYoutube_step2(){
+                    startYoutube(1);
+                }
+            },
+            setYoutubeSessionToken:function(_token){
+                //alert(_token);
+                postToYoutube_now(_token);
+            },
+            
+            postToYoutube_now: function(_ytToken){ 
+                var _data=new Object();
+                _data.mId=(shareType=="shareVideo")?(savedMidObj.videoMid):(savedMidObj.photoMid);
+                _data.yt_token=_ytToken;
+                _data.doorId = this._wsSettings.doorId;
+                _data.taskName="sendVideoToYoutube";
+                var tmp = OC_Utilities.getUrl(OC._api_base_url+"/api/saveSchedularTask.php",_data, null, postToYoutube_now_DONE);
+                //console.log(tmp);
+                
+                function postToYoutube_now_DONE(_responseText){
+                    //console.log("===> "+_responseText);
+                    if(_responseText=="ok"){
+                        openAlertWin(OC.getDynamicErrorMessage("mobile011", "Thank you for posting."));
+                        OC_ET.event("ce21");
+                    }
+                }
+            },
 
             postToTwitter : function () {
               window.open(this.model.getTwitterLink(), '_blank');

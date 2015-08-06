@@ -303,6 +303,16 @@ button.back {
       position: absolute;
       top: 0;
       right: 0; }
+  #upload-another-container #upload-another #heads.five {
+    min-height: 520px; }
+    #upload-another-container #upload-another #heads.five .head {
+      width: 93px;
+      height: 126px; }
+  #upload-another-container #upload-another #heads.four {
+    min-height: 520px; }
+    #upload-another-container #upload-another #heads.four .head {
+      width: 93px;
+      height: 126px; }
 #upload-another-container #buttons {
   position: absolute;
   bottom: 20px;

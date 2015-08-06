@@ -38,7 +38,23 @@
           top: 0;
           right: 0;          
         }
-      }      
+      } 
+
+      &.five {
+        min-height: 520px;
+        .head {
+          width: 93px;
+          height: 126px;
+        }
+      }
+
+      &.four {
+        min-height: 520px;
+        .head {
+          width: 93px;
+          height: 126px;
+        }
+      }     
     }
   }
   #buttons {

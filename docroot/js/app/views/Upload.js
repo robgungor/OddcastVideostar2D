@@ -63,7 +63,21 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         e.preventDefault();
         window.router.navigate('landing', true);
       },     
-      
+      // function initUploadImgEvents_frontend(){
+      //   var settings = $("#media-drop-"+uploadImgBtnId).html5Uploader({
+      //     onStartProcess: function () {
+      //     },
+      //     onProcessed: function (canvas) {
+      //       if (canvas) {
+      //         // Remove possible previously loaded image.
+      //         upload_image_to_touchCanvas(null, canvas.toDataURL(),false);
+      //       } else {
+      //         upload_image_to_touchCanvas(null, null,false);
+      //         openAlertWin(OC.getDynamicErrorMessage("mobile010", "upload image error."));
+      //       }
+      //     },
+      //   });
+      // }
       onFileInputChange: function (event) {
         
         // var imgUploadedFile = document.getElementById('fileUpload'+uploadImgBtnId); 
@@ -76,7 +90,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
         for (var i = 0; i < files.length; i++) {
           if (files[i].type.match(/image.*/)) {            
-            self.upload(files[i]);
+            setTimout(100, function(){
+              self.upload(files[i]);
+            });
           }
         }
         
