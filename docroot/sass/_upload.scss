@@ -16,6 +16,11 @@
         width: 90px;
         height: 90px;
 
+        @media screen and (min-width:900px) {
+          width: 120px;
+          height: 120px;
+        }
+        
         img {
           width: 100%;
         }

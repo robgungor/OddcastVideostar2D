@@ -156,6 +156,10 @@ button.back {
     height: 90px;
     display: inline-block;
     vertical-align: middle; }
+    @media screen and (min-width: 900px) {
+      #sharing-container #sharing #buttons div {
+        width: 120px;
+        height: 120px; } }
     #sharing-container #sharing #buttons div img {
       width: 100%; }
 
@@ -363,6 +367,10 @@ button.back {
     margin-bottom: 30px;
     width: 90px;
     height: 90px; }
+    @media screen and (min-width: 900px) {
+      #upload-container #upload #buttons div {
+        width: 120px;
+        height: 120px; } }
     #upload-container #upload #buttons div img {
       width: 100%; }
 #upload-container #upload #terms {

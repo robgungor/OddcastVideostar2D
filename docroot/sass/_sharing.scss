@@ -25,7 +25,10 @@
 			    height: 90px;  
 			    display: inline-block;
 			    vertical-align: middle;
-
+			    @media screen and (min-width:900px) {
+		          width: 120px;
+		          height: 120px;
+		        }
 			    img {
 			    	width: 100%;
 			    }
