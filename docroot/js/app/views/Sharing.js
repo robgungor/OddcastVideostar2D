@@ -89,7 +89,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
                var domain = document.domain;
                 var url = 'http://'+domain+'/youtube/startYoutube.php?dmn='+domain;
                 
-                if(newUsr == 1)
+                //if(newUsr == 1)
                     url = url + '&newUsr=1';
                 window.open(url);
 
