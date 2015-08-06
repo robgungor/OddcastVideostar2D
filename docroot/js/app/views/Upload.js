@@ -89,9 +89,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         var files = event.target.files;
 
         for (var i = 0; i < files.length; i++) {
-          if (files[i].type.match(/image.*/)) {            
-            setTimeout(function(){
-              self.upload(files[i]);
+          if (files[i].type.match(/image.*/)) {    
+            var fileToUpload = files[i];      
+            setTimeout(function(){              
+              self.upload(fileToUpload);
             }, 250);
           }
         }
