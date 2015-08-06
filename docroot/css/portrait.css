@@ -354,6 +354,20 @@ button.back {
     padding-bottom: 100%;
     top: 0px;
     left: 0px; }
+  #positioning-container #positioning .uploadPhoto_bg {
+    height: 400px;
+    padding-bottom: 0;
+    margin: auto; }
+  #positioning-container #positioning #mycontainer {
+    position: relative;
+    margin: auto; }
+  #positioning-container #positioning #mycontainer2 {
+    position: absolute;
+    height: 400px; }
+    @media screen and (min-width: 400px) {
+      #positioning-container #positioning #mycontainer2 {
+        left: 50%;
+        margin-left: -200px; } }
 
 body {
   background: url("../img/common/bg_portrait.jpg") no-repeat top left;

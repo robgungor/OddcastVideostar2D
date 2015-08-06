@@ -24,5 +24,27 @@
       top: 0px;
       left: 0px;
     }
+
+     .uploadPhoto_bg {
+        height: 400px;
+        padding-bottom: 0;
+        margin: auto;      
+    }
+
+    #mycontainer {
+      position: relative;
+      margin: auto;
+    }
+
+    #mycontainer2{
+      position: absolute;      
+      // padding-bottom: 0;
+      height: 400px;      
+
+      @media screen and (min-width: 400px) {
+        left: 50%;
+        margin-left: -200px;
+      }
+    }
   }
 }
