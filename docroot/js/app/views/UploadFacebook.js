@@ -166,7 +166,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 // self.postToFacebook(friendID);
                 
                 var selected = this.model.facebook.get('photos').find(function(model) { return model.get('pid') == id; });
-                var head = this.model.heads.currentHead;
+                //var head = this.model.heads.currentHead;
+                // make a new head
+                var head =  self.model.heads.currentHead || self.model.heads.addNew();
                 head.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
 
                 window.router.navigate('positioning', true);

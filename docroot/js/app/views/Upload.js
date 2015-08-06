@@ -15,8 +15,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         _.bindAll(self, 'onFileInputChange');
        
        // ONLY THE FIRST TIME
-        var head =  self.model.heads.currentHead || self.model.heads.addNew();
-        self.model.heads.currentHead = head;
+       // var head =  self.model.heads.currentHead || self.model.heads.addNew();
+       // self.model.heads.currentHead = head;
 
         self.render();        
       },
@@ -47,7 +47,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
       onFacebookClicked: function(e) {        
         e.preventDefault();
         var self = this;
-        
+        // make a new head
+        var head =  self.model.heads.currentHead || self.model.heads.addNew();
         self.close();
         $('#main-loading-spinner').show();
 
@@ -86,6 +87,10 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
         var self = this;
         self.$el.hide();
+
+        // make a new head
+        var head =  self.model.heads.currentHead || self.model.heads.addNew();
+
         var files = event.target.files;
 
         for (var i = 0; i < files.length; i++) {
