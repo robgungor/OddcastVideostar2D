@@ -13,11 +13,13 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
           initialize: function() {
               
               var self = this;
-           
-              self.render();
+              
+              self.listenTo(self.model.heads, "remove", self.render);
+              self.listenTo(self.model.heads, "update", self.render);
+              self.listenTo(self.model.heads, "reset", self.render);
 
-              this.listenTo(this.model.heads, "update", self.render);
-              this.listenTo(this.model.heads, "reset", self.render);
+              self.render();
+              
           },
             
           // View Event Handlers
@@ -44,7 +46,6 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-another.html"
             self.$el.hide();
             //self.model.createFinalSharedVideo();
             self.model.fetchVideoLink(function(){
-              
               window.router.navigate('landing', true);  
               $('#main-loading-spinner').hide();
             });

@@ -32,7 +32,6 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
             e.preventDefault();
             this.model.destroy();
             this.remove();
-
           },   
 
             
