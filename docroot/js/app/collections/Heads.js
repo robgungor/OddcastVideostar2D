@@ -34,6 +34,7 @@ define(["jquery","backbone","models/Head"],
         }
 
         this.add(head);
+        this.currentHead = head;
         return head;
       },
           
