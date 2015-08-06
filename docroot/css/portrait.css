@@ -96,6 +96,10 @@ button.back {
   top: 20px;
   background-image: url("../img/assets/back.png"); }
 
+@media screen and (min-width: 900px) {
+  button.next, button.back {
+    width: 120px;
+    height: 58px; } }
 #landing video {
   width: 100%; }
 #landing footer #star-in-this-video {
