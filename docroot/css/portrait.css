@@ -100,6 +100,41 @@ button.back {
   button.next, button.back {
     width: 120px;
     height: 58px; } }
+img.fadeIn {
+  /* CSS needed for animation
+  ---------------------------------------------------- */
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  -o-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+/* Key Frames
+---------------------------------------------------- */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 #landing video {
   width: 100%; }
 #landing footer #star-in-this-video {
@@ -262,7 +297,8 @@ button.back {
     height: 150px;
     margin-left: 10px;
     margin-right: 10px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    background: url("../img/upload/head-bg.png"); }
     #upload-another-container #upload-another #heads .head img {
       width: 100%; }
     #upload-another-container #upload-another #heads .head .close-x {

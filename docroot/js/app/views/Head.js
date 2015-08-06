@@ -40,6 +40,11 @@ define(["jquery", "backbone", "models/Head", "text!templates/head.html"],
               
               // Setting the view's template using the template method
               this.template = _.template(template, this.model.toJSON());
+              
+              // // preload images (in case we aren't visible yet)
+              // var img = new Image();
+              // // load the image
+              // img.src = this.model.get('src');
 
               // Dynamically updates the UI with the view's template
               this.$el.html(this.template);
