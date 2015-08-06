@@ -90,9 +90,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
 
         for (var i = 0; i < files.length; i++) {
           if (files[i].type.match(/image.*/)) {            
-            setTimout(100, function(){
+            setTimeout(function(){
               self.upload(files[i]);
-            });
+            }, 250);
           }
         }
         

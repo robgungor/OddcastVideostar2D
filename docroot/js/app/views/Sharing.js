@@ -26,7 +26,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             'click #facebook' : 'onFbShareClick',   
             'click #email'    : 'onEmailShareClick',   
             'click #twitter'    : 'onTwitterShareClick',   
-            //'click #youtube'    : 'onEmailShareClick',   
+            'click #youtube'    : 'onYTShareClick',   
           },            
 
           close: function() {
@@ -82,14 +82,33 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
             //self.shareFacebookInit();
             
           },
+          onYTShareClick: function(e) {
+            var self = this;
+            
+            if(this.MIDisValid()) {         
+              window.router.navigate('share-youtube', true);
+            } else {
+              self.model.getMID(function() {
+                console.log('MID got!');
+                window.router.navigate('share-youtube', true);
+              });
+            }
+            //self.shareFacebookInit();
+            
+          },
 
           onTwitterShareClick: function(e) {
             var self = this;        
             //self.shareTwitterInit();
-             if(this.MIDisValid()) {
+            if(this.MIDisValid()) {                       
               self.model.postToTwitter();
+            } else {
+              self.model.getMID(function() {
+                console.log('MID got!');
+                window.router.navigate('share-twitter', true);
+              });
             }
-            window.router.navigate('share-twitter', true);
+            
           },
 
           shareFacebookInit: function(){

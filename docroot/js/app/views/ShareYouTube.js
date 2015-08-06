@@ -93,7 +93,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html",],
                 _data.yt_token=_ytToken;
                 _data.doorId = this._wsSettings.doorId;
                 _data.taskName="sendVideoToYoutube";
-                var tmp = OC_Utilities.getUrl(OC._api_base_url+"/api/saveSchedularTask.php",_data, null, postToYoutube_now_DONE);
+                var tmp = OC_Utilities.getUrl(OC._api_base_url+"/api/saveSchedularTask.php",_data, true, postToYoutube_now_DONE);
                 //console.log(tmp);
                 
                 function postToYoutube_now_DONE(_responseText){
