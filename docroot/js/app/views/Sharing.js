@@ -85,8 +85,15 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
           onYTShareClick: function(e) {
             var self = this;
             
-            if(this.MIDisValid()) {         
-              window.router.navigate('share-youtube', true);
+            if(this.MIDisValid()) {       
+               var domain = document.domain;
+                var url = 'http://'+domain+'/youtube/startYoutube.php?dmn='+domain;
+                
+                if(newUsr == 1)
+                    url = url + '&newUsr=1';
+                window.open(url);
+                
+              //window.router.navigate('share-youtube', true);
             } else {
               self.model.getMID(function() {
                 console.log('MID got!');

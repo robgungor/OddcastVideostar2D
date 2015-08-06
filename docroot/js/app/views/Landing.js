@@ -85,15 +85,20 @@ define(["jquery",
               e.preventDefault();
               
               var self = this;
-                          
+              self.$el.hide();
+              
               if( !self.model.videoIsValid() ) {
+                $('#main-loading-spinner').fadeIn();
                 self.model.fetchVideoLink(function(){
                   self.model.getMID(function() {
+                    $('#main-loading-spinner').fadeOut();
                     window.router.navigate('sharing', true);
                   });
                 })
               } else if( !self.model.MIDisValid() ){
+                $('#main-loading-spinner').fadeIn();
                 self.model.getMID(function() {
+                  $('#main-loading-spinner').fadeOut();
                   window.router.navigate('sharing', true);
                 });
               }  else {

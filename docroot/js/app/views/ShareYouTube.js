@@ -86,7 +86,14 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html",],
                 //alert(_token);
                 postToYoutube_now(_token);
             },
-            
+            startYoutube: function(newUsr) {
+                var domain = document.domain;
+                var url = 'http://'+domain+'/youtube/startYoutube.php?dmn='+domain;
+                
+                if(newUsr == 1)
+                    url = url + '&newUsr=1';
+                window.open(url);
+            },
             postToYoutube_now: function(_ytToken){ 
                 var _data=new Object();
                 _data.mId=(shareType=="shareVideo")?(savedMidObj.videoMid):(savedMidObj.photoMid);
