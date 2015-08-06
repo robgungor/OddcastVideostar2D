@@ -85,7 +85,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
         $('#main-loading-spinner').show();
 
         var self = this;
-
+        self.$el.hide();
         var files = event.target.files;
 
         for (var i = 0; i < files.length; i++) {
@@ -93,7 +93,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload.html", "utils
             var fileToUpload = files[i];      
             setTimeout(function(){              
               self.upload(fileToUpload);
-            }, 250);
+            }, 350);
           }
         }
         
