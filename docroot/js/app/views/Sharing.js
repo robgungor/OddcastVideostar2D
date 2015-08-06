@@ -71,8 +71,8 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
           onFbShareClick: function(e) {
             var self = this;
             
-            if(this.MIDisValid()) {         
-              window.router.navigate('share-facebook', true);
+            if(this.MIDisValid()) {    
+              self.model.facebook.postToFacebook();                   
             } else {
               self.model.getMID(function() {
                 console.log('MID got!');
@@ -92,7 +92,7 @@ define(["jquery", "backbone", "models/App", "text!templates/sharing.html", 'view
                 if(newUsr == 1)
                     url = url + '&newUsr=1';
                 window.open(url);
-                
+
               //window.router.navigate('share-youtube', true);
             } else {
               self.model.getMID(function() {
