@@ -10,16 +10,14 @@ body {
 
 .spinner {
   border-radius: 50%;
-  /* Rounds out the halo */
   opacity: .7;
-  /* Some subtle opacity to help blend with variable background colors */
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -50px;
-  margin-top: -50px; }
+  margin-left: -30px;
+  margin-top: -30px; }
 
 .va {
   text-align: center;
