@@ -77,7 +77,7 @@ body {
         #loading .loading-bar #loading-bar-bg .left-hinge img, #loading .loading-bar #loading-bar-fill .left-hinge img {
           width: 100%; }
       #loading .loading-bar #loading-bar-bg .middle, #loading .loading-bar #loading-bar-fill .middle {
-        width: calc(100% - 28px);
+        width: calc(100% - 26px);
         overflow: hidden;
         position: absolute;
         height: 100%;
