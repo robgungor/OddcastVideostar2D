@@ -39,7 +39,7 @@
     #mycontainer2{
       position: absolute;      
       // padding-bottom: 0;
-      height: 400px;      
+      height: auto;      
 
       @media screen and (min-width: 400px) {
         left: 50%;

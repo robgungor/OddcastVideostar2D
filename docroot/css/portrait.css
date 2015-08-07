@@ -403,7 +403,7 @@ img.fadeIn {
     margin: auto; }
   #positioning-container #positioning #mycontainer2 {
     position: absolute;
-    height: 400px; }
+    height: auto; }
     @media screen and (min-width: 400px) {
       #positioning-container #positioning #mycontainer2 {
         left: 50%;
