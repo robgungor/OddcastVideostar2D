@@ -332,6 +332,10 @@ img.fadeIn {
     background-size: 100%; }
     #upload-another-container #upload-another #heads .head img {
       width: 100%; }
+    #upload-another-container #upload-another #heads .head img.main {
+      position: absolute;
+      left: 0;
+      top: 0; }
     #upload-another-container #upload-another #heads .head img.spinner {
       width: 40px;
       height: 40px;

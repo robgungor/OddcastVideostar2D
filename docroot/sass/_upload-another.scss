@@ -33,6 +33,12 @@
         img {
           width: 100%;
         }
+        
+        img.main {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
 
         img.spinner {
             width: 40px;
@@ -40,7 +46,7 @@
             margin-left: -20px;
             margin-top: -20px;
         }
-        
+
         .close-x {
           width: 30px;
           height: 30px;        
