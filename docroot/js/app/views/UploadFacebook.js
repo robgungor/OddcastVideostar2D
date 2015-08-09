@@ -138,7 +138,9 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
             },
             
             onResize: function(){
-                var perPage    = 8,
+                var isLandscape = window.innerWidth > window.innerHeight;
+
+                var perPage    = isLandscape ? 10 : 8,
                     total       = this.model.facebook.get('photos').length;
 
                 var totalPages = Math.ceil(total/perPage);

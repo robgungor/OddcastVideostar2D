@@ -313,6 +313,23 @@ img.fadeIn {
         background-size: cover;
         padding-bottom: 100%; }
 
+#upload-facebook-container #fb-photo-selection #photo-wrap {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 214px;
+  margin-top: 15px;
+  max-width: 574px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
+  #upload-facebook-container #fb-photo-selection #photo-wrap #photo-container .page {
+    float: left;
+    width: calc(100vw - 45px);
+    max-width: 585px; }
+
 #upload-another-container #upload-another #heads {
   text-align: center;
   margin: auto;
