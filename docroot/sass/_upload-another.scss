@@ -7,7 +7,9 @@
   // position: absolute;
   // top: 0;
   // left: 0;
-  
+  min-height: 500px;
+
+
   #upload-another {  
 
     #heads {
@@ -17,6 +19,7 @@
       width: 300px;
       margin-bottom: 20px;
 
+      
       .head {        
         display: inline-block;
         position: relative;        
@@ -29,7 +32,7 @@
         background: url('../img/upload/head-bg.png') no-repeat;
         background-size: 100%;
 
-        @media screen and (max-height: 559px) {
+        @media screen and (max-height: 560px) {
           width: 100px;
           height: 133px;
         }
@@ -60,6 +63,12 @@
         }
       } 
 
+      &.three {
+        @media screen and (max-height: 560px) {        
+          min-height: 410px;
+        }
+      }
+      
       &.five {
         min-height: 530px;
         margin-top: 30px;
