@@ -407,6 +407,9 @@ img.fadeIn {
   margin-bottom: 90px; }
 #upload-another-container #buttons {
   width: 100%; }
+  @media screen and (max-width: 675px) {
+    #upload-another-container #buttons .button {
+      height: 40px; } }
   #upload-another-container #buttons #clear-all {
     position: absolute;
     float: left;

@@ -23,6 +23,14 @@
   #buttons {
       width: 100%;
       
+      .button {
+        
+        @media screen and (max-width: 675px)
+        {
+          height: 40px;
+        }
+      }
+
       #clear-all {
         position: absolute;
         float: left;
