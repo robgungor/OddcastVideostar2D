@@ -29,6 +29,10 @@
         background: url('../img/upload/head-bg.png') no-repeat;
         background-size: 100%;
 
+        @media screen and (max-height: 559px) {
+          width: 100px;
+          height: 133px;
+        }
 
         img {
           width: 100%;
