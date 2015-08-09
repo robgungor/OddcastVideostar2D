@@ -357,7 +357,8 @@ img.fadeIn {
     margin: auto;
     margin-bottom: 30px;
     width: 90px;
-    height: 90px; }
+    height: 90px;
+    vertical-align: middle; }
     @media screen and (min-width: 900px) {
       #upload-container #upload #buttons div {
         width: 120px;
