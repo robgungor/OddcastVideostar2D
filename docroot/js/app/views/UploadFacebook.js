@@ -95,7 +95,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('#photo-container').empty();
                 
                 $('#photo-container').append($pageEl);
-                var isLandscape = window.innerHeight > window.innerWidth;
+                var isLandscape = window.innerWidth > window.innerHeight;
                 var numRows = isLandscape ? 2 : 4; 
                 //var maxCols = window.innerWidth / 
                 var numCols = isLandscape ? 5 : 2;
@@ -105,7 +105,6 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                     var f = _.template(friendTemplate, photo.toJSON());                   
                     index++;
                     
-
                     row  = index % numRows;
                     col  = Math.floor(index / numRows);
                     page = col % numCols;
