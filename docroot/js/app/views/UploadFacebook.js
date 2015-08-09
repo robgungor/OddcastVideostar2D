@@ -96,6 +96,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 
                 $('#photo-container').append($pageEl);
                 var isLandscape = window.innerWidth > window.innerHeight;
+                console.log('isLandscape: '+isLandscape);
                 var numRows = isLandscape ? 2 : 4; 
                 //var maxCols = window.innerWidth / 
                 var numCols = isLandscape ? 5 : 2;
