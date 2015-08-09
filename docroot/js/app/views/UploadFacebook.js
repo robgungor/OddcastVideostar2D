@@ -35,7 +35,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 'click .back'               :'onBackClick',                
                 'swipe'                     :'onSwipe',
                 'dragEnd'                   :'onSwipe',
-                'click #test'               : 'testPhotoUpload',
+                'click #test'               :'testPhotoUpload',
+                'orientationchange'         :'render'
             },            
 
             // Renders the view's template to the UI
@@ -94,14 +95,20 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 $('#photo-container').empty();
                 
                 $('#photo-container').append($pageEl);
-               
+                var isLandscape = window.innerHeight > window.innerWidth;
+                var numRows = isLandscape ? 2 : 4; 
+                //var maxCols = window.innerWidth / 
+                var numCols = isLandscape ? 5 : 2;
+
                 self.model.facebook.get('photos').each(function(photo) {  
                    
                     var f = _.template(friendTemplate, photo.toJSON());                   
                     index++;
-                    row  = index % 4;
-                    col  = Math.floor(index / 4);
-                    page = col % 2;
+                    
+
+                    row  = index % numRows;
+                    col  = Math.floor(index / numRows);
+                    page = col % numCols;
 
                     // preload images (in case we aren't visible yet)
                     var img = new Image();
