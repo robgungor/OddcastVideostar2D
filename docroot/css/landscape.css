@@ -350,7 +350,7 @@ img.fadeIn {
       vertical-align: middle;
       background: url("../img/upload/head-bg.png") no-repeat;
       background-size: 100%; }
-      @media screen and (max-height: 600px) {
+      @media screen and (max-height: 650px) {
         #upload-another-container #upload-another #heads .head {
           width: 100px;
           height: 133px; } }
@@ -371,7 +371,7 @@ img.fadeIn {
         position: absolute;
         top: 0;
         right: 0; }
-    @media screen and (max-height: 600px) {
+    @media screen and (max-height: 650px) {
       #upload-another-container #upload-another #heads.three {
         min-height: 410px; } }
     #upload-another-container #upload-another #heads.five {

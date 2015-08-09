@@ -32,7 +32,7 @@
         background: url('../img/upload/head-bg.png') no-repeat;
         background-size: 100%;
 
-        @media screen and (max-height: 600px) {
+        @media screen and (max-height: 650px) {
           width: 100px;
           height: 133px;
         }
@@ -64,7 +64,7 @@
       } 
 
       &.three {
-        @media screen and (max-height: 600px) {        
+        @media screen and (max-height: 650px) {        
           min-height: 410px;
         }
       }
