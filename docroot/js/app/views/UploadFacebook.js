@@ -21,7 +21,7 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 self.listenTo(self.model.facebook, 'change:photos', self.render);
 
                 //facebook api loading in... 
-                
+                $(window).on('orientationchange', this.render);
                 
                 this.render();      
             },
