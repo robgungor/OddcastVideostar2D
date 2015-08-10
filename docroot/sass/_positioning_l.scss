@@ -2,8 +2,15 @@
 
 #positioning-container 
 {// positioning.scss
+
   #positioning {
-     
+    
+    @media screen and (min-width:1024px) and (orientation:landscape) {
+      transform: scale3d(1.5,1.5,1) translateY(-31%);
+      -webkit-transform: scale3d(1.5,1.5,1) translateY(-31%);
+      -ms-transform: scale3d(1.5,1.5,1) translateY(-31%);    
+    }
+    
   	.uploadPhoto_bg {
         height: 400px;
         padding-bottom: 0;

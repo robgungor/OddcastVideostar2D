@@ -4,7 +4,13 @@
   overflow: hidden;
   
   #positioning {
-     
+      
+      @media screen and (min-width:768px) and (orientation:portrait) {
+        transform: scale3d(1.5,1.5,1) translateY(-31%);
+        -webkit-transform: scale3d(1.5,1.5,1) translateY(-31%);
+        -ms-transform: scale3d(1.5,1.5,1) translateY(-31%);    
+      }
+
   	.uploadPhoto_bg {
       width: 100%;
       max-width: 400px;
