@@ -8,27 +8,26 @@
 		height: 100%;
 		
 		video {
-			// max-height: calc(100% - 59px);
+			max-height: calc(100% - 59px);
 		}
 	}
 	
 	footer {
 		background-image: url(../img/landing/footer_bg_landscape.jpg);		
 		background-size: cover;
-		position: fixed;
+		position: absolute;
 		background-repeat: no-repeat;
 		bottom: 0;
 		width: 100%;
 		height: 59px;
 		overflow: hidden;
-		min-width: 500px;
-		
+
 		#star-in-this-video {
 			width: 222px;
 			padding: 6px;
 			margin: auto;
-			display: block;			
-
+			display: block;
+			
 			@media only screen and (max-width: 615px) {
 				margin-left: 190px;
 			}
