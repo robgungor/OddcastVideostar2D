@@ -21,14 +21,14 @@
 		width: 100%;
 		height: 59px;
 		overflow: hidden;
-
+		min-width: 500px;
+		
 		#star-in-this-video {
 			width: 222px;
 			padding: 6px;
 			margin: auto;
-			display: block;
-			min-width: 500px;
-			
+			display: block;			
+
 			@media only screen and (max-width: 615px) {
 				margin-left: 190px;
 			}
