@@ -91,6 +91,10 @@
       position: absolute;
       bottom: 20px;
       text-align: center;
+      
+      @media screen and (min-width:400px) {
+        width: 100%;        
+      }
 
       .button {
         height: 50px;

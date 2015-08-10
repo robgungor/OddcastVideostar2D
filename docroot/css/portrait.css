@@ -339,6 +339,9 @@ img.fadeIn {
   position: absolute;
   bottom: 20px;
   text-align: center; }
+  @media screen and (min-width: 400px) {
+    #upload-another-container #buttons {
+      width: 100%; } }
   #upload-another-container #buttons .button {
     height: 50px;
     display: inline-block;
