@@ -112,6 +112,20 @@
           height: 100%;
         }
       }  
+      @media screen and (min-width:400px) {
+        #clear-all {
+          position: absolute;
+          float: left;
+          bottom: 0;
+          left: 0;        
+        }
+        #watch-video {
+          position: absolute;
+          float: right;
+          bottom: 0;
+          right: 0;        
+        }
+      }
       
     } 
 }

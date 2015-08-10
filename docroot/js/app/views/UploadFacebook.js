@@ -180,6 +180,8 @@ define(["jquery", "backbone", "models/App", "text!templates/upload-facebook.html
                 var head =  self.model.heads.currentHead || self.model.heads.addNew();
                 head.set({'tempImageURL':selected.get('src_big'), 'uploadSource':'facebook'});
 
+                self.$el.hide();
+                
                 window.router.navigate('positioning', true);
             },
 
