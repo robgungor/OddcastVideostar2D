@@ -482,7 +482,7 @@ img.fadeIn {
       transform: scale3d(1.5, 1.5, 1) translateY(-31%);
       -webkit-transform: scale3d(1.5, 1.5, 1) translateY(-31%);
       -ms-transform: scale3d(1.5, 1.5, 1) translateY(-31%); } }
-  @media screen and (max-height: 400px), screen and (max-width: 400px) {
+  @media screen and (max-height: 450px), screen and (max-width: 450px) {
     #positioning-container #positioning {
       transform: scale3d(0.85, 0.85, 1) translateY(-50%);
       -webkit-transform: scale3d(0.85, 0.85, 1) translateY(-50%);

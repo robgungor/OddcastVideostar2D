@@ -11,7 +11,7 @@
       -ms-transform: scale3d(1.5,1.5,1) translateY(-31%);    
     }
 
-    @media screen and (max-height:400px), screen and (max-width:400px)  {
+    @media screen and (max-height:450px), screen and (max-width:450px)  {
       transform: scale3d(.85,.85,1) translateY(-50%);
       -webkit-transform: scale3d(.85,.85,1) translateY(-50%);
       -ms-transform: scale3d(.85,.85,1) translateY(-50%);    
