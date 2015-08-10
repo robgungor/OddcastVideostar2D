@@ -15,7 +15,7 @@
 	footer {
 		background-image: url(../img/landing/footer_bg_landscape.jpg);		
 		background-size: cover;
-		position: relative;
+		position: fixed;
 		background-repeat: no-repeat;
 		bottom: 0;
 		width: 100%;
@@ -23,11 +23,12 @@
 		overflow: hidden;
 
 		#star-in-this-video {
-			width: 222px;
-			padding: 6px;
-			margin: auto;
-			display: block;
-			
+			@media only screen and (min-width: 500px) {
+				width: 222px;
+				padding: 6px;
+				margin: auto;
+				display: block;
+			}
 			@media only screen and (max-width: 615px) {
 				margin-left: 190px;
 			}
