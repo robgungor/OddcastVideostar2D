@@ -23,12 +23,12 @@
 		overflow: hidden;
 
 		#star-in-this-video {
-			@media only screen and (min-width: 500px) {
-				width: 222px;
-				padding: 6px;
-				margin: auto;
-				display: block;
-			}
+			width: 222px;
+			padding: 6px;
+			margin: auto;
+			display: block;
+			min-width: 500px;
+			
 			@media only screen and (max-width: 615px) {
 				margin-left: 190px;
 			}
