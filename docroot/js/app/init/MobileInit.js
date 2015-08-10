@@ -27,6 +27,11 @@ require(["jquery", "backbone", "routers/MobileRouter", "jqueryui","jquerymobile"
     var maxH = window.innerHeight;
     // set max height to window height;
     $('body').css({'max-height':maxH});
+    window.scrollTo(0,1);
+    $('body').on('scroll', function () {
+      maxH = window.innerHeight;
+      $('body').css({'max-height':maxH});
+    });
 
     var loadJS =  function(file, callback) {
         
