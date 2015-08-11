@@ -8,14 +8,14 @@
 		height: 100%;
 		
 		video {
-			max-height: calc(100% - 59px);
+			//max-height: calc(100% - 59px);
 		}
 	}
 	
 	footer {
 		background-image: url(../img/landing/footer_bg_landscape.jpg);		
 		background-size: cover;
-		position: absolute;
+		position: fixed;
 		background-repeat: no-repeat;
 		bottom: 0;
 		width: 100%;
