@@ -24,15 +24,17 @@ require(["jquery", "backbone", "routers/MobileRouter", "jqueryui","jquerymobile"
     // Instantiates a new Mobile Router instance
     window.router = new MobileRouter();
 
-    var maxH = window.innerHeight;
-    // set max height to window height;
-    $('body').css({'max-height':maxH});
-    window.scrollTo(0,1);
-    $('body').on('scroll', function () {
-      maxH = window.innerHeight;
-      $('body').css({'max-height':maxH});
+    
+    $(window).scrollTo(0,1);
+
+    $('body').on('scroll', function (e) {
+     $('body').css({'max-height':$(window).height()});
     });
 
+    // set max height to window height;
+    $('body').css({'max-height':$(window).height()});
+    
+    
     var loadJS =  function(file, callback) {
         
       var script = document.createElement("script");
