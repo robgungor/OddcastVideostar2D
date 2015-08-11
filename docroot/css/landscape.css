@@ -156,8 +156,6 @@ img.fadeIn {
   max-height: 100%; }
   #landing #video-container {
     height: 100%; }
-    #landing #video-container video {
-      max-height: calc(100% - 59px); }
   #landing footer {
     background-image: url(../img/landing/footer_bg_landscape.jpg);
     background-size: cover;
