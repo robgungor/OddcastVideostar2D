@@ -71,9 +71,11 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                 var _extradata=escape("isVideo=true");
                 
                 // check if we have to actually generate the video
-                if( self.videoIsValid() ) {
-                  if(_.isFunction(cb)) cb(self.get('videoURL'));
-                }
+                
+                // something is breaking this...
+                // if( self.videoIsValid() ) {
+                //   if(_.isFunction(cb)) cb(self.get('videoURL'));
+                // }
 
                 var index = 1;
                 var dataObject = {
