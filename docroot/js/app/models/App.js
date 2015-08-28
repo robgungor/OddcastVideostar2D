@@ -107,7 +107,7 @@ define(["jquery", "backbone", "collections/Names",  "models/Settings", "collecti
                     
                     var url = $(data.responseText).attr('VURL');
                     self.set({'videoURL':url});
-                    
+                    console.log('got video url: '+url);
                     if(_.isFunction(cb)) cb(url);  
                   }
               });
