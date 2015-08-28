@@ -39,9 +39,18 @@ define(["jquery", "backbone", "models/App", "text!templates/choose-video.html", 
             this.model.set({'selectedVideo':s});            
             //TODO - check if there has been an uploaded head and generate new video 
             // else {
-            this.model.set({'videoURL':'videos/'+s+'.mp4'});
+            // this.model.set({'videoURL':'videos/'+s+'.mp4'});
             //}
-            window.router.navigate('landing', true);
+            // window.router.navigate('landing', true);
+
+
+            $('#main-loading-spinner').show();
+            self.$el.hide();
+            //self.model.createFinalSharedVideo();
+            self.model.fetchVideoLink(function(){
+              window.router.navigate('landing', true);  
+              $('#main-loading-spinner').hide();
+            });
           },     
           // Renders the view's template to the UI
           render: function() {
