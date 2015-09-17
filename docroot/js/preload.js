@@ -151,51 +151,51 @@
             },
             loadImages: function(callback){
                 var self = this,
-                    imagesToLoad = ['img/common/main-bg.jpg',
+                    imagesToLoad = ['img/main-bg.jpg',
                                     // 'img/video_preview/1.jpg',                                    
                                     // 'img/video_preview/2.jpg',
                                     // 'img/video_preview/3.jpg',
                                     // 'img/video_preview/4.jpg',
                                     // 'img/video_preview/5.jpg',
-                                    // 'img/landing/input-bg.jpg',
-                                    // 'img/landing/video-spinner-bg.jpg'
+                                    // 'img/input-bg.jpg',
+                                    // 'img/video-spinner-bg.jpg'
                                     ],
                     imagesTotal;
                                             
                     //if (window.devicePixelRatio == 2) {
                       //retina images
                       imagesToLoad.push.apply(imagesToLoad, 
-                        [ 'img/landing/star_in_this_video.png',
-                          'img/assets/arrow_left.png',
-                          'img/assets/back.png',
-                          'img/assets/button_confirm.png',
-                          'img/assets/close_x.png',
-                          'img/assets/next.png',
-                          'img/landing/choose_video.png',
-                          'img/landing/share_video.png',                      
-                          'img/share/email.png',
-                          'img/share/facebook.png',
-                          'img/share/twitter.png',
-                          'img/share/youtube.png',
-                          'img/assets/ok.png',
-                          'img/video_thumbnails/1.png',
-                          'img/video_thumbnails/2.png', 
-                          'img/video_thumbnails/3.png',
-                          'img/video_thumbnails/4.png', 
-                          'img/video_thumbnails/5.png', 
-                          'img/upload/camera.png',
-                          'img/upload/facebook.png'
+                        [ 'img/star_in_this_video.png',
+                          'img/arrow_left.png',
+                          'img/back.png',
+                          'img/button_confirm.png',
+                          'img/close_x.png',
+                          'img/next.png',
+                          'img/choose_video.png',
+                          'img/share_video.png',                      
+                          'img/email.png',
+                          'img/facebook.png',
+                          'img/twitter.png',
+                          'img/youtube.png',
+                          'img/ok.png',
+                          'img/1.png',
+                          'img/2.png', 
+                          'img/3.png',
+                          'img/4.png', 
+                          'img/5.png', 
+                          'img/camera.png',
+                          'img/facebook.png'
                         ]);
                       
                       
                     // } else{
                     //   imagesToLoad.push.apply(imagesToLoad, 
-                    //     [ 'img/landing/share-a-snug-logo.png',
-                    //       'img/landing/customize-and-share.png',
-                    //       'img/landing/bubble-button-bg.png',
-                    //       'img/landing/bubble-button-long-bg.png',
-                    //       'img/landing/button-fb.png',
-                    //       'img/landing/button-twitter.png'                          
+                    //     [ 'img/share-a-snug-logo.png',
+                    //       'img/customize-and-share.png',
+                    //       'img/bubble-button-bg.png',
+                    //       'img/bubble-button-long-bg.png',
+                    //       'img/button-fb.png',
+                    //       'img/button-twitter.png'                          
                     //     ]);
                     // }       
 

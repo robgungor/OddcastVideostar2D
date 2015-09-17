@@ -7,7 +7,7 @@ require(["jquery", "backbone", "routers/MobileRouter", "jqueryui","jquerymobile"
   	
   // for main bg        
     //$('#main-bg-container').css({'opacity':'1'});
-    var bg = $(window).width() > 767 ? 'img/common/main-bg-ipad.jpg' : 'img/common/main-bg.jpg';
+    var bg = $(window).width() > 767 ? 'img/main-bg-ipad.jpg' : 'img/main-bg.jpg';
 
     //$('body').css({background:'url('+bg+') no-repeat', 'background-size':'cover', 'background-attachment':'fixed'});   
 

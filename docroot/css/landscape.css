@@ -26,12 +26,12 @@ body {
   max-height: 100%;
   width: 100vw; }
   body.loaded {
-    background: url(../img/common/main-bg.jpg) no-repeat;
+    background: url(../img/main-bg.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed; }
     @media only screen and (min-device-width: 728px) and (max-device-width: 1024px) and (orientation: portrait) {
       body.loaded {
-        background: url(../img/common/ipad-main-bg.jpg) no-repeat; } }
+        background: url(../img/ipad-main-bg.jpg) no-repeat; } }
 
 section {
   width: 100vw;
@@ -90,12 +90,12 @@ button.next, button.back {
 button.next {
   bottom: 10px;
   right: 10px;
-  background-image: url("../img/assets/next.png");
+  background-image: url("../img/next.png");
   z-index: 100; }
 
 button.back {
   top: 20px;
-  background-image: url("../img/assets/back.png");
+  background-image: url("../img/back.png");
   z-index: 100; }
 
 @media screen and (min-width: 768px) {
@@ -157,7 +157,7 @@ img.fadeIn {
   #landing #video-container {
     height: 100%; }
   #landing footer {
-    background-image: url(../img/landing/footer_bg_landscape.jpg);
+    background-image: url(../img/footer_bg_landscape.jpg);
     background-size: cover;
     position: absolute;
     background-repeat: no-repeat;
@@ -212,7 +212,7 @@ img.fadeIn {
   background-color: transparent;
   background-size: 100%;
   border: 0;
-  background-image: url("../img/assets/ok.png");
+  background-image: url("../img/ok.png");
   margin: auto;
   margin-top: 50px; }
 
@@ -235,7 +235,7 @@ img.fadeIn {
   width: 60px;
   height: 30px;
   background-color: transparent;
-  background-image: url("../img/assets/next.png");
+  background-image: url("../img/next.png");
   background-size: 100%;
   border: 0; }
 #choose-video-container #choose-video #buttons div {
@@ -255,11 +255,11 @@ img.fadeIn {
   margin-top: -15px;
   outline: none; }
   #upload-facebook-container #fb-photo-selection nav button#move-right {
-    background: url("../img/assets/arrow_right.png") no-repeat;
+    background: url("../img/arrow_right.png") no-repeat;
     background-size: 100%;
     right: 3px; }
   #upload-facebook-container #fb-photo-selection nav button#move-left {
-    background: url("../img/assets/arrow_left.png") no-repeat;
+    background: url("../img/arrow_left.png") no-repeat;
     background-size: 100%;
     left: 3px; }
 #upload-facebook-container #fb-photo-selection #photo-wrap {
@@ -346,7 +346,7 @@ img.fadeIn {
     margin-left: 10px;
     margin-right: 10px;
     vertical-align: middle;
-    background: url("../img/upload/head-bg.png") no-repeat;
+    background: url("../img/head-bg.png") no-repeat;
     background-size: 100%; }
     @media screen and (max-height: 650px) {
       #upload-another-container #upload-another #heads .head {
@@ -456,7 +456,7 @@ img.fadeIn {
   font-size: 20px;
   font-weight: 100; }
 #upload-container #upload #camera-button-wrap {
-  background: url(../img/upload/camera.png);
+  background: url(../img/camera.png);
   background-size: 100%;
   width: 120px;
   height: 120px;
@@ -537,7 +537,7 @@ img.fadeIn {
       margin-left: -200px; } }
 
 body {
-  background: url("../img/common/bg_portrait.jpg") no-repeat top left;
+  background: url("../img/bg_portrait.jpg") no-repeat top left;
   background-size: cover;
   background-color: #000000;
   color: #FFFFFF; }

@@ -54,7 +54,7 @@ body {
     // min-height:100vh;
 
     &.loaded{
-        background: url(../img/common/main-bg.jpg) no-repeat;
+        background: url(../img/main-bg.jpg) no-repeat;
         background-size: cover;
         background-attachment: fixed;  
 
@@ -64,7 +64,7 @@ body {
         and (max-device-width : 1024px) 
         and (orientation : portrait)
         {    
-            background: url(../img/common/ipad-main-bg.jpg) no-repeat;
+            background: url(../img/ipad-main-bg.jpg) no-repeat;
         }
     }
 }
@@ -126,13 +126,13 @@ button.next, button.back {
 button.next { 
   bottom: 10px;  
   right: 10px;
-  background-image: url("../img/assets/next.png");
+  background-image: url("../img/next.png");
   z-index: 100;
 }
 
 button.back { 
   top: 20px;  
-  background-image: url("../img/assets/back.png");
+  background-image: url("../img/back.png");
   z-index: 100;
 }
 
