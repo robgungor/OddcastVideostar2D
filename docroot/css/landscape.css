@@ -490,7 +490,7 @@ img.fadeIn {
     width: 100%;
     max-width: 400px;
     padding-bottom: 100%;
-    background-image: url("../img/positioning/face_background.png");
+    background-image: url("../img/face_background.png");
     background-position: 0 0;
     background-repeat: no-repeat;
     left: 0px;
